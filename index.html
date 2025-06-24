@@ -233,6 +233,21 @@
       background: rgba(250,163,7,0.1);
       outline: none;
     }
+    .accent-picker {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border: none;
+      background: none;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .accent-picker::-webkit-color-swatch,
+    .accent-picker::-moz-color-swatch {
+      border: none;
+      border-radius: 50%;
+    }
 
     /* Hamburger menu mobile */
     .hamburger {
@@ -713,6 +728,7 @@
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Basculer mode clair/sombre">
           <i class="fas fa-moon"></i>
         </button>
+        <input type="color" id="accentColorPicker" class="accent-picker" aria-label="Couleur d'accent" title="Choisir la couleur d'accent" />
         <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -740,6 +756,7 @@
         <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Basculer mode clair/sombre">
           <i class="fas fa-moon"></i>
         </button>
+        <input type="color" id="accentColorPickerMobile" class="accent-picker" aria-label="Couleur d'accent" title="Choisir la couleur d'accent" />
       </div>
     </div>
   </header>
@@ -1023,6 +1040,8 @@
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
       const progressBar = document.getElementById('progress-bar');
+      const accentPicker = document.getElementById('accentColorPicker');
+      const accentPickerMobile = document.getElementById('accentColorPickerMobile');
 
       // Fonction resetReveal : déconnecte observer et enlève classes
       function resetReveal() {
@@ -1150,6 +1169,38 @@
       } else {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(prefersDark ? 'dark' : 'light');
+      }
+
+      // Accent color
+      function darkenColor(hex, amt = 0.15) {
+        const num = parseInt(hex.slice(1), 16);
+        let r = (num >> 16) & 255;
+        let g = (num >> 8) & 255;
+        let b = num & 255;
+        r = Math.max(0, Math.min(255, Math.floor(r * (1 - amt))));
+        g = Math.max(0, Math.min(255, Math.floor(g * (1 - amt))));
+        b = Math.max(0, Math.min(255, Math.floor(b * (1 - amt))));
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+      }
+      function applyAccent(color) {
+        document.documentElement.style.setProperty('--color-accent', color);
+        document.documentElement.style.setProperty('--color-accent-darker', darkenColor(color));
+        accentPicker.value = color;
+        accentPickerMobile.value = color;
+      }
+      function onAccentChange(e) {
+        const color = e.target.value;
+        applyAccent(color);
+        localStorage.setItem('accent-color', color);
+      }
+      accentPicker.addEventListener('input', onAccentChange);
+      accentPickerMobile.addEventListener('input', onAccentChange);
+      const savedAccent = localStorage.getItem('accent-color');
+      if (savedAccent) {
+        applyAccent(savedAccent);
+      } else {
+        const initialAccent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent').trim();
+        applyAccent(initialAccent || '#ff6b6b');
       }
 
       // Hamburger menu mobile
