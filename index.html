@@ -39,18 +39,18 @@
   <style>
     /* === Variables Thème Clair & Sombre === */
     :root {
-      /* Couleurs clair */
-      --color-bg: #f7f9fc;
+      /* Couleurs clair mises à jour pour un style plus coloré */
+      --color-bg: #f0f8ff;
       --color-card-bg: #ffffff;
-      --color-text: #2c3e50;
-      --color-text-light: #5a6a7a;
-      --color-main: #0d3b66;
-      --color-accent: #faa307;
-      --color-accent-darker: #e69204;
-      --color-header-bg: rgba(255,255,255,0.85);
-      --color-footer-bg: #0a2e50;
-      --color-footer-text: #dde4eb;
-      --color-border-light: #e9eef2;
+      --color-text: #213547;
+      --color-text-light: #577590;
+      --color-main: #006d77;
+      --color-accent: #ff6b6b;
+      --color-accent-darker: #e84a5f;
+      --color-header-bg: rgba(255,255,255,0.9);
+      --color-footer-bg: #006d77;
+      --color-footer-text: #ffffff;
+      --color-border-light: #dce2e8;
       --shadow: 0 8px 24px rgba(0,0,0,0.05);
       --shadow-strong: 0 12px 32px rgba(0,0,0,0.1);
       --radius: 12px;
@@ -62,16 +62,16 @@
       --progress-bg: var(--color-accent);
     }
     [data-theme="dark"] {
-      /* Couleurs sombre */
+      /* Couleurs sombre harmonisées avec la nouvelle palette */
       --color-bg: #121517;
       --color-card-bg: #23283b;
       --color-text: #dde4eb;
       --color-text-light: #b0b8c1;
-      --color-main: #58a6ff;
-      --color-accent: #faa307;
-      --color-accent-darker: #e69204;
+      --color-main: #56cfe1;
+      --color-accent: #ff6b6b;
+      --color-accent-darker: #e84a5f;
       --color-header-bg: rgba(18,21,23,0.85);
-      --color-footer-bg: #0a2e50;
+      --color-footer-bg: #074f57;
       --color-footer-text: #dde4eb;
       --color-border-light: #2e333b;
       --shadow: 0 8px 24px rgba(0,0,0,0.4);
@@ -175,7 +175,7 @@
     .nav-links a:hover,
     .nav-links a:focus {
       color: var(--color-accent);
-      background-color: rgba(250, 163, 7, 0.1);
+      background-color: rgba(255, 107, 107, 0.15);
       outline: none;
     }
     .nav-links a.active {
@@ -205,7 +205,7 @@
       padding: 7px 25px 7px 10px;
       border-radius: 8px;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230d3b66' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23006d77' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 8px center;
       background-size: 12px 12px;
@@ -291,7 +291,7 @@
       align-items: center;
       text-align: center;
       min-height: 60vh;
-      background: linear-gradient(rgba(13,59,102,0.7), rgba(13,59,102,0.8)),
+      background: linear-gradient(rgba(0,109,119,0.7), rgba(0,109,119,0.8)),
         url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: #fff;
     }
