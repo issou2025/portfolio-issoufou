@@ -13,16 +13,16 @@
   <meta property="og:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
   <meta property="og:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
   <meta property="og:type" content="website">
-  <!-- Remplace les URLs suivantes par celles de ton hébergement réel -->
-  <meta property="og:url" content="https://ton-site-exemple.com/">
-  <meta property="og:image" content="https://ton-site-exemple.com/ton-image-partage.jpg">
+  <!-- Remplacez ces URLs par celles de votre hébergement réel -->
+  <meta property="og:url" content="https://votre-site.com/">
+  <meta property="og:image" content="https://votre-site.com/partage-image.jpg">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
   <meta name="twitter:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
-  <meta name="twitter:image" content="https://ton-site-exemple.com/ton-image-partage.jpg">
-  <!-- Favicon (à remplacer par le tien) -->
-  <link rel="icon" href="https://ton-site-exemple.com/favicon.ico" type="image/x-icon">
+  <meta name="twitter:image" content="https://votre-site.com/partage-image.jpg">
+  <!-- Favicon (à remplacer) -->
+  <link rel="icon" href="https://votre-site.com/favicon.ico" type="image/x-icon">
 
   <!-- Preconnect pour performances Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,6 @@
       --header-height: 60px;
       --scroll-btn-bg: var(--color-accent);
       --scroll-btn-hover-bg: var(--color-accent-darker);
-
       /* Progress bar */
       --progress-bg: var(--color-accent);
     }
@@ -283,12 +282,9 @@
       padding: 4rem 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
-      /* pour reveal */
     }
     /* Home (hero) */
     #home {
-      /* hauteur pour compenser header sticky si besoin */
-      /* Pas d’image de hero, juste text */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -456,6 +452,13 @@
       text-align: left;
       padding: 2rem 1.5rem;
       border-radius: var(--radius);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .testimonial-card.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
     }
     [dir="rtl"] .testimonial-card { text-align: right; }
     .testimonial-card p {
@@ -674,7 +677,7 @@
       }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      /* Sections s'affichent naturellement, on n'a plus besoin de page-wrapper logique */
+      /* Sections s'affichent naturellement */
     }
   </style>
 </head>
@@ -842,7 +845,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Issoufou Abdou Chefou",
-    "url": "https://ton-site-exemple.com/",
+    "url": "https://votre-site.com/",
     "sameAs": [
       "https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/"
     ],
@@ -855,7 +858,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Portfolio – Issoufou Abdou Chefou",
-    "url": "https://ton-site-exemple.com/",
+    "url": "https://votre-site.com/",
     "description": "Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit.",
     "author": {
       "@type": "Person",
@@ -997,7 +1000,10 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Éléments DOM
+      // Déclaration en amont pour éviter ReferenceError
+      let observerReveal;
+
+      // Récupération des éléments DOM
       const navLinksDesktop = document.querySelectorAll('.site-header .nav-links a.nav-item');
       const navLinksMobile = document.querySelectorAll('.mobile-nav .nav-links a.nav-item');
       const allNavLinks = [...navLinksDesktop, ...navLinksMobile];
@@ -1018,27 +1024,59 @@
       const mobileNav = document.getElementById('mobileNav');
       const progressBar = document.getElementById('progress-bar');
 
-      // Ajuste initial de langue
-      const initialLang = langSelect.value;
+      // Fonction resetReveal : déconnecte observer et enlève classes
+      function resetReveal() {
+        if (observerReveal) {
+          observerReveal.disconnect();
+        }
+        document.querySelectorAll('.reveal-active').forEach(el => {
+          el.classList.remove('reveal-active');
+        });
+      }
+
+      // Fonction observeReveal : initialise observerReveal puis observe
+      function observeReveal() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        observerReveal = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        // Observer les éléments : section home, titres, paragraphes, cartes, contact-box
+        document.querySelectorAll('#home, section h2, section p, .card, .contact-box').forEach(el => {
+          if (!el.classList.contains('reveal-active')) {
+            observerReveal.observe(el);
+          }
+        });
+      }
+
+      // Fonction updateContent : met à jour textes et reconstruit listes dynamiques
       function updateContent(lang) {
         document.documentElement.lang = lang;
         document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
         const dict = translations[lang];
-        // textes statiques
+        // Textes statiques
         document.querySelectorAll('[data-i18n]').forEach(el => {
           const key = el.getAttribute('data-i18n');
           if (dict[key] && typeof dict[key] === 'string') {
             el.innerHTML = dict[key];
           }
         });
-        // placeholders
+        // Placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
           const key = el.getAttribute('data-i18n-placeholder');
           if (dict[key] && typeof dict[key] === 'string') {
             el.setAttribute('placeholder', dict[key]);
           }
         });
-        // dynamiques : services, projects, testimonials
         // Services
         const svcContainer = document.getElementById('services-list');
         if (svcContainer) {
@@ -1072,14 +1110,16 @@
             tstContainer.appendChild(div);
           });
         }
-        // Reset reveal pour ré-observer
+        // Reset & ré-observe pour reveal-on-scroll
         resetReveal();
         observeReveal();
       }
-      // Initialisation du contenu
+
+      // Initialisation du contenu selon langue par défaut
+      const initialLang = langSelect.value;
       updateContent(initialLang);
 
-      // Synchronisation des sélecteurs de langue
+      // Synchronisation sélecteurs de langue
       function onLanguageChange(e) {
         const val = e.target.value;
         langSelect.value = val;
@@ -1089,7 +1129,7 @@
       langSelect.addEventListener('change', onLanguageChange);
       langSelectMobile.addEventListener('change', onLanguageChange);
 
-      // Toggle thème
+      // Toggle thème dark/light
       function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         const icon = (theme === 'dark') ? 'fas fa-sun' : 'fas fa-moon';
@@ -1133,7 +1173,7 @@
         });
       });
 
-      // Scroll Spy : mise à jour actif nav selon section visible
+      // Scroll Spy
       const sectionIds = ['home','about','services','portfolio','testimonials','contact'];
       function updateScrollSpy() {
         let found = false;
@@ -1142,7 +1182,6 @@
           if (sec) {
             const rect = sec.getBoundingClientRect();
             const vh = window.innerHeight || document.documentElement.clientHeight;
-            // Critère : le haut de la section est dans le tiers central de l'écran
             if (rect.top <= vh*0.5 && rect.bottom >= vh*0.3) {
               allNavLinks.forEach(link => {
                 if (link.getAttribute('data-target') === id) link.classList.add('active');
@@ -1154,7 +1193,6 @@
           }
         }
         if (!found) {
-          // Si très en haut, active home
           if (window.scrollY < window.innerHeight*0.3) {
             allNavLinks.forEach(link => {
               if (link.getAttribute('data-target') === 'home') link.classList.add('active');
@@ -1172,7 +1210,7 @@
         progressBar.style.width = percent + '%';
       }
 
-      // Scroll événement
+      // Scroll events
       window.addEventListener('scroll', () => {
         scrollBtn.classList.toggle('visible', window.scrollY > 300);
         updateScrollSpy();
@@ -1184,36 +1222,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // Reveal on scroll
-      let observerReveal;
-      function observeReveal() {
-        const options = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        };
-        observerReveal = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal-active');
-              obs.unobserve(entry.target);
-            }
-          });
-        }, options);
-        // Observer les éléments avec la classe .reveal ou sections home
-        document.querySelectorAll('#home, section h2, section p, .card, .contact-box').forEach(el => {
-          if (!el.classList.contains('reveal-active')) {
-            observerReveal.observe(el);
-          }
-        });
-      }
-      function resetReveal() {
-        document.querySelectorAll('.reveal-active').forEach(el => {
-          el.classList.remove('reveal-active');
-        });
-        if (observerReveal) observerReveal.disconnect();
-      }
-      // On observe après un court délai ou au load
+      // Observe reveal-on-scroll initial
       observeReveal();
 
       // Formulaire de contact
@@ -1240,7 +1249,7 @@
         formData.append('name', name);
         formData.append('email', email);
         formData.append('message', message);
-        // Remplace par ton endpoint Formspree réel
+        // Remplacez par votre endpoint Formspree réel
         const endpoint = 'https://formspree.io/f/ton-endpoint';
         fetch(endpoint, {
           method: 'POST',
@@ -1284,12 +1293,10 @@
         });
       });
 
-      // Au chargement initial, on scroll vers top
+      // Au chargement initial, scroll top
       window.scrollTo(0,0);
       updateScrollSpy();
       updateProgressBar();
-      // Observe reveal initial
-      observeReveal();
 
       // Ajuster au resize : fermer menu mobile si besoin
       window.addEventListener('resize', () => {
