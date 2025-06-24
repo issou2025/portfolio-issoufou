@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio – Issoufou Abdou Chefou | Ingénieur Structure</title>
+
+  <!-- SEO Métadonnées -->
+  <meta name="description" content="Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit. Découvrez mes services, réalisations et contactez-moi pour vos projets de construction.">
+  <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, Robot Structural Analysis, Autodesk Revit, plans béton, modélisation BIM, renforcement béton, calcul structure">
+  <meta name="author" content="Issoufou Abdou Chefou">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
+  <meta property="og:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
+  <meta property="og:type" content="website">
+  <!-- Remplace les URLs suivantes par celles de ton hébergement réel -->
+  <meta property="og:url" content="https://ton-site-exemple.com/">
+  <meta property="og:image" content="https://ton-site-exemple.com/ton-image-partage.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
+  <meta name="twitter:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
+  <meta name="twitter:image" content="https://ton-site-exemple.com/ton-image-partage.jpg">
+  <!-- Favicon (à remplacer par le tien) -->
+  <link rel="icon" href="https://ton-site-exemple.com/favicon.ico" type="image/x-icon">
+
+  <!-- Preconnect pour performances Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pT+6f+XGfbS8zXz7Lj2Fq5pP/O1Vlax7/3p0JLzFeUz3Hx0wMpm6qz+YzOx/3hi2v9bX6KX/pOxG+RlYlRyPZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* === Variables Thème Clair & Sombre === */
+    :root {
+      /* Couleurs clair */
+      --color-bg: #f7f9fc;
+      --color-card-bg: #ffffff;
+      --color-text: #2c3e50;
+      --color-text-light: #5a6a7a;
+      --color-main: #0d3b66;
+      --color-accent: #faa307;
+      --color-accent-darker: #e69204;
+      --color-header-bg: rgba(255,255,255,0.85);
+      --color-footer-bg: #0a2e50;
+      --color-footer-text: #dde4eb;
+      --color-border-light: #e9eef2;
+      --shadow: 0 8px 24px rgba(0,0,0,0.05);
+      --shadow-strong: 0 12px 32px rgba(0,0,0,0.1);
+      --radius: 12px;
+      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --header-height: 60px;
+      --scroll-btn-bg: var(--color-accent);
+      --scroll-btn-hover-bg: var(--color-accent-darker);
+
+      /* Progress bar */
+      --progress-bg: var(--color-accent);
+    }
+    [data-theme="dark"] {
+      /* Couleurs sombre */
+      --color-bg: #121517;
+      --color-card-bg: #23283b;
+      --color-text: #dde4eb;
+      --color-text-light: #b0b8c1;
+      --color-main: #58a6ff;
+      --color-accent: #faa307;
+      --color-accent-darker: #e69204;
+      --color-header-bg: rgba(18,21,23,0.85);
+      --color-footer-bg: #0a2e50;
+      --color-footer-text: #dde4eb;
+      --color-border-light: #2e333b;
+      --shadow: 0 8px 24px rgba(0,0,0,0.4);
+      --shadow-strong: 0 12px 32px rgba(0,0,0,0.6);
+      --scroll-btn-bg: var(--color-accent);
+      --scroll-btn-hover-bg: var(--color-accent-darker);
+      --progress-bg: var(--color-accent);
+    }
+
+    /* === Reset & Base === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* Progress bar en haut */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--progress-bg);
+      z-index: 2000;
+      transition: width 0.1s ease-out;
+    }
+
+    /* === Skip Link pour accessibilité === */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* === Header === */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--color-header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-strong);
+      z-index: 1000;
+    }
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1.5rem;
+      height: var(--header-height);
+    }
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      color: var(--color-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i { color: var(--color-accent); }
+
+    /* Nav links - desktop */
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--color-text);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--color-accent);
+      background-color: rgba(250, 163, 7, 0.1);
+      outline: none;
+    }
+    .nav-links a.active {
+      background: var(--color-accent);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    .nav-links a i { font-size: 0.9rem; }
+
+    /* Lang & theme toggle container */
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .lang-select {
+      position: relative;
+    }
+    .lang-select select {
+      border: 1px solid var(--color-border-light);
+      background: transparent;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--color-text);
+      font-weight: 600;
+      padding: 7px 25px 7px 10px;
+      border-radius: 8px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230d3b66' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      background-size: 12px 12px;
+      transition: border-color var(--transition);
+    }
+    [dir="rtl"] .lang-select select {
+      padding: 7px 10px 7px 25px;
+      background-position: left 8px center;
+    }
+    .lang-select select:hover,
+    .lang-select select:focus { border-color: var(--color-accent); outline: none; }
+
+    .theme-toggle-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--color-text);
+      padding: 6px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .theme-toggle-btn:hover,
+    .theme-toggle-btn:focus {
+      background: rgba(250,163,7,0.1);
+      outline: none;
+    }
+
+    /* Hamburger menu mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger:focus { outline: none; }
+
+    /* Nav mobile overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--header-height);
+      left: 0; right: 0;
+      background: var(--color-header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-strong);
+      padding: 1rem;
+      z-index: 999;
+    }
+    .mobile-nav.active {
+      display: block;
+    }
+    .mobile-nav .nav-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* === Sections (single-page) === */
+    main {
+      flex: 1;
+    }
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      /* pour reveal */
+    }
+    /* Home (hero) */
+    #home {
+      /* hauteur pour compenser header sticky si besoin */
+      /* Pas d’image de hero, juste text */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 60vh;
+      background: linear-gradient(rgba(13,59,102,0.7), rgba(13,59,102,0.8)),
+        url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+    }
+    #home h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    #home p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+    }
+    #home .cta-button {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+    }
+    #home .cta-button:hover,
+    #home .cta-button:focus {
+      background: var(--color-accent-darker);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      outline: none;
+    }
+    #home.reveal-active h1,
+    #home.reveal-active p,
+    #home.reveal-active .cta-button {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Titres de section */
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--color-main);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section h2.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 i { color: var(--color-accent); font-size: 1.1em; }
+
+    /* Paragraphes de section */
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section p.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === Style des Cartes (Services, Portfolio, Témoignages) === */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      border: 1px solid var(--color-border-light);
+    }
+    .card.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-strong);
+      border-color: var(--color-accent);
+    }
+    /* Service Card */
+    .service-card i {
+      font-size: 3rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .service-card h3 {
+      margin: 0.75rem 0;
+      font-size: 1.3rem;
+      color: var(--color-main);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .service-card p { font-size: 1rem; color: var(--color-text-light); }
+    .card:hover .service-card i { transform: scale(1.1) rotate(-5deg); }
+    /* Portfolio Card */
+    .project-card { padding: 0; text-align: left; }
+    [dir="rtl"] .project-card { text-align: right; }
+    .project-card .card-image-wrapper { overflow: hidden; border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .project-card img { transform: scale(1.08); }
+    .project-card .card-content { padding: 1.5rem; }
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+      color: var(--color-main);
+    }
+    .project-card h3 i { color: var(--color-accent); }
+    .project-card p { font-size: 1rem; color: var(--color-text-light); }
+    /* Témoignage Card */
+    .testimonial-card {
+      background: var(--color-main);
+      color: #fff;
+      border-color: transparent;
+      text-align: left;
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius);
+    }
+    [dir="rtl"] .testimonial-card { text-align: right; }
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--color-accent);
+      opacity: 0.95;
+    }
+    [dir="rtl"] .testimonial-card p {
+      padding-left: 0;
+      padding-right: 1.5rem;
+      border-left: none;
+      border-right: 3px solid var(--color-accent);
+    }
+    .testimonial-card h4 {
+      text-align: right;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--color-accent);
+    }
+    [dir="rtl"] .testimonial-card h4 { text-align: left; }
+
+    /* === Formulaire Contact === */
+    #contact p { margin-bottom: 1rem; }
+    .contact-box {
+      background: var(--color-card-bg);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .contact-box.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #contact-form {
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      text-align: left;
+    }
+    #contact-form label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: var(--color-main);
+    }
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--color-border-light);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--color-card-bg);
+      color: var(--color-text);
+      transition: border-color 0.3s;
+    }
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      border-color: var(--color-accent);
+      outline: none;
+    }
+    #contact-form button {
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    #contact-form button:hover,
+    #contact-form button:focus {
+      background: var(--color-accent-darker);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    #form-status {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    /* === Footer === */
+    .site-footer {
+      background: var(--color-footer-bg);
+      color: var(--color-footer-text);
+      padding: 4rem 1.5rem 2rem;
+      margin-top: auto;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: space-between;
+    }
+    .footer-col { flex: 1 1 220px; min-width: 200px; }
+    .footer-col h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--color-accent);
+    }
+    [dir="rtl"] .footer-col h3::after { left: auto; right: 0; }
+    .footer-col p, .footer-col li, .footer-col a {
+      font-size: 0.95rem;
+      color: var(--color-footer-text);
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col ul li { margin-bottom: 0.75rem; }
+    .footer-col ul li a {
+      transition: color var(--transition), padding-left var(--transition);
+    }
+    [dir="rtl"] .footer-col ul li a {
+      transition: color var(--transition), padding-right var(--transition);
+    }
+    .footer-col ul li a:hover,
+    .footer-col ul li a:focus {
+      color: var(--color-accent);
+      padding-left: 5px;
+      opacity: 1;
+      outline: none;
+    }
+    [dir="rtl"] .footer-col ul li a:hover,
+    [dir="rtl"] .footer-col ul li a:focus {
+      padding-left: 0;
+      padding-right: 5px;
+    }
+    .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: var(--transition);
+    }
+    .social-icons a:hover,
+    .social-icons a:focus {
+      background: var(--color-accent);
+      color: #fff;
+      transform: translateY(-3px);
+      outline: none;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--color-footer-text);
+      opacity: 0.7;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* === Bouton Retour en haut === */
+    #scrollBtn {
+      position: fixed;
+      bottom: -100px;
+      right: 30px;
+      background: var(--scroll-btn-bg);
+      color: #fff;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-strong);
+      transition: background 0.3s, transform 0.3s, bottom 0.4s ease-in-out;
+      z-index: 500;
+    }
+    [dir="rtl"] #scrollBtn { right: auto; left: 30px; }
+    #scrollBtn.visible { bottom: 30px; }
+    #scrollBtn:hover,
+    #scrollBtn:focus {
+      background: var(--scroll-btn-hover-bg);
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* === Responsive === */
+    @media(max-width: 1024px) {
+      .nav-links a { padding: 8px 10px; font-size: 0.95rem; }
+    }
+    @media(max-width: 768px){
+      .header-container {
+        justify-content: space-between;
+      }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      /* Sections s'affichent naturellement, on n'a plus besoin de page-wrapper logique */
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+  <!-- Skip link -->
+  <a href="#home" class="skip-link">Aller au contenu</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo"><i class="fas fa-drafting-compass"></i> <span>Issoufou A.C.</span></div>
+      <!-- Nav desktop -->
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#home" data-target="home" class="nav-item active" aria-label="Accueil"><i class="fas fa-home"></i> <span data-i18n="nav_home">Accueil</span></a>
+        <a href="#about" data-target="about" class="nav-item" aria-label="À propos"><i class="fas fa-user"></i> <span data-i18n="nav_about">À propos</span></a>
+        <a href="#services" data-target="services" class="nav-item" aria-label="Services"><i class="fas fa-cogs"></i> <span data-i18n="nav_services">Services</span></a>
+        <a href="#portfolio" data-target="portfolio" class="nav-item" aria-label="Portfolio"><i class="fas fa-briefcase"></i> <span data-i18n="nav_portfolio">Portfolio</span></a>
+        <a href="#testimonials" data-target="testimonials" class="nav-item" aria-label="Témoignages"><i class="fas fa-comments"></i> <span data-i18n="nav_testimonials">Témoignages</span></a>
+        <a href="#contact" data-target="contact" class="nav-item" aria-label="Contact"><i class="fas fa-envelope"></i> <span data-i18n="nav_contact">Contact</span></a>
+      </nav>
+      <!-- Controls: langue + darkmode + hamburger -->
+      <div class="controls">
+        <div class="lang-select">
+          <label for="language-select" class="sr-only">Choisir la langue</label>
+          <select id="language-select" aria-label="Choix de la langue">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+            <option value="ar">AR</option>
+          </select>
+        </div>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Basculer mode clair/sombre">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Nav mobile overlay -->
+    <div class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <nav class="nav-links">
+        <a href="#home" data-target="home" class="nav-item active" aria-label="Accueil"><i class="fas fa-home"></i> <span data-i18n="nav_home">Accueil</span></a>
+        <a href="#about" data-target="about" class="nav-item" aria-label="À propos"><i class="fas fa-user"></i> <span data-i18n="nav_about">À propos</span></a>
+        <a href="#services" data-target="services" class="nav-item" aria-label="Services"><i class="fas fa-cogs"></i> <span data-i18n="nav_services">Services</span></a>
+        <a href="#portfolio" data-target="portfolio" class="nav-item" aria-label="Portfolio"><i class="fas fa-briefcase"></i> <span data-i18n="nav_portfolio">Portfolio</span></a>
+        <a href="#testimonials" data-target="testimonials" class="nav-item" aria-label="Témoignages"><i class="fas fa-comments"></i> <span data-i18n="nav_testimonials">Témoignages</span></a>
+        <a href="#contact" data-target="contact" class="nav-item" aria-label="Contact"><i class="fas fa-envelope"></i> <span data-i18n="nav_contact">Contact</span></a>
+      </nav>
+      <div class="controls" style="margin-top:1rem; justify-content: space-between;">
+        <div class="lang-select">
+          <label for="language-select-mobile" class="sr-only">Choisir la langue</label>
+          <select id="language-select-mobile" aria-label="Choix de la langue">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+            <option value="ar">AR</option>
+          </select>
+        </div>
+        <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Basculer mode clair/sombre">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu Principal -->
+  <main>
+    <!-- Section Home -->
+    <section id="home">
+      <h1>Issoufou Abdou Chefou</h1>
+      <p data-i18n="header_tagline">Ingénieur Structure · Expert Robot & Revit · Plans détaillés professionnels</p>
+      <a href="#about" class="cta-button" data-i18n="hero_cta">En savoir plus</a>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="about">
+      <h2><i class="fas fa-address-card"></i> <span data-i18n="about_title">Mon expertise à votre service</span></h2>
+      <p data-i18n="about_text">
+        Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Ma mission est de transformer vos visions architecturales en réalités solides, sûres et optimisées.<br><br>
+        Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution béton (coffrage et ferraillage) d'une précision irréprochable, entièrement conformes aux normes de construction internationales.
+      </p>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services">
+      <h2><i class="fas fa-cogs"></i> <span data-i18n="services_title">Mes Services</span></h2>
+      <div class="card-grid" id="services-list"></div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section id="portfolio">
+      <h2><i class="fas fa-images"></i> <span data-i18n="portfolio_title">Mes Réalisations</span></h2>
+      <div class="card-grid" id="projects-list"></div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="testimonials">
+      <h2><i class="fas fa-comments"></i> <span data-i18n="testimonials_title">Ce qu'ils disent de mon travail</span></h2>
+      <div class="card-grid" id="testimonials-list"></div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+      <h2><i class="fas fa-paper-plane"></i> <span data-i18n="contact_title">Discutons de votre projet</span></h2>
+      <div class="contact-box">
+        <p data-i18n="contact_prompt">Vous avez un projet de construction ? Besoin d'une étude structurelle ou de plans d'exécution ? Contactez-moi pour une solution sur mesure.</p>
+        <form id="contact-form">
+          <label for="name" data-i18n="contact_form_name_label">Votre nom</label>
+          <input type="text" id="name" name="name" required placeholder="" data-i18n-placeholder="contact_form_name_placeholder">
+          <label for="email" data-i18n="contact_form_email_label">Votre email</label>
+          <input type="email" id="email" name="email" required placeholder="" data-i18n-placeholder="contact_form_email_placeholder">
+          <label for="message" data-i18n="contact_form_message_label">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="" data-i18n-placeholder="contact_form_message_placeholder"></textarea>
+          <button type="submit" data-i18n="contact_form_submit">Envoyer</button>
+          <div id="form-status" role="status" aria-live="polite"></div>
+        </form>
+        <div class="contact-links" style="margin-top:2rem;">
+          <a href="mailto:entreprise2rc@gmail.com" aria-label="Envoyer un email"><i class="fas fa-envelope"></i> <span>entreprise2rc@gmail.com</span></a>
+          <a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> <span>+227 96 38 08 77</span></a>
+          <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i> <span>LinkedIn</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3 data-i18n="footer_about_title">Issoufou A.C.</h3>
+        <p data-i18n="footer_about_text">
+          Ingénieur civil expert en modélisation et calcul de structures. Je transforme vos projets en bâtiments sûrs et durables.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_quicklinks_title">Navigation</h3>
+        <ul>
+          <li><a href="#about"><span data-i18n="nav_about">À propos</span></a></li>
+          <li><a href="#services"><span data-i18n="nav_services">Services</span></a></li>
+          <li><a href="#portfolio"><span data-i18n="nav_portfolio">Portfolio</span></a></li>
+          <li><a href="#contact"><span data-i18n="nav_contact">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_follow_title">Contact & Réseaux</h3>
+        <div class="social-icons">
+          <a href="mailto:entreprise2rc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_text">© 2025 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion.</p>
+    </div>
+  </footer>
+
+  <!-- Bouton Retour en haut -->
+  <button id="scrollBtn" title="Retour en haut" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Données Structurées JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Issoufou Abdou Chefou",
+    "url": "https://ton-site-exemple.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/"
+    ],
+    "jobTitle": "Ingénieur Structure",
+    "description": "Ingénieur civil expert en modélisation BIM, calcul structure, Robot Structural Analysis, Autodesk Revit."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Portfolio – Issoufou Abdou Chefou",
+    "url": "https://ton-site-exemple.com/",
+    "description": "Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit.",
+    "author": {
+      "@type": "Person",
+      "name": "Issoufou Abdou Chefou"
+    }
+  }
+  </script>
+
+  <!-- Traductions & logique JS -->
+  <script>
+    // Objet de traductions (FR/EN/AR) incluant placeholders du formulaire
+    const translations = {
+      fr: {
+        hero_cta: "En savoir plus",
+        header_tagline: "Ingénieur Structure · Expert Robot & Revit · Plans détaillés professionnels",
+        nav_home: "Accueil", nav_about: "À propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_testimonials: "Témoignages", nav_contact: "Contact",
+        about_title: "Mon expertise à votre service",
+        about_text: "Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Ma mission est de transformer vos visions architecturales en réalités solides, sûres et optimisées.<br><br>Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution béton (coffrage et ferraillage) d'une précision irréprochable, entièrement conformes aux normes de construction internationales.",
+        services_title: "Mes Services",
+        services: [
+          { icon: "fas fa-robot", title: "Analyse et Calcul Robot", desc: "Modélisation et dimensionnement complet de vos structures pour garantir sécurité et optimisation des matériaux." },
+          { icon: "fas fa-cubes", title: "Modélisation BIM sur Revit", desc: "Création de maquettes numériques 3D précises, intégrant architecture et structure pour une coordination parfaite." },
+          { icon: "fas fa-drafting-compass", title: "Plans d'Exécution Béton", desc: "Élaboration de plans de coffrage et de ferraillage clairs et détaillés, prêts pour le chantier." },
+          { icon: "fas fa-lightbulb", title: "Optimisation de Structure", desc: "Analyse de vos plans existants pour réduire les coûts en matériaux (acier, béton) sans compromettre la sécurité." },
+          { icon: "fas fa-house-user", title: "Conception de Villas", desc: "Conception complète de plans architecturaux et structurels pour des villas sur mesure, de la fondation à la toiture." },
+          { icon: "fas fa-chalkboard-teacher", title: "Formation et Conseil", desc: "Accompagnement technique pour vos équipes et formation sur les logiciels Robot et Revit." }
+        ],
+        portfolio_title: "Mes Réalisations",
+        projects: [
+          { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80", icon: "fas fa-cube", title: "Villa Moderne R+1", desc: "Modélisation BIM complète sous Revit, incluant plans de coffrage et coupes détaillées." },
+          { img: "https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80", icon: "fas fa-robot", title: "Calcul d'un Immeuble", desc: "Dimensionnement R+2 selon les Eurocodes avec Robot, optimisant la quantité d'acier de 15%." },
+          { img: "https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80", icon: "fas fa-file-alt", title: "Dossier d'Exécution", desc: "Production d'un dossier complet de ferraillage avec nomenclatures précises, prêt pour le chantier." }
+        ],
+        testimonials_title: "Ce qu'ils disent de mon travail",
+        testimonials: [
+          { text: "« Travail impeccable et livraison rapide ! Issoufou a une grande maîtrise technique. Je recommande à 100 %. »", author: "A. Traoré, Entrepreneur" },
+          { text: "« Des plans clairs et faciles à exécuter. Un vrai plus sur chantier qui évite les erreurs et fait gagner du temps. »", author: "M. Diallo, Chef de chantier" },
+          { text: "« Son expertise sur Robot/Revit a transformé notre projet. L'optimisation a réduit nos coûts en acier. Merci ! »", author: "S. Abdou, Promoteur immobilier" }
+        ],
+        contact_title: "Discutons de votre projet",
+        contact_prompt: "Vous avez un projet de construction ? Besoin d'une étude structurelle ou de plans d'exécution ? Contactez-moi pour une solution sur mesure.",
+        contact_form_name_label: "Votre nom",
+        contact_form_name_placeholder: "Entrez votre nom",
+        contact_form_email_label: "Votre email",
+        contact_form_email_placeholder: "exemple@domaine.com",
+        contact_form_message_label: "Message",
+        contact_form_message_placeholder: "Décrivez votre projet ou question",
+        contact_form_submit: "Envoyer",
+        footer_about_title: "Issoufou A.C.",
+        footer_about_text: "Ingénieur civil expert en modélisation et calcul de structures. Je transforme vos projets en bâtiments sûrs et durables.",
+        footer_quicklinks_title: "Navigation",
+        footer_follow_title: "Contact & Réseaux",
+        footer_text: "© 2025 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion."
+      },
+      en: {
+        hero_cta: "Learn more",
+        header_tagline: "Structural Engineer · Robot & Revit Expert · Professional Detailed Plans",
+        nav_home: "Home", nav_about: "About", nav_services: "Services", nav_portfolio: "Portfolio", nav_testimonials: "Testimonials", nav_contact: "Contact",
+        about_title: "My Expertise at Your Service",
+        about_text: "Hello, I'm <strong>Issoufou Abdou Chefou</strong>, a civil engineer passionate about structural design and analysis. My mission is to turn your architectural visions into solid, safe, and optimized realities.<br><br>With a deep mastery of <strong>Robot Structural Analysis</strong> and <strong>Autodesk Revit</strong>, I produce flawlessly precise concrete execution drawings (formwork and reinforcement), fully compliant with international building standards.",
+        services_title: "My Services",
+        services: [
+          { icon: "fas fa-robot", title: "Robot Analysis & Design", desc: "Complete modeling and design of your structures to ensure safety and material optimization." },
+          { icon: "fas fa-cubes", title: "BIM Modeling in Revit", desc: "Creation of accurate 3D digital models, integrating architecture and structure for perfect coordination." },
+          { icon: "fas fa-drafting-compass", title: "Concrete Execution Plans", desc: "Development of clear and detailed formwork and reinforcement plans, ready for the construction site." },
+          { icon: "fas fa-lightbulb", title: "Structural Optimization", desc: "Analysis of your existing plans to reduce material costs (steel, concrete) without compromising safety." },
+          { icon: "fas fa-house-user", title: "Villa Design", desc: "Complete architectural and structural design for custom villas, from foundation to roof." },
+          { icon: "fas fa-chalkboard-teacher", title: "Training & Consulting", desc: "Technical support for your teams and training on Robot and Revit software." }
+        ],
+        portfolio_title: "My Achievements",
+        projects: [
+          { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80", icon: "fas fa-cube", title: "Modern G+1 Villa", desc: "Complete BIM modeling in Revit, including formwork plans and detailed sections." },
+          { img: "https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80", icon: "fas fa-robot", title: "Building Calculation", desc: "G+2 design according to Eurocodes with Robot, optimizing steel quantity by 15%." },
+          { img: "https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80", icon: "fas fa-file-alt", title: "Execution Package", desc: "Production of a complete reinforcement package with precise schedules, ready for the site." }
+        ],
+        testimonials_title: "What They Say About My Work",
+        testimonials: [
+          { text: "“Impeccable work and fast delivery! Issoufou has great technical command. 100% recommended.”", author: "A. Traoré, Contractor" },
+          { text: "“Clear, easy-to-follow plans. A real asset on site that prevents errors and saves time.”", author: "M. Diallo, Site Manager" },
+          { text: "“His Robot/Revit expertise transformed our project. The optimization reduced our steel costs. Thank you!”", author: "S. Abdou, Real Estate Developer" }
+        ],
+        contact_title: "Let's Discuss Your Project",
+        contact_prompt: "Do you have a construction project? Need a structural study or execution plans? Contact me for a tailor-made solution.",
+        contact_form_name_label: "Your name",
+        contact_form_name_placeholder: "Enter your name",
+        contact_form_email_label: "Your email",
+        contact_form_email_placeholder: "example@domain.com",
+        contact_form_message_label: "Message",
+        contact_form_message_placeholder: "Describe your project or question",
+        contact_form_submit: "Send",
+        footer_about_title: "Issoufou A.C.",
+        footer_about_text: "Civil engineer expert in structural modeling and analysis. I turn your projects into safe and durable buildings.",
+        footer_quicklinks_title: "Navigation",
+        footer_follow_title: "Contact & Social",
+        footer_text: "© 2025 Issoufou Abdou Chefou – Structural Engineer. Crafted with passion."
+      },
+      ar: {
+        hero_cta: "مزيد من المعلومات",
+        header_tagline: "مهندس إنشائي · خبير Robot و Revit · مخططات تفصيلية احترافية",
+        nav_home: "الرئيسية", nav_about: "نبذة", nav_services: "الخدمات", nav_portfolio: "الأعمال", nav_testimonials: "الشهادات", nav_contact: "اتصل",
+        about_title: "خبرتي في خدمتكم",
+        about_text: "مرحباً، أنا <strong>إيسوفو عبدو شيفو</strong>، مهندس مدني شغوف بتصميم وحساب الهياكل. مهمتي هي تحويل رؤاكم المعمارية إلى واقع ملموس، آمن، ومحسن التكاليف.<br><br>بفضل إتقاني العميق لبرنامجي <strong>Robot Structural Analysis</strong> و <strong>Autodesk Revit</strong>، أقوم بإعداد رسومات تنفيذية للخرسانة (القوالب والتسليح) بدقة لا تشوبها شائبة، ومتوافقة تماماً مع معايير البناء الدولية.",
+        services_title: "خدماتي",
+        services: [
+          { icon: "fas fa-robot", title: "تحليل وحساب Robot", desc: "نمذجة وتصميم كامل لهياكلكم لضمان الأمان والاستخدام الأمثل للمواد." },
+          { icon: "fas fa-cubes", title: "نمذجة BIM على Revit", desc: "إنشاء نماذج رقمية ثلاثية الأبعاد دقيقة، تدمج الهندسة المعمارية والإنشائية لتنسيق مثالي." },
+          { icon: "fas fa-drafting-compass", title: "مخططات تنفيذ الخرسانة", desc: "إعداد مخططات قوالب وتسليح واضحة ومفصلة، جاهزة للتنفيذ في الموقع." },
+          { icon: "fas fa-lightbulb", title: "تحسين الهياكل", desc: "تحليل مخططاتكم الحالية لتقليل تكاليف المواد (الحديد والخرسانة) دون المساس بالسلامة." },
+          { icon: "fas fa-house-user", title: "تصميم الفلل", desc: "تصميم كامل للمخططات المعمارية والإنشائية للفلل المخصصة، من الأساسات إلى السقف." },
+          { icon: "fas fa-chalkboard-teacher", title: "تدريب واستشارات", desc: "دعم فني لفرقكم وتدريب على برامج Robot و Revit." }
+        ],
+        portfolio_title: "إنجازاتي",
+        projects: [
+          { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80", icon: "fas fa-cube", title: "فيلا حديثة ط+1", desc: "نمذجة BIM كاملة باستخدام Revit، تشمل مخططات القوالب والمقاطع التفصيلية." },
+          { img: "https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80", icon: "fas fa-robot", title: "حساب مبنى سكني", desc: "تصميم مبنى ط+2 وفقًا لـ Eurocodes باستخدام Robot، مما أدى إلى تحسين كمية الحديد بنسبة 15٪." },
+          { img: "https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80", icon: "fas fa-file-alt", title: "ملف تنفيذي", desc: "إنتاج ملف تسليح كامل مع جداول دقيقة، جاهز للتنفيذ في الموقع." }
+        ],
+        testimonials_title: "ماذا يقولون عن عملي",
+        testimonials: [
+          { text: "«عمل متقن وتسليم سريع! لدى إيسوفو خبرة تقنية عالية. أوصي به ١٠٠٪.»", author: "أ. تراوري، مقاول" },
+          { text: "«مخططات واضحة وسهلة التنفيذ. إضافة حقيقية في الموقع توفر الوقت وتمنع الأخطاء.»", author: "م. ديالو، مدير موقع" },
+          { text: "«خبرته في Robot/Revit غيرت مشروعنا. ساهم تحسينه للتصميم في تقليل تكاليف الحديد. شكرًا!»", author: "س. عبدو، مطور عقاري" }
+        ],
+        contact_title: "لنتناقش في مشروعك",
+        contact_prompt: "لديك مشروع بناء؟ هل تحتاج إلى دراسة إنشائية أو مخططات تنفيذية؟ تواصل معي للحصول على حل مخصص.",
+        contact_form_name_label: "الاسم",
+        contact_form_name_placeholder: "أدخل اسمك",
+        contact_form_email_label: "البريد الإلكتروني",
+        contact_form_email_placeholder: "مثال@المجال.com",
+        contact_form_message_label: "الرسالة",
+        contact_form_message_placeholder: "صف مشروعك أو سؤالك",
+        contact_form_submit: "إرسال",
+        footer_about_title: "إيسوفو أ.ش.",
+        footer_about_text: "مهندس مدني خبير في النمذجة والحسابات الإنشائية. أحول مشاريعكم إلى مبان آمنة ومستدامة.",
+        footer_quicklinks_title: "التنقل",
+        footer_follow_title: "اتصل وتابع",
+        footer_text: "© 2025 إيسوفou Abdou Chefou – مهندس إنشائي. صُنع بشغف."
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Éléments DOM
+      const navLinksDesktop = document.querySelectorAll('.site-header .nav-links a.nav-item');
+      const navLinksMobile = document.querySelectorAll('.mobile-nav .nav-links a.nav-item');
+      const allNavLinks = [...navLinksDesktop, ...navLinksMobile];
+      const sections = {
+        home: document.getElementById('home'),
+        about: document.getElementById('about'),
+        services: document.getElementById('services'),
+        portfolio: document.getElementById('portfolio'),
+        testimonials: document.getElementById('testimonials'),
+        contact: document.getElementById('contact')
+      };
+      const langSelect = document.getElementById('language-select');
+      const langSelectMobile = document.getElementById('language-select-mobile');
+      const scrollBtn = document.getElementById('scrollBtn');
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const themeToggleBtnMobile = document.getElementById('themeToggleBtnMobile');
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const progressBar = document.getElementById('progress-bar');
+
+      // Ajuste initial de langue
+      const initialLang = langSelect.value;
+      function updateContent(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        const dict = translations[lang];
+        // textes statiques
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] && typeof dict[key] === 'string') {
+            el.innerHTML = dict[key];
+          }
+        });
+        // placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key] && typeof dict[key] === 'string') {
+            el.setAttribute('placeholder', dict[key]);
+          }
+        });
+        // dynamiques : services, projects, testimonials
+        // Services
+        const svcContainer = document.getElementById('services-list');
+        if (svcContainer) {
+          svcContainer.innerHTML = '';
+          dict.services.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'card service-card reveal';
+            div.innerHTML = `<i class="${s.icon}" aria-hidden="true"></i><h3>${s.title}</h3><p>${s.desc}</p>`;
+            svcContainer.appendChild(div);
+          });
+        }
+        // Portfolio
+        const prjContainer = document.getElementById('projects-list');
+        if (prjContainer) {
+          prjContainer.innerHTML = '';
+          dict.projects.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'card project-card reveal';
+            div.innerHTML = `<div class="card-image-wrapper"><img src="${p.img}" alt="${p.title}" loading="lazy"></div><div class="card-content"><h3><i class="${p.icon}" aria-hidden="true"></i> ${p.title}</h3><p>${p.desc}</p></div>`;
+            prjContainer.appendChild(div);
+          });
+        }
+        // Témoignages
+        const tstContainer = document.getElementById('testimonials-list');
+        if (tstContainer) {
+          tstContainer.innerHTML = '';
+          dict.testimonials.forEach(t => {
+            const div = document.createElement('div');
+            div.className = 'card testimonial-card reveal';
+            div.innerHTML = `<p>${t.text}</p><h4>– ${t.author}</h4>`;
+            tstContainer.appendChild(div);
+          });
+        }
+        // Reset reveal pour ré-observer
+        resetReveal();
+        observeReveal();
+      }
+      // Initialisation du contenu
+      updateContent(initialLang);
+
+      // Synchronisation des sélecteurs de langue
+      function onLanguageChange(e) {
+        const val = e.target.value;
+        langSelect.value = val;
+        langSelectMobile.value = val;
+        updateContent(val);
+      }
+      langSelect.addEventListener('change', onLanguageChange);
+      langSelectMobile.addEventListener('change', onLanguageChange);
+
+      // Toggle thème
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const icon = (theme === 'dark') ? 'fas fa-sun' : 'fas fa-moon';
+        themeToggleBtn.innerHTML = `<i class="${icon}"></i>`;
+        themeToggleBtnMobile.innerHTML = `<i class="${icon}"></i>`;
+      }
+      function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = (current === 'dark') ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('preferred-theme', next);
+      }
+      themeToggleBtn.addEventListener('click', toggleTheme);
+      themeToggleBtnMobile.addEventListener('click', toggleTheme);
+      const savedTheme = localStorage.getItem('preferred-theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+      }
+
+      // Hamburger menu mobile
+      hamburgerBtn.addEventListener('click', () => {
+        const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          mobileNav.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          mobileNav.classList.add('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+      // Fermer menu mobile au clic sur un lien
+      allNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            mobileNav.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Scroll Spy : mise à jour actif nav selon section visible
+      const sectionIds = ['home','about','services','portfolio','testimonials','contact'];
+      function updateScrollSpy() {
+        let found = false;
+        for (let id of sectionIds) {
+          const sec = document.getElementById(id);
+          if (sec) {
+            const rect = sec.getBoundingClientRect();
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            // Critère : le haut de la section est dans le tiers central de l'écran
+            if (rect.top <= vh*0.5 && rect.bottom >= vh*0.3) {
+              allNavLinks.forEach(link => {
+                if (link.getAttribute('data-target') === id) link.classList.add('active');
+                else link.classList.remove('active');
+              });
+              found = true;
+              break;
+            }
+          }
+        }
+        if (!found) {
+          // Si très en haut, active home
+          if (window.scrollY < window.innerHeight*0.3) {
+            allNavLinks.forEach(link => {
+              if (link.getAttribute('data-target') === 'home') link.classList.add('active');
+              else link.classList.remove('active');
+            });
+          }
+        }
+      }
+
+      // Progress bar
+      function updateProgressBar() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = percent + '%';
+      }
+
+      // Scroll événement
+      window.addEventListener('scroll', () => {
+        scrollBtn.classList.toggle('visible', window.scrollY > 300);
+        updateScrollSpy();
+        updateProgressBar();
+      });
+
+      // Bouton scroll top
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Reveal on scroll
+      let observerReveal;
+      function observeReveal() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        observerReveal = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, options);
+        // Observer les éléments avec la classe .reveal ou sections home
+        document.querySelectorAll('#home, section h2, section p, .card, .contact-box').forEach(el => {
+          if (!el.classList.contains('reveal-active')) {
+            observerReveal.observe(el);
+          }
+        });
+      }
+      function resetReveal() {
+        document.querySelectorAll('.reveal-active').forEach(el => {
+          el.classList.remove('reveal-active');
+        });
+        if (observerReveal) observerReveal.disconnect();
+      }
+      // On observe après un court délai ou au load
+      observeReveal();
+
+      // Formulaire de contact
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = document.getElementById('form-status');
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formStatus.textContent = '';
+        const name = contactForm.name.value.trim();
+        const email = contactForm.email.value.trim();
+        const message = contactForm.message.value.trim();
+        const lang = langSelect.value;
+        if (!name || !email || !message) {
+          formStatus.style.color = 'red';
+          formStatus.textContent = translations[lang].contact_form_submit === 'Envoyer'
+            ? 'Veuillez remplir tous les champs.'
+            : (translations[lang].contact_form_submit === 'Send'
+              ? 'Please fill in all fields.'
+              : 'يرجى ملء جميع الحقول.');
+          return;
+        }
+        // Prépare FormData
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+        // Remplace par ton endpoint Formspree réel
+        const endpoint = 'https://formspree.io/f/ton-endpoint';
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            formStatus.style.color = 'green';
+            formStatus.textContent = translations[lang].contact_form_submit === 'Envoyer'
+              ? 'Message envoyé avec succès ! Je reviens vers vous bientôt.'
+              : (translations[lang].contact_form_submit === 'Send'
+                ? 'Message sent successfully! I will get back to you soon.'
+                : 'تم إرسال الرسالة بنجاح! سأتواصل معك قريبًا.');
+            contactForm.reset();
+          } else {
+            response.json().then(data => {
+              formStatus.style.color = 'red';
+              formStatus.textContent = translations[lang].contact_form_submit === 'Envoyer'
+                ? 'Une erreur est survenue, veuillez réessayer plus tard.'
+                : (translations[lang].contact_form_submit === 'Send'
+                  ? 'An error occurred, please try again later.'
+                  : 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+            }).catch(() => {
+              formStatus.style.color = 'red';
+              formStatus.textContent = translations[lang].contact_form_submit === 'Envoyer'
+                ? 'Une erreur est survenue, veuillez réessayer plus tard.'
+                : (translations[lang].contact_form_submit === 'Send'
+                  ? 'An error occurred, please try again later.'
+                  : 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+            });
+          }
+        })
+        .catch(() => {
+          formStatus.style.color = 'red';
+          formStatus.textContent = translations[lang].contact_form_submit === 'Envoyer'
+            ? 'Impossible d’envoyer le message. Vérifiez votre connexion.'
+            : (translations[lang].contact_form_submit === 'Send'
+              ? 'Unable to send message. Check your connection.'
+              : 'يتعذر إرسال الرسالة. تحقق من اتصالك.');
+        });
+      });
+
+      // Au chargement initial, on scroll vers top
+      window.scrollTo(0,0);
+      updateScrollSpy();
+      updateProgressBar();
+      // Observe reveal initial
+      observeReveal();
+
+      // Ajuster au resize : fermer menu mobile si besoin
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+          mobileNav.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
