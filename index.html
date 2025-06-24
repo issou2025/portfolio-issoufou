@@ -6,12 +6,12 @@
   <title>Portfolio – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
   <!-- SEO Métadonnées -->
-  <meta name="description" content="Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit. Découvrez mes services, réalisations et contactez-moi pour vos projets de construction.">
+  <meta name="description" content="Ingénieur structure passionné d'innovation et d'optimisation. Découvrez mes réalisations et services sur mesure pour donner vie à vos projets.">
   <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, Robot Structural Analysis, Autodesk Revit, plans béton, modélisation BIM, renforcement béton, calcul structure">
   <meta name="author" content="Issoufou Abdou Chefou">
   <!-- Open Graph -->
   <meta property="og:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
-  <meta property="og:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
+  <meta property="og:description" content="Ingénieur structure passionné d'innovation et d'optimisation. Découvrez mes réalisations et services sur mesure pour vos projets.">
   <meta property="og:type" content="website">
   <!-- Remplacez ces URLs par celles de votre hébergement réel -->
   <meta property="og:url" content="https://votre-site.com/">
@@ -300,6 +300,7 @@
     }
     /* Home (hero) */
     #home {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -308,6 +309,7 @@
       min-height: 60vh;
       background: linear-gradient(rgba(0,109,119,0.7), rgba(0,109,119,0.8)),
         url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background-attachment: fixed;
       color: #fff;
     }
     #home h1 {
@@ -351,6 +353,30 @@
       transform: translateY(-3px) scale(1.03);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       outline: none;
+    }
+    #home #scroll-down {
+      position: absolute;
+      bottom: 20px;
+      font-size: 2rem;
+      color: #fff;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
+    #typed-text + .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: currentColor;
+      margin-left: 3px;
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      0%,50% { opacity: 1; }
+      50.01%,100% { opacity: 0; }
     }
     #home.reveal-active h1,
     #home.reveal-active p,
@@ -766,8 +792,9 @@
     <!-- Section Home -->
     <section id="home">
       <h1>Issoufou Abdou Chefou</h1>
-      <p data-i18n="header_tagline">Ingénieur Structure · Expert Robot & Revit · Plans détaillés professionnels</p>
+      <p id="tagline" data-i18n="header_tagline">Ingénieur Structure · Expert Robot & Revit · Plans détaillés professionnels</p>
       <a href="#about" class="cta-button" data-i18n="hero_cta">En savoir plus</a>
+      <a href="#about" id="scroll-down" aria-label="Aller à la section suivante"><i class="fas fa-chevron-down"></i></a>
     </section>
 
     <!-- Section À Propos -->
@@ -890,7 +917,8 @@
     const translations = {
       fr: {
         hero_cta: "En savoir plus",
-        header_tagline: "Ingénieur Structure · Expert Robot & Revit · Plans détaillés professionnels",
+        header_tagline: "Ingénieur Structure | Robot & Revit Expert | Plans exécutifs précis",
+        tagline_words: ["Ingénieur Structure", "Expert Robot & Revit", "Plans exécutifs précis"],
         nav_home: "Accueil", nav_about: "À propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_testimonials: "Témoignages", nav_contact: "Contact",
         about_title: "Mon expertise à votre service",
         about_text: "Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Ma mission est de transformer vos visions architecturales en réalités solides, sûres et optimisées.<br><br>Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution béton (coffrage et ferraillage) d'une précision irréprochable, entièrement conformes aux normes de construction internationales.",
@@ -932,7 +960,8 @@
       },
       en: {
         hero_cta: "Learn more",
-        header_tagline: "Structural Engineer · Robot & Revit Expert · Professional Detailed Plans",
+        header_tagline: "Structural Engineer | Robot & Revit Expert | Precise Execution Plans",
+        tagline_words: ["Structural Engineer", "Robot & Revit Expert", "Precise Execution Plans"],
         nav_home: "Home", nav_about: "About", nav_services: "Services", nav_portfolio: "Portfolio", nav_testimonials: "Testimonials", nav_contact: "Contact",
         about_title: "My Expertise at Your Service",
         about_text: "Hello, I'm <strong>Issoufou Abdou Chefou</strong>, a civil engineer passionate about structural design and analysis. My mission is to turn your architectural visions into solid, safe, and optimized realities.<br><br>With a deep mastery of <strong>Robot Structural Analysis</strong> and <strong>Autodesk Revit</strong>, I produce flawlessly precise concrete execution drawings (formwork and reinforcement), fully compliant with international building standards.",
@@ -974,7 +1003,8 @@
       },
       ar: {
         hero_cta: "مزيد من المعلومات",
-        header_tagline: "مهندس إنشائي · خبير Robot و Revit · مخططات تفصيلية احترافية",
+        header_tagline: "مهندس إنشائي | خبير Robot و Revit | مخططات تنفيذ دقيقة",
+        tagline_words: ["مهندس إنشائي", "خبير Robot و Revit", "مخططات تنفيذ دقيقة"],
         nav_home: "الرئيسية", nav_about: "نبذة", nav_services: "الخدمات", nav_portfolio: "الأعمال", nav_testimonials: "الشهادات", nav_contact: "اتصل",
         about_title: "خبرتي في خدمتكم",
         about_text: "مرحباً، أنا <strong>إيسوفو عبدو شيفو</strong>، مهندس مدني شغوف بتصميم وحساب الهياكل. مهمتي هي تحويل رؤاكم المعمارية إلى واقع ملموس، آمن، ومحسن التكاليف.<br><br>بفضل إتقاني العميق لبرنامجي <strong>Robot Structural Analysis</strong> و <strong>Autodesk Revit</strong>، أقوم بإعداد رسومات تنفيذية للخرسانة (القوالب والتسليح) بدقة لا تشوبها شائبة، ومتوافقة تماماً مع معايير البناء الدولية.",
@@ -1042,6 +1072,9 @@
       const progressBar = document.getElementById('progress-bar');
       const accentPicker = document.getElementById('accentColorPicker');
       const accentPickerMobile = document.getElementById('accentColorPickerMobile');
+      const taglineEl = document.getElementById('tagline');
+      let typedEl;
+      let typingTimer;
 
       // Fonction resetReveal : déconnecte observer et enlève classes
       function resetReveal() {
@@ -1089,6 +1122,9 @@
             el.innerHTML = dict[key];
           }
         });
+        if (dict.tagline_words) {
+          startTyping(dict.tagline_words);
+        }
         // Placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
           const key = el.getAttribute('data-i18n-placeholder');
@@ -1169,6 +1205,48 @@
       } else {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(prefersDark ? 'dark' : 'light');
+      }
+
+      // Effet de texte tapé pour la tagline
+      let typedWords = [];
+      let wordIndex = 0;
+      let charIndex = 0;
+      const typingDelay = 100;
+      const erasingDelay = 60;
+      const newWordDelay = 1500;
+
+      function type() {
+        if (!typedEl) return;
+        if (charIndex < typedWords[wordIndex].length) {
+          typedEl.textContent += typedWords[wordIndex].charAt(charIndex);
+          charIndex++;
+          typingTimer = setTimeout(type, typingDelay);
+        } else {
+          typingTimer = setTimeout(erase, newWordDelay);
+        }
+      }
+
+      function erase() {
+        if (!typedEl) return;
+        if (charIndex > 0) {
+          typedEl.textContent = typedWords[wordIndex].substring(0, charIndex - 1);
+          charIndex--;
+          typingTimer = setTimeout(erase, erasingDelay);
+        } else {
+          wordIndex = (wordIndex + 1) % typedWords.length;
+          typingTimer = setTimeout(type, typingDelay);
+        }
+      }
+
+      function startTyping(words) {
+        if (!taglineEl) return;
+        taglineEl.innerHTML = '<span id="typed-text"></span><span class="cursor"></span>';
+        typedEl = document.getElementById('typed-text');
+        typedWords = words;
+        wordIndex = 0;
+        charIndex = 0;
+        clearTimeout(typingTimer);
+        type();
       }
 
       // Accent color
