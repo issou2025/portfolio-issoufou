@@ -6,344 +6,331 @@
   <title>Portfolio – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
   <!-- SEO & Metadonnées -->
-  <meta name="description" content="Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit. Découvrez mes services, réalisations et contactez-moi pour vos projets de construction.">
-  <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, Robot Structural Analysis, Autodesk Revit, plans béton, modélisation BIM, renforcement béton, calcul structure">
-  <meta name="author" content="Issoufou Abdou Chefou">
-  <meta property="og:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
-  <meta property="og:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
-  <meta property="og:url" content="https://votre-site.com/">
-  <meta property="og:image" content="https://votre-site.com/partage-image.jpg">
-
+  <meta name="description" content="Portfolio professionnel de Issoufou Abdou Chefou, ingénieur structure expert. Découvrez mon processus, mes réalisations et mon expertise en BIM, Revit et Robot.">
+  <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, Robot Structural Analysis, Autodesk Revit, plans béton, modélisation BIM, renforcement béton, calcul structure, processus ingénierie">
+  
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* === PALETTE VIVE ET MODERNE === */
+    /* === PALETTE "ÉLÉGANCE NATURELLE" === */
     :root {
-      --color-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --color-text: #ffffff;
-      --color-text-light: rgba(255, 255, 255, 0.8);
-      --color-main: #ffffff;
-      --color-accent: #ff7e5f;
-      --color-accent-2: #feb47b;
-      --gradient-accent: linear-gradient(45deg, var(--color-accent), var(--color-accent-2));
+      --color-bg: #F8F5F2; /* Blanc cassé / beige texturé */
+      --color-card-bg: #FFFFFF;
+      --color-text: #3A3D40; /* Gris anthracite chaud */
+      --color-text-light: #6c757d;
+      --color-main: #2c2f33;
+      --color-accent: #E27D60; /* Terracotta / Ocre */
+      --color-accent-darker: #c9674c;
+      --color-border: #e9ecef;
       
-      --glass-bg: rgba(255, 255, 255, 0.1);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      --glass-blur: blur(12px);
-      
-      --glow-color: rgba(255, 126, 95, 0.5);
-      --radius: 16px;
-      --transition: all 0.35s ease-in-out;
-      --header-height: 70px;
-    }
+      --font-serif: 'Lora', serif;
+      --font-sans: 'Nunito', sans-serif;
 
-    [data-theme="dark"] {
-      --color-bg: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-      --glass-bg: rgba(0, 0, 0, 0.2);
-      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06), 0 5px 10px rgba(0, 0, 0, 0.04);
+      --radius: 8px;
+      --transition: all 0.3s ease-in-out;
+      --header-height: 75px;
     }
 
     /* === Reset & Base === */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e9ecef' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       color: var(--color-text);
-      background: var(--color-bg);
-      background-size: 200% 200%;
-      animation: gradient-animation 15s ease infinite;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-    @keyframes gradient-animation {
-      0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
-    }
-    ::selection { background: var(--color-accent); color: #fff; }
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
     /* === Header === */
-    .site-header { position: sticky; top: 0; width: 100%; z-index: 1000;
-      background: var(--glass-bg); backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); }
+    .site-header {
+      position: sticky; top: 0; width: 100%; z-index: 1000;
+      background: rgba(248, 245, 242, 0.85); /* Fond semi-transparent */
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+    }
     .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center;
       justify-content: space-between; padding: 0 1.5rem; height: var(--header-height); }
-    .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
-      color: var(--color-main); display: inline-flex; align-items: center; gap: 10px; }
-    .logo i { color: var(--color-accent); }
-    .nav-links { list-style: none; display: flex; gap: 1rem; }
-    .nav-links a { color: var(--color-text-light); font-weight: 700; padding: 8px 16px;
-      border-radius: 8px; transition: var(--transition); }
-    .nav-links a:hover, .nav-links a.active { color: var(--color-text); background: var(--glass-bg); }
-    .controls { display: flex; align-items: center; gap: 0.75rem; }
-    .lang-select select { border: none; background: transparent; color: white; font-weight: 700;
-      cursor: pointer; padding: 5px; }
-    .lang-select select option { background: #302b63; color: white; }
-    .theme-toggle-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
-    .hamburger { display: none; color: white; font-size: 1.5rem; background: none; border: none; cursor: pointer; z-index: 1001; }
-    .mobile-nav { display: none; /* Logic in JS */ }
+    .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600;
+      color: var(--color-main); }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--color-text-light); font-weight: 700; transition: color 0.2s;
+      position: relative; padding: 5px 0; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0;
+      height: 2px; background: var(--color-accent); transition: width 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-text); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-    /* === Section Home Spectaculaire === */
-    #home { display: flex; align-items: center; justify-content: center; min-height: 100vh;
-      padding: 5rem 1.5rem; position: relative; overflow: hidden; }
-    .hero-container { display: flex; align-items: center; gap: 4rem; text-align: left; max-width: 1200px; }
-    [dir="rtl"] .hero-container { text-align: right; flex-direction: row-reverse; }
-    .hero-text { flex: 1; }
-    .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 7vw, 5rem);
-      font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-    .typing-container { font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: 'Montserrat', sans-serif;
-      font-weight: 700; height: 80px; margin-bottom: 1.5rem; }
-    #typing-text { background: var(--gradient-accent); background-clip: text; -webkit-background-clip: text;
-      color: transparent; -webkit-text-fill-color: transparent; }
-    #typing-text::after { content: '|'; color: var(--color-accent); animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .hero-tagline { font-size: 1.2rem; color: var(--color-text-light); max-width: 500px; margin-bottom: 2.5rem; }
-    .cta-button { display: inline-block; background: var(--gradient-accent); color: #fff; padding: 1rem 3rem;
-      border-radius: 50px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
-      transition: var(--transition); letter-spacing: 1.5px; box-shadow: 0 10px 20px rgba(255, 126, 95, 0.3); }
-    .cta-button:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(255, 126, 95, 0.4); }
+    /* === Hero Section === */
+    #home { display: flex; align-items: center; min-height: 90vh; padding: 4rem 1.5rem; }
+    .hero-container { display: flex; align-items: center; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+    [dir="rtl"] .hero-container { flex-direction: row-reverse; }
+    .hero-text { flex: 1.2; text-align: left; }
+    [dir="rtl"] .hero-text { text-align: right; }
+    .hero-text h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--color-main); line-height: 1.2; margin-bottom: 1rem; }
+    .hero-tagline { font-size: 1.2rem; color: var(--color-text-light); max-width: 550px; margin-bottom: 2.5rem; }
+    .cta-button { display: inline-block; background: var(--color-accent); color: #fff; padding: 1rem 2.5rem;
+      border-radius: var(--radius); font-weight: 700; transition: var(--transition); box-shadow: var(--shadow-sm); }
+    .cta-button:hover { background: var(--color-accent-darker); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .hero-image-container { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-image-blob { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;
+      transform: scale(1.4); opacity: 0.1; color: var(--color-accent); }
+    .hero-image { width: 320px; height: 400px; border-radius: var(--radius);
+      object-fit: cover; box-shadow: var(--shadow-md); }
+
+    /* === Sections === */
+    .section-container { padding: 6rem 1.5rem; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--color-main); text-align: center; margin-bottom: 1rem; }
+    .section-subtitle { text-align: center; color: var(--color-text-light); max-width: 600px;
+      margin: 0 auto 4rem auto; font-size: 1.1rem; }
     
-    .hero-image-wrapper { position: relative; }
-    .hero-image { width: 350px; height: 350px; border-radius: 50%; padding: 10px; background: rgba(255,255,255,0.1); }
-    .hero-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-    .hero-image::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 50%;
-      padding: 2px; background: linear-gradient(45deg, var(--color-accent), var(--color-accent-2), #667eea, var(--color-accent));
-      background-size: 400% 400%; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
-      mask-composite: exclude; animation: rotate-border 4s linear infinite; }
-    @keyframes rotate-border { to { transform: rotate(360deg); } }
+    /* === Chiffres Clés (Stats) === */
+    .stats-bar { display: flex; justify-content: space-around; background: var(--color-card-bg);
+      padding: 3rem 2rem; border-radius: var(--radius); box-shadow: var(--shadow-md); max-width: 1000px; margin: 0 auto 6rem auto; }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-accent); }
+    .stat-label { font-weight: 600; color: var(--color-text-light); }
+    
+    /* === Mon Processus === */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .process-step { background: var(--color-card-bg); padding: 2.5rem 2rem;
+      border-radius: var(--radius); border: 1px solid var(--color-border);
+      text-align: center; position: relative; }
+    .process-step::before { content: attr(data-step); position: absolute; top: 1.5rem; right: 1.5rem;
+      font-size: 3rem; font-weight: 700; color: var(--color-border); z-index: 0; }
+    .process-icon { font-size: 2.5rem; color: var(--color-accent); margin-bottom: 1.5rem; position: relative; }
+    .process-step h3 { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.5rem; position: relative; }
+    .process-step p { color: var(--color-text-light); position: relative; }
 
-    /* === Sections & Cartes "Glassmorphism" === */
-    section:not(#home) { padding: 6rem 1.5rem; background: var(--glass-bg); backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur); border-radius: 30px; margin: 4rem auto;
-      border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); opacity: 0;
-      transform: translateY(50px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    section.visible { opacity: 1; transform: translateY(0); }
-    section h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem;
-      text-align: center; font-weight: 800; background: var(--gradient-accent); background-clip: text;
-      -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-    .card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius); padding: 2rem; transition: var(--transition);
-      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-    .card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); box-shadow: 0 0 25px 0 var(--glow-color); }
-    .service-card { text-align: center; }
-    .service-card i { font-size: 3.5rem; margin-bottom: 1.5rem; display: inline-block; background: var(--gradient-accent);
-      background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-      transition: transform 0.3s ease; }
-    .card:hover .service-card i { transform: scale(1.15) rotate(-8deg); }
-    .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .project-card { padding: 0; }
-    .project-card .card-image-wrapper { height: 220px; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; }
-    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .card:hover .project-card img { transform: scale(1.1); }
-    .project-card .card-content { padding: 1.5rem; }
+    /* === Cartes (Services, Portfolio) === */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .card { background: var(--color-card-bg); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid transparent; }
+    .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--color-border); }
+    .card-image-wrapper { height: 220px; }
+    .card img { width: 100%; height: 100%; object-fit: cover; }
+    .card-content { padding: 1.5rem; }
+    .card h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .card p { color: var(--color-text-light); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag { background: #e9ecef; color: var(--color-text-light); font-size: 0.75rem;
+      font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; }
     
     /* === Contact & Footer === */
-    .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: center; }
-    #contact-form input, #contact-form textarea { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
-      color: var(--color-text); border-radius: 10px; padding: 1rem; width: 100%; margin-bottom: 1rem; }
-    #contact-form input::placeholder, #contact-form textarea::placeholder { color: var(--color-text-light); }
-    #contact-form input:focus, #contact-form textarea:focus { background: rgba(0,0,0,0.3);
-      border-color: var(--color-accent); outline: none; box-shadow: 0 0 15px var(--glow-color); }
-    .site-footer { background: rgba(0,0,0,0.3); border-top: 1px solid var(--glass-border); padding: 4rem 1.5rem 2rem; }
-    .social-icons a { background: rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 50%;
-      display: inline-flex; align-items: center; justify-content: center; transition: var(--transition); }
-    .social-icons a:hover { background: var(--gradient-accent); transform: translateY(-5px); }
-    #scrollBtn { position: fixed; bottom: 20px; right: 20px; z-index: 500; background: var(--gradient-accent);
-      color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: none; }
-    
-    /* === Responsive === */
+    #contact { background: var(--color-card-bg); border-radius: var(--radius); max-width: 900px;
+      margin: 0 auto; padding: 4rem; box-shadow: var(--shadow-md); }
+    #contact-form { max-width: 600px; margin: 2rem auto 0; }
+    #contact-form label { font-weight: 700; margin-bottom: 0.5rem; display: block; }
+    #contact-form input, #contact-form textarea { width: 100%; padding: 1rem; border: 1px solid var(--color-border);
+      border-radius: var(--radius); font-family: var(--font-sans); font-size: 1rem; margin-bottom: 1.5rem; }
+    #contact-form input:focus, #contact-form textarea:focus { outline: none; border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(226, 125, 96, 0.2); }
+    .site-footer { text-align: center; padding: 4rem 1.5rem; margin-top: 4rem; color: var(--color-text-light); }
+    .social-icons { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+    .social-icons a { font-size: 1.5rem; color: var(--color-text-light); transition: color 0.2s; }
+    .social-icons a:hover { color: var(--color-accent); }
+
+    /* Responsive */
     @media(max-width: 992px) {
       .hero-container { flex-direction: column; text-align: center; }
       [dir="rtl"] .hero-container { flex-direction: column; }
-      .hero-image { width: 300px; height: 300px; margin-bottom: 2rem; }
       .hero-text { text-align: center; }
       [dir="rtl"] .hero-text { text-align: center; }
-      .contact-container { grid-template-columns: 1fr; }
-    }
-    @media(max-width: 768px){
-      section:not(#home) { margin: 2rem 1rem; padding: 4rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: block; }
+      .hero-image-container { display: none; } /* On cache l'image pour plus de clarté */
+      .stats-bar { flex-direction: column; gap: 2rem; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-container">
-      <a href="#home" class="logo"><i class="fas fa-drafting-compass"></i> <span>Issoufou A.C.</span></a>
+      <div class="logo">Issoufou A.C.</div>
       <nav class="nav-links" aria-label="Navigation principale">
-        <a href="#about" data-i18n="nav_about">À propos</a>
-        <a href="#services" data-i18n="nav_services">Services</a>
-        <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="#home" class="nav-item active" data-target="home" data-i18n="nav_home"></a>
+        <a href="#about" class="nav-item" data-target="about" data-i18n="nav_about"></a>
+        <a href="#services" class="nav-item" data-target="services" data-i18n="nav_services"></a>
+        <a href="#portfolio" class="nav-item" data-target="portfolio" data-i18n="nav_portfolio"></a>
+        <a href="#contact" class="nav-item" data-target="contact" data-i18n="nav_contact"></a>
       </nav>
       <div class="controls">
-        <div class="lang-select">
-          <label for="language-select" class="sr-only">Choisir la langue</label>
-          <select id="language-select"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
-        </div>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
+        <select id="language-select" aria-label="Choisir la langue"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
       </div>
     </div>
   </header>
   
-  <main id="main-content">
+  <main>
     <section id="home">
       <div class="hero-container">
         <div class="hero-text">
-          <h1 data-i18n="hero_name">Issoufou Abdou Chefou</h1>
-          <div class="typing-container"><span id="typing-text"></span></div>
+          <h1 data-i18n="hero_name"></h1>
           <p class="hero-tagline" data-i18n="hero_tagline"></p>
           <a href="#contact" class="cta-button" data-i18n="hero_cta"></a>
         </div>
-        <div class="hero-image-wrapper">
-          <div class="hero-image">
-            <!-- ======================================================================= -->
-            <!-- == REMPLACEZ CETTE URL PAR LE LIEN VERS VOTRE VRAIE PHOTO !          == -->
-            <!-- ======================================================================= -->
-            <img src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portrait de Issoufou Abdou Chefou, ingénieur structure">
-          </div>
+        <div class="hero-image-container">
+          <svg class="hero-image-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M48.6,-57.8C61,-44.5,67.8,-27.6,69.5,-10.1C71.2,7.4,67.8,25.5,57.8,40.1C47.8,54.7,31.2,65.9,13.3,70.2C-4.6,74.5,-23.8,71.9,-39.8,62.4C-55.8,52.9,-68.6,36.5,-73.2,18.2C-77.8,-0.2,-74.2,-20.4,-63.9,-34.8C-53.6,-49.2,-36.6,-57.8,-20.5,-62.1C-4.4,-66.4,10.8,-66.4,24.8,-64.8C38.8,-63.2,48.6,-57.8,48.6,-57.8Z" transform="translate(100 100)" /></svg>
+          <!-- ======================================================================= -->
+          <!-- == REMPLACEZ CETTE URL PAR LE LIEN VERS VOTRE VRAIE PHOTO !          == -->
+          <!-- ======================================================================= -->
+          <img src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portrait de Issoufou Abdou Chefou, ingénieur structure" class="hero-image">
         </div>
       </div>
     </section>
 
-    <section id="about"><h2 data-i18n="about_title"></h2><p data-i18n="about_text" style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--color-text-light);"></p></section>
-    <section id="services"><h2 data-i18n="services_title"></h2><div class="card-grid" id="services-list"></div></section>
-    <section id="portfolio"><h2 data-i18n="portfolio_title"></h2><div class="card-grid" id="projects-list"></div></section>
-    
-    <section id="contact">
-      <h2 data-i18n="contact_title"></h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3 data-i18n="contact_subtitle"></h3>
-          <p data-i18n="contact_text"></p>
-        </div>
-        <form id="contact-form">
-          <label for="name" class="sr-only" data-i18n="contact_form_name_label"></label>
-          <input type="text" id="name" name="name" required data-i18n-placeholder="contact_form_name_placeholder">
-          <label for="email" class="sr-only" data-i18n="contact_form_email_label"></label>
-          <input type="email" id="email" name="email" required data-i18n-placeholder="contact_form_email_placeholder">
-          <label for="message" class="sr-only" data-i18n="contact_form_message_label"></label>
-          <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact_form_message_placeholder"></textarea>
-          <button type="submit" class="cta-button" data-i18n="contact_form_submit"></button>
-          <div id="form-status" style="margin-top: 1rem;"></div>
-        </form>
+    <div class="section-container" id="about">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-number" data-target="50">0</div><div class="stat-label" data-i18n="stats_projects"></div></div>
+        <div class="stat-item"><div class="stat-number" data-target="15">0</div><div class="stat-label" data-i18n="stats_savings"></div></div>
+        <div class="stat-item"><div class="stat-number" data-target="100">0</div><div class="stat-label" data-i18n="stats_satisfaction"></div></div>
       </div>
-    </section>
+
+      <h2 class="section-title" data-i18n="process_title"></h2>
+      <p class="section-subtitle" data-i18n="process_subtitle"></p>
+      <div class="process-grid">
+        <div class="process-step" data-step="01"><i class="fas fa-comments process-icon"></i><h3 data-i18n="process_step1_title"></h3><p data-i18n="process_step1_text"></p></div>
+        <div class="process-step" data-step="02"><i class="fas fa-drafting-compass process-icon"></i><h3 data-i18n="process_step2_title"></h3><p data-i18n="process_step2_text"></p></div>
+        <div class="process-step" data-step="03"><i class="fas fa-file-invoice process-icon"></i><h3 data-i18n="process_step3_title"></h3><p data-i18n="process_step3_text"></p></div>
+        <div class="process-step" data-step="04"><i class="fas fa-check-circle process-icon"></i><h3 data-i18n="process_step4_title"></h3><p data-i18n="process_step4_text"></p></div>
+      </div>
+    </div>
+    
+    <div class="section-container" id="services">
+      <h2 class="section-title" data-i18n="services_title"></h2>
+      <p class="section-subtitle" data-i18n="services_subtitle"></p>
+      <div class="card-grid" id="services-list"></div>
+    </div>
+
+    <div class="section-container" id="portfolio">
+      <h2 class="section-title" data-i18n="portfolio_title"></h2>
+      <p class="section-subtitle" data-i18n="portfolio_subtitle"></p>
+      <div class="card-grid" id="projects-list"></div>
+    </div>
+
+    <div class="section-container">
+        <div id="contact">
+          <h2 class="section-title" data-i18n="contact_title"></h2>
+          <p class="section-subtitle" data-i18n="contact_subtitle"></p>
+          <form id="contact-form">
+            <label for="name" class="sr-only" data-i18n="contact_form_name_label"></label>
+            <input type="text" id="name" name="name" required data-i18n-placeholder="contact_form_name_placeholder">
+            <label for="email" class="sr-only" data-i18n="contact_form_email_label"></label>
+            <input type="email" id="email" name="email" required data-i18n-placeholder="contact_form_email_placeholder">
+            <label for="message" class="sr-only" data-i18n="contact_form_message_label"></label>
+            <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact_form_message_placeholder"></textarea>
+            <button type="submit" class="cta-button" data-i18n="contact_form_submit"></button>
+            <div id="form-status" style="margin-top: 1rem; text-align: center;"></div>
+          </form>
+        </div>
+    </div>
+
   </main>
 
   <footer class="site-footer">
-    <div class="footer-container" style="text-align:center; display:block;">
-      <div class="social-icons" style="justify-content:center; margin-bottom: 2rem;">
-        <a href="mailto:entreprise2rc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <p data-i18n="footer_text"></p>
+    <div class="social-icons">
+      <a href="mailto:entreprise2rc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
+    <p data-i18n="footer_text"></p>
   </footer>
-  
-  <button id="scrollBtn"><i class="fas fa-chevron-up"></i></button>
 
   <script>
     const translations = {
       fr: {
+        nav_home: "Accueil", nav_about: "Processus", nav_services: "Services", nav_portfolio: "Projets", nav_contact: "Contact",
         hero_name: "Issoufou Abdou Chefou",
-        hero_tagline: "Je transforme vos visions architecturales en réalités solides, sûres et optimisées.",
-        hero_cta: "Discutons de votre projet",
-        typewriter_words: ["Ingénieur Structure", "Expert BIM & Revit", "Calculateur Précis", "Créateur de Solutions"],
-        nav_about: "À propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
-        about_title: "Mon expertise à votre service",
-        about_text: "Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution d'une précision irréprochable, conformes aux normes internationales.",
+        hero_tagline: "Ingénieur structure passionné, je transforme vos visions architecturales en réalités solides, sûres et optimisées.",
+        hero_cta: "Démarrer un projet",
+        stats_projects: "Projets Réalisés", stats_savings: "% Économie Moyenne", stats_satisfaction: "% Satisfaction Client",
+        process_title: "Mon Processus",
+        process_subtitle: "Chaque projet suit un processus structuré pour garantir qualité, sécurité et efficacité, de la première esquisse à la livraison finale.",
+        process_step1_title: "Consultation & Analyse", process_step1_text: "Compréhension de vos besoins, analyse des contraintes et définition des objectifs du projet.",
+        process_step2_title: "Conception & Modélisation", process_step2_text: "Création de la structure sur Revit et calculs avancés avec Robot pour une solution optimisée.",
+        process_step3_title: "Plans d'Exécution", process_step3_text: "Production de plans de coffrage et de ferraillage clairs, détaillés et prêts pour le chantier.",
+        process_step4_title: "Suivi & Support", process_step4_text: "Assistance technique continue pour garantir une construction fidèle aux plans et aux normes.",
         services_title: "Mes Services",
-        services: [{icon:"fas fa-robot",title:"Analyse & Calcul Robot",desc:"Dimensionnement complet de vos structures pour garantir sécurité et optimisation des matériaux."},{icon:"fas fa-cubes",title:"Modélisation BIM sur Revit",desc:"Création de maquettes numériques 3D précises pour une coordination parfaite."},{icon:"fas fa-drafting-compass",title:"Plans d'Exécution",desc:"Élaboration de plans de coffrage et de ferraillage clairs, prêts pour le chantier."}],
-        portfolio_title: "Mes Réalisations",
-        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"Villa Moderne R+1"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"Calcul d'un Immeuble"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"Dossier d'Exécution"}],
-        contact_title: "Contactez-moi",
-        contact_subtitle: "Prêt à construire ?",
-        contact_text: "Discutons ensemble de vos besoins et trouvons la meilleure solution structurelle pour votre projet. Je suis à votre écoute.",
-        contact_form_name_placeholder: "Votre nom", contact_form_email_placeholder: "Votre email", contact_form_message_placeholder: "Décrivez votre projet...", contact_form_submit: "Envoyer",
-        footer_text: "© 2024 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion.",
+        services_subtitle: "Des solutions complètes pour assurer la pérennité et la performance de vos constructions.",
+        services: [{title:"Analyse & Calcul Robot",text:"Dimensionnement complet pour garantir sécurité et optimisation des matériaux."}, {title:"Modélisation BIM sur Revit",text:"Maquettes 3D précises pour une coordination parfaite entre tous les corps de métier."}, {title:"Plans d'Exécution",text:"Élaboration de plans de coffrage et ferraillage clairs et prêts pour le chantier."}],
+        portfolio_title: "Projets Récents",
+        portfolio_subtitle: "Découvrez une sélection de projets qui illustrent mon expertise technique et mon engagement pour la qualité.",
+        projects: [
+            {img:"https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?fit=crop&w=800&q=80",title:"Immeuble Résidentiel R+5",tags:["Revit", "Robot", "Analyse Sismique"]},
+            {img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=800&q=80",title:"Villa de Luxe Moderne",tags:["BIM", "Conception", "Optimisation"]},
+            {img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?fit=crop&w=800&q=80",title:"Rénovation d'un Bâtiment Commercial",tags:["Diagnostic", "Renforcement", "Robot"]}
+        ],
+        contact_title: "Discutons de votre projet.",
+        contact_subtitle: "Prêt à construire l'avenir ? Contactez-moi pour une solution sur mesure.",
+        contact_form_name_placeholder: "Votre nom", contact_form_email_placeholder: "Votre email", contact_form_message_placeholder: "Décrivez brièvement votre projet...", contact_form_submit: "Envoyer le message",
+        footer_text: "© 2024 Issoufou Abdou Chefou. Tous droits réservés.",
         contact_success: "Message envoyé avec succès !", contact_error: "Une erreur est survenue.",
       },
       en: {
+        nav_home: "Home", nav_about: "Process", nav_services: "Services", nav_portfolio: "Projects", nav_contact: "Contact",
         hero_name: "Issoufou Abdou Chefou",
-        hero_tagline: "I transform your architectural visions into solid, safe, and optimized realities.",
-        hero_cta: "Let's Discuss Your Project",
-        typewriter_words: ["Structural Engineer", "BIM & Revit Expert", "Precise Calculator", "Solution Creator"],
-        nav_about: "About", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
-        about_title: "My Expertise at Your Service",
-        about_text: "Hello, I am <strong>Issoufou Abdou Chefou</strong>, a civil engineer passionate about structural design. With a deep mastery of <strong>Robot Structural Analysis</strong> and <strong>Autodesk Revit</strong>, I produce flawlessly precise execution drawings, compliant with international standards.",
+        hero_tagline: "As a passionate structural engineer, I turn your architectural visions into solid, safe, and optimized realities.",
+        hero_cta: "Start a project",
+        stats_projects: "Projects Completed", stats_savings: "% Average Savings", stats_satisfaction: "% Client Satisfaction",
+        process_title: "My Process",
+        process_subtitle: "Every project follows a structured process to ensure quality, safety, and efficiency, from the first sketch to the final delivery.",
+        process_step1_title: "Consultation & Analysis", process_step1_text: "Understanding your needs, analyzing constraints, and defining the project's objectives.",
+        process_step2_title: "Design & Modeling", process_step2_text: "Creating the structure in Revit and advanced calculations with Robot for an optimized solution.",
+        process_step3_title: "Execution Drawings", process_step3_text: "Producing clear, detailed formwork and reinforcement plans, ready for the construction site.",
+        process_step4_title: "Follow-up & Support", process_step4_text: "Continuous technical assistance to ensure construction aligns with plans and standards.",
         services_title: "My Services",
-        services: [{icon:"fas fa-robot",title:"Robot Analysis & Design",desc:"Complete structural design to ensure safety and material optimization."}, {icon:"fas fa-cubes",title:"BIM Modeling in Revit",desc:"Creation of accurate 3D digital models for perfect coordination."}, {icon:"fas fa-drafting-compass",title:"Execution Drawings",desc:"Development of clear formwork and reinforcement plans, ready for construction."}],
-        portfolio_title: "My Achievements",
-        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"Modern G+1 Villa"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"Building Calculation"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"Execution Package"}],
-        contact_title: "Contact Me",
-        contact_subtitle: "Ready to build?",
-        contact_text: "Let's discuss your needs together and find the best structural solution for your project. I am here to listen.",
-        contact_form_name_placeholder: "Your Name", contact_form_email_placeholder: "Your Email", contact_form_message_placeholder: "Describe your project...", contact_form_submit: "Send",
-        footer_text: "© 2024 Issoufou Abdou Chefou – Structural Engineer. Crafted with passion.",
+        services_subtitle: "Comprehensive solutions to ensure the durability and performance of your buildings.",
+        services: [{title:"Robot Analysis & Design",text:"Complete sizing to guarantee safety and material optimization."}, {title:"BIM Modeling in Revit",text:"Accurate 3D models for perfect coordination between all trades."}, {title:"Execution Drawings",text:"Development of clear formwork and reinforcement plans, ready for the site."}],
+        portfolio_title: "Recent Projects",
+        portfolio_subtitle: "Discover a selection of projects that showcase my technical expertise and commitment to quality.",
+        projects: [
+            {img:"https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?fit=crop&w=800&q=80",title:"G+5 Residential Building",tags:["Revit", "Robot", "Seismic Analysis"]},
+            {img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=800&q=80",title:"Modern Luxury Villa",tags:["BIM", "Design", "Optimization"]},
+            {img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?fit=crop&w=800&q=80",title:"Commercial Building Renovation",tags:["Diagnosis", "Reinforcement", "Robot"]}
+        ],
+        contact_title: "Let's discuss your project.",
+        contact_subtitle: "Ready to build the future? Contact me for a custom solution.",
+        contact_form_name_placeholder: "Your Name", contact_form_email_placeholder: "Your Email", contact_form_message_placeholder: "Briefly describe your project...", contact_form_submit: "Send Message",
+        footer_text: "© 2024 Issoufou Abdou Chefou. All rights reserved.",
         contact_success: "Message sent successfully!", contact_error: "An error occurred.",
       },
       ar: {
+        nav_home: "الرئيسية", nav_about: "منهجيتي", nav_services: "الخدمات", nav_portfolio: "المشاريع", nav_contact: "اتصل",
         hero_name: "إيسوفو عبدو شيفو",
-        hero_tagline: "أحوّل رؤاكم المعمارية إلى واقع ملموس، آمن، ومُحسَّن التكاليف.",
-        hero_cta: "لنتناقش في مشروعك",
-        typewriter_words: ["مهندس إنشائي", "خبير BIM و Revit", "حسابات دقيقة", "مبتكر حلول"],
-        nav_about: "عني", nav_services: "خدماتي", nav_portfolio: "أعمالي", nav_contact: "اتصل",
-        about_title: "خبرتي في خدمتكم",
-        about_text: "مرحباً، أنا <strong>إيسوفو عبدو شيفو</strong>، مهندس مدني شغوف بالتصميم الإنشائي. بفضل إتقاني لبرنامجي <strong>Robot Structural Analysis</strong> و <strong>Autodesk Revit</strong>، أقوم بإعداد رسومات تنفيذية دقيقة ومتوافقة مع المعايير الدولية.",
+        hero_tagline: "مهندس إنشائي شغوف، أحول رؤاكم المعمارية إلى واقع ملموس، آمن، ومُحسَّن.",
+        hero_cta: "ابدأ مشروعًا",
+        stats_projects: "مشروعًا مكتملًا", stats_savings: "% متوسط التوفير", stats_satisfaction: "% رضا العملاء",
+        process_title: "منهجية عملي",
+        process_subtitle: "يتبع كل مشروع عملية منظمة لضمان الجودة والسلامة والكفاءة، من الرسم الأولي حتى التسليم النهائي.",
+        process_step1_title: "استشارة وتحليل", process_step1_text: "فهم احتياجاتك، تحليل المعوقات، وتحديد أهداف المشروع.",
+        process_step2_title: "تصميم ونمذجة", process_step2_text: "إنشاء الهيكل على Revit وحسابات متقدمة باستخدام Robot للوصول إلى حل أمثل.",
+        process_step3_title: "مخططات تنفيذية", process_step3_text: "إنتاج مخططات صب الخرسانة والتسليح بشكل واضح ومفصل وجاهز للموقع.",
+        process_step4_title: "متابعة ودعم", process_step4_text: "مساعدة فنية مستمرة لضمان توافق البناء مع المخططات والمعايير.",
         services_title: "خدماتي",
-        services: [{icon:"fas fa-robot",title:"تحليل وتصميم Robot",desc:"تصميم كامل لهياكلكم لضمان الأمان والاستخدام الأمثل للمواد."}, {icon:"fas fa-cubes",title:"نمذجة BIM على Revit",desc:"إنشاء نماذج رقمية ثلاثية الأبعاد دقيقة لتنسيق مثالي."}, {icon:"fas fa-drafting-compass",title:"مخططات تنفيذية",desc:"إعداد مخططات قوالب وتسليح واضحة وجاهزة للتنفيذ."}],
-        portfolio_title: "إنجازاتي",
-        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"فيلا حديثة ط+١"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"حسابات مبنى سكني"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"ملف تنفيذي"}],
-        contact_title: "تواصل معي",
-        contact_subtitle: "جاهز للبناء؟",
-        contact_text: "لنتناقش معًا في احتياجاتك ونجد أفضل حل إنشائي لمشروعك. أنا في الاستماع.",
-        contact_form_name_placeholder: "الاسم", contact_form_email_placeholder: "البريد الإلكتروني", contact_form_message_placeholder: "صف مشروعك...", contact_form_submit: "إرسال",
-        footer_text: "© 2024 إيسوفو عبدو شيفو – مهندس إنشائي. صُنع بشغف.",
-        contact_success: "تم إرسال الرسالة بنجاح!", contact_error: "حدث خطأ ما.",
+        services_subtitle: "حلول شاملة لضمان استدامة وأداء مبانيك.",
+        services: [{title:"تحليل وحساب Robot",text:"تصميم كامل لضمان السلامة والاستخدام الأمثل للمواد."}, {title:"نمذجة BIM على Revit",text:"نماذج ثلاثية الأبعاد دقيقة لتنسيق مثالي بين جميع الحرف."}, {title:"مخططات تنفيذية",text:"إعداد مخططات صب وتسليح واضحة وجاهزة للتنفيذ."}],
+        portfolio_title: "مشاريع حديثة",
+        portfolio_subtitle: "اكتشف مجموعة مختارة من المشاريع التي تبرز خبرتي الفنية والتزامي بالجودة.",
+        projects: [
+            {img:"https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?fit=crop&w=800&q=80",title:"مبنى سكني ط+5",tags:["Revit", "Robot", "تحليل زلزالي"]},
+            {img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=800&q=80",title:"فيلا فاخرة حديثة",tags:["BIM", "تصميم", "تحسين"]},
+            {img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?fit=crop&w=800&q=80",title:"ترميم مبنى تجاري",tags:["تشخيص", "تقوية", "Robot"]}
+        ],
+        contact_title: "لنتناقش في مشروعك.",
+        contact_subtitle: "هل أنت مستعد لبناء المستقبل؟ تواصل معي للحصول على حل مخصص.",
+        contact_form_name_placeholder: "الاسم", contact_form_email_placeholder: "البريد الإلكتروني", contact_form_message_placeholder: "صف مشروعك بإيجاز...", contact_form_submit: "إرسال الرسالة",
+        footer_text: "© 2024 إيسوفو عبدو شيفو. جميع الحقوق محفوظة.",
+        contact_success: "تم إرسال الرسالة بنجاح!", contact_error: "حدث خطأ.",
       }
     };
-
-    let typewriterInstance;
-
-    async function startTypewriter(elementId, words, options = {}) {
-      if (typewriterInstance) typewriterInstance.shouldStop = true;
-      const { wait = 2000, speed = 100, deleteSpeed = 50 } = options;
-      const el = document.getElementById(elementId);
-      if (!el) return;
-      
-      const instance = { shouldStop: false };
-      typewriterInstance = instance;
-      
-      let wordIndex = 0;
-      while (!instance.shouldStop) {
-        const word = words[wordIndex];
-        el.textContent = '';
-        for (let i = 0; i < word.length; i++) {
-          if (instance.shouldStop) return;
-          el.textContent += word[i];
-          await new Promise(res => setTimeout(res, speed));
-        }
-        await new Promise(res => setTimeout(res, wait));
-        if (instance.shouldStop) return;
-        for (let i = 0; i < word.length; i++) {
-          if (instance.shouldStop) return;
-          el.textContent = el.textContent.slice(0, -1);
-          await new Promise(res => setTimeout(res, deleteSpeed));
-        }
-        wordIndex = (wordIndex + 1) % words.length;
-      }
-    }
 
     function updateContent(lang) {
         document.documentElement.lang = lang;
@@ -359,14 +346,38 @@
         });
         
         const servicesContainer = document.getElementById('services-list');
-        if (servicesContainer && dict.services) servicesContainer.innerHTML = dict.services.map(s => `<div class="card service-card"><i class="${s.icon}"></i><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+        if (servicesContainer && dict.services) servicesContainer.innerHTML = dict.services.map(s => `<div class="card"><div class="card-content"><h3>${s.title}</h3><p>${s.text}</p></div></div>`).join('');
             
         const projectsContainer = document.getElementById('projects-list');
-        if (projectsContainer && dict.projects) projectsContainer.innerHTML = dict.projects.map(p => `<div class="card project-card"><div class="card-image-wrapper"><img src="${p.img}" alt="${p.title}" loading="lazy"></div><div class="card-content"><h3>${p.title}</h3></div></div>`).join('');
+        if (projectsContainer && dict.projects) projectsContainer.innerHTML = dict.projects.map(p => `
+            <div class="card">
+                <div class="card-image-wrapper"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>${p.title}</h3>
+                    <div class="project-tags">${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+                </div>
+            </div>`).join('');
+    }
 
-        if (dict.typewriter_words) {
-            startTypewriter('typing-text', dict.typewriter_words);
-        }
+    function animateStats() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const inc = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -374,38 +385,32 @@
         langSelect.addEventListener('change', (e) => updateContent(e.target.value));
         updateContent(langSelect.value);
 
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
+        const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('section:not(#home)').forEach(section => observer.observe(section));
-
-        // Form submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formStatus = document.getElementById('form-status');
-            const lang = langSelect.value;
-            const dict = translations[lang] || translations.fr;
-            // =======================================================================
-            // == IMPORTANT: Remplacez par votre endpoint Formspree réel !          ==
-            // =======================================================================
-            const endpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE';
-            
-            fetch(endpoint, {
-                method: 'POST', body: new FormData(this), headers: {'Accept': 'application/json'}
-            }).then(res => {
-                formStatus.style.color = res.ok ? '#76ff7b' : '#ff7676';
-                formStatus.textContent = res.ok ? dict.contact_success : dict.contact_error;
-                if (res.ok) contactForm.reset();
-            }).catch(() => {
-                formStatus.style.color = '#ff7676';
-                formStatus.textContent = dict.contact_error;
-            });
+        }, { threshold: 0.5 });
+        statsObserver.observe(document.querySelector('.stats-bar'));
+        
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const status = document.getElementById('form-status');
+          const lang = langSelect.value;
+          const dict = translations[lang] || translations.fr;
+          const endpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE'; // <-- METTRE VOTRE VRAI ENDPOINT ICI
+          fetch(endpoint, { method: 'POST', body: new FormData(this), headers: {'Accept': 'application/json'}})
+          .then(res => {
+            status.style.color = res.ok ? '#28a745' : '#dc3545';
+            status.textContent = res.ok ? dict.contact_success : dict.contact_error;
+            if (res.ok) form.reset();
+          }).catch(() => {
+            status.style.color = '#dc3545';
+            status.textContent = dict.contact_error;
+          });
         });
     });
   </script>
