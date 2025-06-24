@@ -5,540 +5,351 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
-  <!-- SEO Métadonnées -->
+  <!-- SEO & Metadonnées -->
   <meta name="description" content="Portfolio de Issoufou Abdou Chefou, ingénieur structure expert Robot & Revit. Découvrez mes services, réalisations et contactez-moi pour vos projets de construction.">
   <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, Robot Structural Analysis, Autodesk Revit, plans béton, modélisation BIM, renforcement béton, calcul structure">
   <meta name="author" content="Issoufou Abdou Chefou">
-  <!-- Open Graph -->
   <meta property="og:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
   <meta property="og:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="https://votre-site.com/">
   <meta property="og:image" content="https://votre-site.com/partage-image.jpg">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfolio – Issoufou Abdou Chefou | Ingénieur Structure">
-  <meta name="twitter:description" content="Ingénieur structure expert Robot & Revit. Plans détaillés professionnels, modélisation BIM, optimisation. Contactez-moi pour votre projet.">
-  <meta name="twitter:image" content="https://votre-site.com/partage-image.jpg">
-  <!-- Favicon (à remplacer) -->
-  <link rel="icon" href="https://votre-site.com/favicon.ico" type="image/x-icon">
 
-  <!-- Preconnect pour performances -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* === Variables Thème Clair & Sombre === */
+    /* === PALETTE VIVE ET MODERNE === */
     :root {
-      --color-bg: #f7f9fc;
-      --color-card-bg: #ffffff;
-      --color-text: #2c3e50;
-      --color-text-light: #5a6a7a;
-      --color-main: #0d3b66;
-      --color-accent: #faa307;
-      --color-accent-darker: #e69204;
-      --color-header-bg: rgba(255,255,255,0.85);
-      --color-footer-bg: #0a2e50;
-      --color-footer-text: #dde4eb;
-      --color-border-light: #e9eef2;
-      --shadow: 0 8px 24px rgba(0,0,0,0.05);
-      --shadow-strong: 0 12px 32px rgba(0,0,0,0.1);
-      --radius: 12px;
-      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --color-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --color-text: #ffffff;
+      --color-text-light: rgba(255, 255, 255, 0.8);
+      --color-main: #ffffff;
+      --color-accent: #ff7e5f;
+      --color-accent-2: #feb47b;
+      --gradient-accent: linear-gradient(45deg, var(--color-accent), var(--color-accent-2));
+      
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      --glass-blur: blur(12px);
+      
+      --glow-color: rgba(255, 126, 95, 0.5);
+      --radius: 16px;
+      --transition: all 0.35s ease-in-out;
       --header-height: 70px;
-      --progress-bg: var(--color-accent);
     }
+
     [data-theme="dark"] {
-      --color-bg: #121517;
-      --color-card-bg: #1e2225;
-      --color-text: #dde4eb;
-      --color-text-light: #b0b8c1;
-      --color-main: #58a6ff;
-      --color-header-bg: rgba(18,21,23,0.85);
-      --color-border-light: #2e333b;
-      --shadow: 0 8px 24px rgba(0,0,0,0.4);
-      --shadow-strong: 0 12px 32px rgba(0,0,0,0.6);
+      --color-bg: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      --glass-bg: rgba(0, 0, 0, 0.2);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
     /* === Reset & Base === */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Nunito', sans-serif; background: var(--color-bg); color: var(--color-text);
-      line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      transition: background 0.3s, color 0.3s;
+      font-family: 'Nunito', sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      background-size: 200% 200%;
+      animation: gradient-animation 15s ease infinite;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+    }
+    ::selection { background: var(--color-accent); color: #fff; }
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
-
-    #progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%;
-      background: var(--progress-bg); z-index: 2000; transition: width 0.1s ease-out; }
-    .skip-link { position: absolute; top: -50px; left: 0; background: var(--color-accent);
-      color: #fff; padding: 8px 16px; z-index: 10000; transition: top 0.3s; }
-    .skip-link:focus { top: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
     /* === Header === */
-    .site-header { position: sticky; top: 0; width: 100%; background: var(--color-header-bg);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000;
-      border-bottom: 1px solid var(--color-border-light); }
+    .site-header { position: sticky; top: 0; width: 100%; z-index: 1000;
+      background: var(--glass-bg); backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); }
     .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center;
       justify-content: space-between; padding: 0 1.5rem; height: var(--header-height); }
-    .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700;
+    .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
       color: var(--color-main); display: inline-flex; align-items: center; gap: 10px; }
     .logo i { color: var(--color-accent); }
-    .nav-links { list-style: none; display: flex; gap: 0.5rem; }
-    .nav-links a { color: var(--color-text-light); font-weight: 600; font-size: 0.95rem;
-      display: flex; align-items: center; gap: 6px; padding: 8px 14px;
-      border-radius: 8px; transition: var(--transition); position: relative; }
-    .nav-links a:hover, .nav-links a:focus { color: var(--color-main);
-      background-color: rgba(13, 59, 102, 0.05); outline: none; }
-    .nav-links a.active { color: var(--color-accent); font-weight: 700; }
-    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 50%;
-      transform: translateX(-50%); width: 6px; height: 6px;
-      background: var(--color-accent); border-radius: 50%; }
+    .nav-links { list-style: none; display: flex; gap: 1rem; }
+    .nav-links a { color: var(--color-text-light); font-weight: 700; padding: 8px 16px;
+      border-radius: 8px; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-text); background: var(--glass-bg); }
     .controls { display: flex; align-items: center; gap: 0.75rem; }
-    .lang-select select { border: none; background: transparent; font-size: 0.9rem;
-      cursor: pointer; color: var(--color-text); font-weight: 600;
-      padding: 7px 25px 7px 10px; border-radius: 8px; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235a6a7a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 8px center;
-      transition: background-color var(--transition); }
-    .lang-select select:hover { background-color: rgba(13, 59, 102, 0.05); }
-    .theme-toggle-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem;
-      color: var(--color-text-light); padding: 8px; border-radius: 50%;
-      transition: var(--transition); display: flex; align-items: center; justify-content: center; }
-    .theme-toggle-btn:hover, .theme-toggle-btn:focus { background: rgba(250,163,7,0.1);
-      color: var(--color-accent); outline: none; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      border: none; background: none; padding: 8px; }
-    .hamburger span { width: 25px; height: 3px; background: var(--color-text);
-      border-radius: 2px; transition: var(--transition); }
-    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-    .mobile-nav { display: none; position: fixed; top: var(--header-height); left: 0; right: 0; bottom: 0;
-      background: var(--color-bg); padding: 2rem 1.5rem; z-index: 999;
-      transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .mobile-nav.active { display: block; transform: translateX(0); }
-    .mobile-nav .nav-links { flex-direction: column; gap: 1.5rem; text-align: center; }
-    .mobile-nav .nav-links a { font-size: 1.2rem; justify-content: center; }
-    .mobile-nav .controls { margin-top:2rem; padding-top: 2rem;
-      border-top: 1px solid var(--color-border-light); justify-content: center; }
+    .lang-select select { border: none; background: transparent; color: white; font-weight: 700;
+      cursor: pointer; padding: 5px; }
+    .lang-select select option { background: #302b63; color: white; }
+    .theme-toggle-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+    .hamburger { display: none; color: white; font-size: 1.5rem; background: none; border: none; cursor: pointer; z-index: 1001; }
+    .mobile-nav { display: none; /* Logic in JS */ }
 
-    /* === Sections === */
-    main { flex: 1; }
-    section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    /* === Section Home Spectaculaire === */
+    #home { display: flex; align-items: center; justify-content: center; min-height: 100vh;
+      padding: 5rem 1.5rem; position: relative; overflow: hidden; }
+    .hero-container { display: flex; align-items: center; gap: 4rem; text-align: left; max-width: 1200px; }
+    [dir="rtl"] .hero-container { text-align: right; flex-direction: row-reverse; }
+    .hero-text { flex: 1; }
+    .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .typing-container { font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: 'Montserrat', sans-serif;
+      font-weight: 700; height: 80px; margin-bottom: 1.5rem; }
+    #typing-text { background: var(--gradient-accent); background-clip: text; -webkit-background-clip: text;
+      color: transparent; -webkit-text-fill-color: transparent; }
+    #typing-text::after { content: '|'; color: var(--color-accent); animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-tagline { font-size: 1.2rem; color: var(--color-text-light); max-width: 500px; margin-bottom: 2.5rem; }
+    .cta-button { display: inline-block; background: var(--gradient-accent); color: #fff; padding: 1rem 3rem;
+      border-radius: 50px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
+      transition: var(--transition); letter-spacing: 1.5px; box-shadow: 0 10px 20px rgba(255, 126, 95, 0.3); }
+    .cta-button:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(255, 126, 95, 0.4); }
     
-    /* === Section Home (Nouvelle version) === */
-    #home {
-      display: flex; align-items: center; min-height: 100vh;
-      padding: 5rem 1.5rem; background: var(--color-bg); overflow: hidden;
-    }
-    .hero-container {
-      display: flex; align-items: center; gap: 3rem;
-      width: 100%; max-width: 1200px; margin: 0 auto;
-    }
-    .hero-text { flex: 1 1 55%; text-align: left; }
-    [dir="rtl"] .hero-text { text-align: right; }
-    .hero-text h1 {
-      font-family: 'Montserrat', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 700; color: var(--color-main); line-height: 1.1; margin-bottom: 1.5rem;
-    }
-    .typing-container {
-      font-size: clamp(1.5rem, 3vw, 2.2rem); font-family: 'Montserrat', sans-serif;
-      font-weight: 600; height: 80px; margin-bottom: 1rem;
-    }
-    #typing-text {
-      background: linear-gradient(45deg, var(--color-accent), var(--color-main));
-      background-clip: text; -webkit-background-clip: text; color: transparent;
-      -webkit-text-fill-color: transparent; 
-    }
-    #typing-text::after {
-      content: '|'; color: var(--color-accent); animation: blink 1s step-end infinite;
-    }
-    @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
-    .hero-tagline {
-      font-size: 1.1rem; color: var(--color-text-light);
-      max-width: 500px; margin-bottom: 2.5rem; line-height: 1.7;
-    }
-    .hero-text .cta-button {
-      display: inline-block; background: var(--color-accent); color: #fff;
-      padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700;
-      font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px;
-      transition: var(--transition); box-shadow: 0 5px 15px rgba(250, 163, 7, 0.2);
-    }
-    .hero-text .cta-button:hover, .hero-text .cta-button:focus {
-      background: var(--color-accent-darker); transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(250, 163, 7, 0.3); outline: none;
-    }
-    .hero-image {
-      flex: 1 1 45%; display: flex; justify-content: center; align-items: center;
-    }
-    .hero-image img {
-      width: 100%; max-width: 450px; height: auto; border-radius: 20px;
-      object-fit: cover; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-      border: 5px solid var(--color-card-bg);
-    }
+    .hero-image-wrapper { position: relative; }
+    .hero-image { width: 350px; height: 350px; border-radius: 50%; padding: 10px; background: rgba(255,255,255,0.1); }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .hero-image::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 50%;
+      padding: 2px; background: linear-gradient(45deg, var(--color-accent), var(--color-accent-2), #667eea, var(--color-accent));
+      background-size: 400% 400%; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+      mask-composite: exclude; animation: rotate-border 4s linear infinite; }
+    @keyframes rotate-border { to { transform: rotate(360deg); } }
 
-    /* === Animation d'apparition === */
-    .revealable {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-    .reveal-active .revealable { opacity: 1; transform: translateY(0); }
-    #home .revealable { transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-    #home.reveal-active .revealable { opacity: 1; transform: translateY(0); }
-
-    /* Titres de section */
-    section h2 { font-family: 'Montserrat', sans-serif; color: var(--color-main);
-      font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 3rem; text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    section h2::after { content: ''; display: block; width: 60px; height: 4px;
-      background: var(--color-accent); border-radius: 2px; margin-top: 0.5rem; }
-
-    /* === Style des Cartes === */
+    /* === Sections & Cartes "Glassmorphism" === */
+    section:not(#home) { padding: 6rem 1.5rem; background: var(--glass-bg); backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur); border-radius: 30px; margin: 4rem auto;
+      border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); opacity: 0;
+      transform: translateY(50px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    section.visible { opacity: 1; transform: translateY(0); }
+    section h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem;
+      text-align: center; font-weight: 800; background: var(--gradient-accent); background-clip: text;
+      -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
     .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-    .card { background: var(--color-card-bg); border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      border: 1px solid var(--color-border-light); }
-    .card:hover, .card:focus-within { transform: translateY(-10px);
-      box-shadow: var(--shadow-strong); border-color: var(--color-accent); }
-    .service-card { padding: 2rem 1.5rem; text-align: center; }
-    .service-card i { font-size: 3rem; color: var(--color-accent); margin-bottom: 1.5rem;
-      display: inline-block; transition: transform 0.3s ease; }
-    .card:hover .service-card i { transform: scale(1.1) rotate(-5deg); }
-    .service-card h3 { margin-bottom: 0.75rem; font-size: 1.4rem; color: var(--color-main);
-      font-family: 'Montserrat', sans-serif; }
-    .service-card p { font-size: 1rem; color: var(--color-text-light); line-height: 1.6; }
-    .project-card { padding: 0; text-align: left; display: flex; flex-direction: column; }
-    [dir="rtl"] .project-card { text-align: right; }
-    .project-card .card-image-wrapper { overflow: hidden; border-top-left-radius: var(--radius);
-      border-top-right-radius: var(--radius); position: relative; height: 220px; }
+    .card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius); padding: 2rem; transition: var(--transition);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+    .card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); box-shadow: 0 0 25px 0 var(--glow-color); }
+    .service-card { text-align: center; }
+    .service-card i { font-size: 3.5rem; margin-bottom: 1.5rem; display: inline-block; background: var(--gradient-accent);
+      background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+      transition: transform 0.3s ease; }
+    .card:hover .service-card i { transform: scale(1.15) rotate(-8deg); }
+    .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .project-card { padding: 0; }
+    .project-card .card-image-wrapper { height: 220px; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; }
     .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .card:hover .project-card img { transform: scale(1.08); }
-    .project-card .card-content { padding: 1.5rem; flex-grow: 1; }
-    .project-card h3 { font-size: 1.25rem; font-family: 'Montserrat', sans-serif;
-      display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem; color: var(--color-main); }
-    .testimonial-card { background: var(--color-card-bg); padding: 2rem;
-      border-left: 5px solid var(--color-accent); }
-    [dir="rtl"] .testimonial-card { border-left: none; border-right: 5px solid var(--color-accent); }
-    .testimonial-card p { font-style: italic; font-size: 1.05rem; margin-bottom: 1.5rem;
-      color: var(--color-text-light); position: relative; }
-    .testimonial-card p::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
-      color: var(--color-accent); font-size: 1.5rem; position: absolute; top: -10px; left: -5px; opacity: 0.2; }
-    [dir="rtl"] .testimonial-card p::before { left: auto; right: -5px; content: '\f10e'; }
-    .testimonial-card h4 { text-align: right; font-weight: 700;
-      font-family: 'Montserrat', sans-serif; color: var(--color-main); }
-    [dir="rtl"] .testimonial-card h4 { text-align: left; }
-
-    /* === Formulaire Contact === */
-    #contact .contact-intro { text-align: center; max-width: 650px; margin: 0 auto 3rem auto; font-size: 1.1rem; }
+    .card:hover .project-card img { transform: scale(1.1); }
+    .project-card .card-content { padding: 1.5rem; }
+    
+    /* === Contact & Footer === */
     .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: center; }
-    .contact-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem;
-      color: var(--color-main); margin-bottom: 1rem; }
-    .contact-info p { margin-bottom: 2rem; color: var(--color-text-light); }
-    .contact-links a { display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem;
-      color: var(--color-text); font-weight: 600; transition: color 0.3s; }
-    .contact-links a:hover { color: var(--color-accent); }
-    .contact-links a i { color: var(--color-accent); font-size: 1.5rem; width: 25px; text-align: center; }
-    #contact-form { background: var(--color-card-bg); padding: 2.5rem; border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1px solid var(--color-border-light); }
-    #contact-form label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-main); }
-    #contact-form input, #contact-form textarea { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1.25rem;
-      border: 1px solid var(--color-border-light); border-radius: 8px; font-size: 1rem;
-      font-family: inherit; background: var(--color-bg); color: var(--color-text);
-      transition: border-color 0.3s, box-shadow 0.3s; }
-    #contact-form input:focus, #contact-form textarea:focus { border-color: var(--color-accent);
-      outline: none; box-shadow: 0 0 0 3px rgba(250, 163, 7, 0.2); }
-    #contact-form button { background: var(--color-accent); color: #fff; padding: 0.8rem 2rem;
-      border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer;
-      font-weight: 700; transition: var(--transition); }
-    #contact-form button:hover { background: var(--color-accent-darker); transform: translateY(-3px); }
-    #form-status { margin-top: 1rem; font-weight: 600; }
-
-    /* === Footer === */
-    .site-footer { background: var(--color-footer-bg); color: var(--color-footer-text);
-      padding: 5rem 1.5rem 2rem; margin-top: auto; }
-    .footer-container { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap;
-      gap: 3rem; justify-content: space-between; }
-    .footer-col { flex: 1 1 220px; min-width: 200px; }
-    .footer-col h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 1.5rem;
-      font-size: 1.2rem; color: #fff; position: relative; padding-bottom: 0.75rem; }
-    .footer-col h3::after { content: ''; position: absolute; bottom: 0; left: 0;
-      width: 40px; height: 3px; background: var(--color-accent); }
-    [dir="rtl"] .footer-col h3::after { left: auto; right: 0; }
-    .footer-col p, .footer-col li, .footer-col a { font-size: 0.95rem;
-      color: var(--color-footer-text); line-height: 1.8; opacity: 0.8; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.75rem; }
-    .footer-col ul a { transition: color 0.3s, padding-left 0.3s; }
-    [dir="rtl"] .footer-col ul a { transition: color 0.3s, padding-right 0.3s; }
-    .footer-col ul a:hover, .footer-col ul a:focus { color: var(--color-accent);
-      padding-left: 8px; opacity: 1; outline: none; }
-    [dir="rtl"] .footer-col ul a:hover, [dir="rtl"] .footer-col ul a:focus { padding-left: 0; padding-right: 8px; }
-    .social-icons { display: flex; gap: 1rem; margin-top: 1.5rem; }
-    .social-icons a { display: inline-flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1);
-      color: #fff; font-size: 1.1rem; transition: var(--transition); }
-    .social-icons a:hover, .social-icons a:focus { background: var(--color-accent);
-      color: var(--color-footer-bg); transform: translateY(-4px); outline: none; }
-    .footer-bottom { text-align: center; margin-top: 4rem; padding-top: 2rem;
-      font-size: 0.9rem; color: var(--color-footer-text); opacity: 0.6;
-      border-top: 1px solid rgba(255,255,255,0.1); }
-
-    /* === Bouton Retour en haut === */
-    #scrollBtn { position: fixed; bottom: -100px; right: 20px; background: var(--color-accent);
-      color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%;
-      font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: var(--shadow-strong);
-      transition: background 0.3s, transform 0.3s, bottom 0.4s ease-in-out; z-index: 500; }
-    [dir="rtl"] #scrollBtn { right: auto; left: 20px; }
-    #scrollBtn.visible { bottom: 20px; }
-    #scrollBtn:hover, #scrollBtn:focus { background: var(--color-accent-darker);
-      transform: scale(1.1); outline: none; }
-
+    #contact-form input, #contact-form textarea { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+      color: var(--color-text); border-radius: 10px; padding: 1rem; width: 100%; margin-bottom: 1rem; }
+    #contact-form input::placeholder, #contact-form textarea::placeholder { color: var(--color-text-light); }
+    #contact-form input:focus, #contact-form textarea:focus { background: rgba(0,0,0,0.3);
+      border-color: var(--color-accent); outline: none; box-shadow: 0 0 15px var(--glow-color); }
+    .site-footer { background: rgba(0,0,0,0.3); border-top: 1px solid var(--glass-border); padding: 4rem 1.5rem 2rem; }
+    .social-icons a { background: rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .social-icons a:hover { background: var(--gradient-accent); transform: translateY(-5px); }
+    #scrollBtn { position: fixed; bottom: 20px; right: 20px; z-index: 500; background: var(--gradient-accent);
+      color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: none; }
+    
     /* === Responsive === */
     @media(max-width: 992px) {
-      .hero-container { flex-direction: column-reverse; text-align: center; }
-      .hero-text, [dir="rtl"] .hero-text { text-align: center; }
-      .hero-tagline { margin-left: auto; margin-right: auto; }
-      .hero-image img { max-width: 350px; margin-bottom: 2rem; }
-      .typing-container { height: 120px; }
+      .hero-container { flex-direction: column; text-align: center; }
+      [dir="rtl"] .hero-container { flex-direction: column; }
+      .hero-image { width: 300px; height: 300px; margin-bottom: 2rem; }
+      .hero-text { text-align: center; }
+      [dir="rtl"] .hero-text { text-align: center; }
       .contact-container { grid-template-columns: 1fr; }
-      .contact-info { text-align: center; }
-      .contact-links { justify-content: center; }
-      .contact-links a { display: inline-flex; margin: 0 1rem 1rem; }
     }
     @media(max-width: 768px){
+      section:not(#home) { margin: 2rem 1rem; padding: 4rem 1.5rem; }
       .nav-links { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 4rem 1.5rem; }
+      .hamburger { display: block; }
     }
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
-  <a href="#main-content" class="skip-link" data-i18n="skip_link">Aller au contenu principal</a>
-
   <header class="site-header">
     <div class="header-container">
       <a href="#home" class="logo"><i class="fas fa-drafting-compass"></i> <span>Issoufou A.C.</span></a>
       <nav class="nav-links" aria-label="Navigation principale">
-        <a href="#home" data-target="home" class="nav-item active"><span data-i18n="nav_home">Accueil</span></a>
-        <a href="#about" data-target="about" class="nav-item"><span data-i18n="nav_about">À propos</span></a>
-        <a href="#services" data-target="services" class="nav-item"><span data-i18n="nav_services">Services</span></a>
-        <a href="#portfolio" data-target="portfolio" class="nav-item"><span data-i18n="nav_portfolio">Portfolio</span></a>
-        <a href="#testimonials" data-target="testimonials" class="nav-item"><span data-i18n="nav_testimonials">Témoignages</span></a>
-        <a href="#contact" data-target="contact" class="nav-item"><span data-i18n="nav_contact">Contact</span></a>
+        <a href="#about" data-i18n="nav_about">À propos</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="controls">
         <div class="lang-select">
           <label for="language-select" class="sr-only">Choisir la langue</label>
-          <select id="language-select" aria-label="Choix de la langue"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
+          <select id="language-select"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
         </div>
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Basculer mode clair/sombre"><i class="fas fa-moon"></i></button>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </header>
   
-  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <nav class="nav-links">
-        <a href="#home" data-target="home" class="nav-item active"><i class="fas fa-home"></i> <span data-i18n="nav_home">Accueil</span></a>
-        <a href="#about" data-target="about" class="nav-item"><i class="fas fa-user"></i> <span data-i18n="nav_about">À propos</span></a>
-        <a href="#services" data-target="services" class="nav-item"><i class="fas fa-cogs"></i> <span data-i18n="nav_services">Services</span></a>
-        <a href="#portfolio" data-target="portfolio" class="nav-item"><i class="fas fa-briefcase"></i> <span data-i18n="nav_portfolio">Portfolio</span></a>
-        <a href="#testimonials" data-target="testimonials" class="nav-item"><i class="fas fa-comments"></i> <span data-i18n="nav_testimonials">Témoignages</span></a>
-        <a href="#contact" data-target="contact" class="nav-item"><i class="fas fa-envelope"></i> <span data-i18n="nav_contact">Contact</span></a>
-      </nav>
-      <div class="controls">
-        <div class="lang-select">
-          <label for="language-select-mobile" class="sr-only">Choisir la langue</label>
-          <select id="language-select-mobile" aria-label="Choix de la langue"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
-        </div>
-        <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Basculer mode clair/sombre"><i class="fas fa-moon"></i></button>
-      </div>
-  </div>
-
   <main id="main-content">
     <section id="home">
       <div class="hero-container">
         <div class="hero-text">
-          <h1 class="revealable">Issoufou Abdou Chefou</h1>
-          <div class="typing-container revealable" style="transition-delay: 0.2s;"><span id="typing-text"></span></div>
-          <p class="hero-tagline revealable" style="transition-delay: 0.4s;" data-i18n="home_tagline">Je transforme vos visions architecturales en réalités solides, sûres et optimisées.</p>
-          <a href="#contact" class="cta-button revealable" style="transition-delay: 0.6s;" data-i18n="hero_cta">Discutons de votre projet</a>
+          <h1 data-i18n="hero_name">Issoufou Abdou Chefou</h1>
+          <div class="typing-container"><span id="typing-text"></span></div>
+          <p class="hero-tagline" data-i18n="hero_tagline"></p>
+          <a href="#contact" class="cta-button" data-i18n="hero_cta"></a>
         </div>
-        <div class="hero-image revealable" style="transition-delay: 0.3s;">
-          <!-- ======================================================================= -->
-          <!-- == REMPLACEZ CETTE URL PAR LE LIEN VERS VOTRE VRAIE PHOTO !          == -->
-          <!-- ======================================================================= -->
-          <img src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portrait de Issoufou Abdou Chefou, ingénieur structure">
+        <div class="hero-image-wrapper">
+          <div class="hero-image">
+            <!-- ======================================================================= -->
+            <!-- == REMPLACEZ CETTE URL PAR LE LIEN VERS VOTRE VRAIE PHOTO !          == -->
+            <!-- ======================================================================= -->
+            <img src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portrait de Issoufou Abdou Chefou, ingénieur structure">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="reveal-active">
-      <h2 class="revealable"><span data-i18n="about_title">Mon expertise à votre service</span></h2>
-      <p data-i18n="about_text" class="revealable" style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
-        Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Ma mission est de transformer vos visions architecturales en réalités solides, sûres et optimisées.<br><br>
-        Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution béton (coffrage et ferraillage) d'une précision irréprochable, entièrement conformes aux normes de construction internationales.
-      </p>
-    </section>
-
-    <section id="services" class="reveal-active"><h2 class="revealable"><span data-i18n="services_title">Mes Services</span></h2><div class="card-grid" id="services-list"></div></section>
-    <section id="portfolio" class="reveal-active"><h2 class="revealable"><span data-i18n="portfolio_title">Mes Réalisations</span></h2><div class="card-grid" id="projects-list"></div></section>
-    <section id="testimonials" class="reveal-active"><h2 class="revealable"><span data-i18n="testimonials_title">Ce qu'ils disent de mon travail</span></h2><div class="card-grid" id="testimonials-list"></div></section>
-
-    <section id="contact" class="reveal-active">
-      <h2 class="revealable"><span data-i18n="contact_title">Contactez-moi</span></h2>
-      <p class="contact-intro revealable" data-i18n="contact_prompt">Vous avez un projet de construction ? Besoin d'une étude structurelle ou de plans d'exécution ? Contactez-moi pour une solution sur mesure.</p>
-      <div class="contact-container revealable">
+    <section id="about"><h2 data-i18n="about_title"></h2><p data-i18n="about_text" style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--color-text-light);"></p></section>
+    <section id="services"><h2 data-i18n="services_title"></h2><div class="card-grid" id="services-list"></div></section>
+    <section id="portfolio"><h2 data-i18n="portfolio_title"></h2><div class="card-grid" id="projects-list"></div></section>
+    
+    <section id="contact">
+      <h2 data-i18n="contact_title"></h2>
+      <div class="contact-container">
         <div class="contact-info">
-          <h3 data-i18n="contact_info_title">Informations</h3>
-          <p data-i18n="contact_info_text">N'hésitez pas à me joindre via le formulaire ou directement par email ou téléphone. Je suis disponible pour discuter de vos besoins et vous proposer un devis adapté.</p>
-          <div class="contact-links">
-            <a href="mailto:entreprise2rc@gmail.com"><i class="fas fa-envelope"></i> <span>entreprise2rc@gmail.com</span></a>
-            <a href="https://wa.me/22796380877" target="_blank"><i class="fab fa-whatsapp"></i> <span>+227 96 38 08 77</span></a>
-            <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank"><i class="fab fa-linkedin-in"></i> <span>LinkedIn Profile</span></a>
-          </div>
+          <h3 data-i18n="contact_subtitle"></h3>
+          <p data-i18n="contact_text"></p>
         </div>
         <form id="contact-form">
-          <label for="name" data-i18n="contact_form_name_label">Votre nom</label>
+          <label for="name" class="sr-only" data-i18n="contact_form_name_label"></label>
           <input type="text" id="name" name="name" required data-i18n-placeholder="contact_form_name_placeholder">
-          <label for="email" data-i18n="contact_form_email_label">Votre email</label>
+          <label for="email" class="sr-only" data-i18n="contact_form_email_label"></label>
           <input type="email" id="email" name="email" required data-i18n-placeholder="contact_form_email_placeholder">
-          <label for="message" data-i18n="contact_form_message_label">Message</label>
+          <label for="message" class="sr-only" data-i18n="contact_form_message_label"></label>
           <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact_form_message_placeholder"></textarea>
-          <button type="submit" data-i18n="contact_form_submit">Envoyer le Message</button>
-          <div id="form-status" role="status" aria-live="polite"></div>
+          <button type="submit" class="cta-button" data-i18n="contact_form_submit"></button>
+          <div id="form-status" style="margin-top: 1rem;"></div>
         </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-col"><h3 data-i18n="footer_about_title">Issoufou A.C.</h3><p data-i18n="footer_about_text">Ingénieur civil expert en modélisation et calcul de structures. Je transforme vos projets en bâtiments sûrs et durables.</p></div>
-      <div class="footer-col"><h3 data-i18n="footer_quicklinks_title">Navigation</h3><ul><li><a href="#about" data-i18n="nav_about">À propos</a></li><li><a href="#services" data-i18n="nav_services">Services</a></li><li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li><li><a href="#contact" data-i18n="nav_contact">Contact</a></li></ul></div>
-      <div class="footer-col"><h3 data-i18n="footer_follow_title">Contact & Réseaux</h3><div class="social-icons"><a href="mailto:entreprise2rc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a><a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></div></div>
+    <div class="footer-container" style="text-align:center; display:block;">
+      <div class="social-icons" style="justify-content:center; margin-bottom: 2rem;">
+        <a href="mailto:entreprise2rc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/22796380877" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p data-i18n="footer_text"></p>
     </div>
-    <div class="footer-bottom"><p data-i18n="footer_text">© 2024 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion.</p></div>
   </footer>
-
-  <button id="scrollBtn" title="Retour en haut" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></button>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Issoufou Abdou Chefou","url":"https://votre-site.com/","sameAs":["https://www.linkedin.com/in/abdou-chefou-issoufou-99555684/"],"jobTitle":"Ingénieur Structure","description":"Ingénieur civil expert en modélisation BIM, calcul structure, Robot Structural Analysis, Autodesk Revit."}</script>
+  
+  <button id="scrollBtn"><i class="fas fa-chevron-up"></i></button>
 
   <script>
     const translations = {
       fr: {
-        skip_link: "Aller au contenu principal",
-        hero_cta: "Discutons de votre projet", home_tagline: "Je transforme vos visions architecturales en réalités solides, sûres et optimisées.",
+        hero_name: "Issoufou Abdou Chefou",
+        hero_tagline: "Je transforme vos visions architecturales en réalités solides, sûres et optimisées.",
+        hero_cta: "Discutons de votre projet",
         typewriter_words: ["Ingénieur Structure", "Expert BIM & Revit", "Calculateur Précis", "Créateur de Solutions"],
-        nav_home: "Accueil", nav_about: "À propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_testimonials: "Témoignages", nav_contact: "Contact",
+        nav_about: "À propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
         about_title: "Mon expertise à votre service",
-        about_text: "Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Ma mission est de transformer vos visions architecturales en réalités solides, sûres et optimisées.<br><br>Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution béton (coffrage et ferraillage) d'une précision irréprochable, entièrement conformes aux normes de construction internationales.",
+        about_text: "Bonjour, je suis <strong>Issoufou Abdou Chefou</strong>, un ingénieur civil passionné par la conception et le calcul de structures. Avec une maîtrise approfondie de <strong>Robot Structural Analysis</strong> et <strong>Autodesk Revit</strong>, je produis des plans d'exécution d'une précision irréprochable, conformes aux normes internationales.",
         services_title: "Mes Services",
-        services: [{icon:"fas fa-robot",title:"Analyse et Calcul Robot",desc:"Modélisation et dimensionnement complet de vos structures pour garantir sécurité et optimisation des matériaux."},{icon:"fas fa-cubes",title:"Modélisation BIM sur Revit",desc:"Création de maquettes numériques 3D précises, intégrant architecture et structure pour une coordination parfaite."},{icon:"fas fa-drafting-compass",title:"Plans d'Exécution Béton",desc:"Élaboration de plans de coffrage et de ferraillage clairs et détaillés, prêts pour le chantier."},{icon:"fas fa-lightbulb",title:"Optimisation de Structure",desc:"Analyse de vos plans existants pour réduire les coûts en matériaux (acier, béton) sans compromettre la sécurité."},{icon:"fas fa-house-user",title:"Conception de Villas",desc:"Conception complète de plans architecturaux et structurels pour des villas sur mesure, de la fondation à la toiture."},{icon:"fas fa-chalkboard-teacher",title:"Formation et Conseil",desc:"Accompagnement technique pour vos équipes et formation sur les logiciels Robot et Revit."}],
+        services: [{icon:"fas fa-robot",title:"Analyse & Calcul Robot",desc:"Dimensionnement complet de vos structures pour garantir sécurité et optimisation des matériaux."},{icon:"fas fa-cubes",title:"Modélisation BIM sur Revit",desc:"Création de maquettes numériques 3D précises pour une coordination parfaite."},{icon:"fas fa-drafting-compass",title:"Plans d'Exécution",desc:"Élaboration de plans de coffrage et de ferraillage clairs, prêts pour le chantier."}],
         portfolio_title: "Mes Réalisations",
-        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",icon:"fas fa-cube",title:"Villa Moderne R+1",desc:"Modélisation BIM complète sous Revit, incluant plans de coffrage et coupes détaillées."},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",icon:"fas fa-robot",title:"Calcul d'un Immeuble",desc:"Dimensionnement R+2 selon les Eurocodes avec Robot, optimisant la quantité d'acier de 15%."},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",icon:"fas fa-file-alt",title:"Dossier d'Exécution",desc:"Production d'un dossier complet de ferraillage avec nomenclatures précises, prêt pour le chantier."}],
-        testimonials_title: "Ce qu'ils disent de mon travail",
-        testimonials: [{text:"« Travail impeccable et livraison rapide ! Issoufou a une grande maîtrise technique. Je recommande à 100 %. »",author:"A. Traoré, Entrepreneur"},{text:"« Des plans clairs et faciles à exécuter. Un vrai plus sur chantier qui évite les erreurs et fait gagner du temps. »",author:"M. Diallo, Chef de chantier"},{text:"« Son expertise sur Robot/Revit a transformé notre projet. L'optimisation a réduit nos coûts en acier. Merci ! »",author:"S. Abdou, Promoteur immobilier"}],
-        contact_title: "Contactez-moi", contact_prompt: "Vous avez un projet de construction ? Besoin d'une étude structurelle ou de plans d'exécution ? Contactez-moi pour une solution sur mesure.",
-        contact_info_title: "Informations", contact_info_text: "N'hésitez pas à me joindre via le formulaire ou directement par email ou téléphone. Je suis disponible pour discuter de vos besoins et vous proposer un devis adapté.",
-        contact_form_name_label:"Votre nom", contact_form_name_placeholder:"Entrez votre nom", contact_form_email_label:"Votre email", contact_form_email_placeholder:"exemple@domaine.com", contact_form_message_label:"Message", contact_form_message_placeholder:"Décrivez votre projet ou question...", contact_form_submit:"Envoyer le Message",
-        contact_success:"Message envoyé avec succès ! Je reviens vers vous bientôt.", contact_error:"Une erreur est survenue, veuillez réessayer.", contact_error_connection:"Impossible d’envoyer le message. Vérifiez votre connexion.",
-        footer_about_title:"Issoufou A.C.", footer_about_text:"Ingénieur civil expert en modélisation et calcul de structures. Je transforme vos projets en bâtiments sûrs et durables.", footer_quicklinks_title:"Navigation", footer_follow_title:"Contact & Réseaux", footer_text:"© 2024 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion."
+        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"Villa Moderne R+1"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"Calcul d'un Immeuble"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"Dossier d'Exécution"}],
+        contact_title: "Contactez-moi",
+        contact_subtitle: "Prêt à construire ?",
+        contact_text: "Discutons ensemble de vos besoins et trouvons la meilleure solution structurelle pour votre projet. Je suis à votre écoute.",
+        contact_form_name_placeholder: "Votre nom", contact_form_email_placeholder: "Votre email", contact_form_message_placeholder: "Décrivez votre projet...", contact_form_submit: "Envoyer",
+        footer_text: "© 2024 Issoufou Abdou Chefou – Ingénieur Structure. Conçu avec passion.",
+        contact_success: "Message envoyé avec succès !", contact_error: "Une erreur est survenue.",
       },
       en: {
-        skip_link: "Skip to main content",
-        hero_cta: "Let's Discuss Your Project", home_tagline: "I transform your architectural visions into solid, safe, and optimized realities.",
+        hero_name: "Issoufou Abdou Chefou",
+        hero_tagline: "I transform your architectural visions into solid, safe, and optimized realities.",
+        hero_cta: "Let's Discuss Your Project",
         typewriter_words: ["Structural Engineer", "BIM & Revit Expert", "Precise Calculator", "Solution Creator"],
-        // ... (autres traductions EN)
+        nav_about: "About", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
+        about_title: "My Expertise at Your Service",
+        about_text: "Hello, I am <strong>Issoufou Abdou Chefou</strong>, a civil engineer passionate about structural design. With a deep mastery of <strong>Robot Structural Analysis</strong> and <strong>Autodesk Revit</strong>, I produce flawlessly precise execution drawings, compliant with international standards.",
+        services_title: "My Services",
+        services: [{icon:"fas fa-robot",title:"Robot Analysis & Design",desc:"Complete structural design to ensure safety and material optimization."}, {icon:"fas fa-cubes",title:"BIM Modeling in Revit",desc:"Creation of accurate 3D digital models for perfect coordination."}, {icon:"fas fa-drafting-compass",title:"Execution Drawings",desc:"Development of clear formwork and reinforcement plans, ready for construction."}],
+        portfolio_title: "My Achievements",
+        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"Modern G+1 Villa"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"Building Calculation"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"Execution Package"}],
+        contact_title: "Contact Me",
+        contact_subtitle: "Ready to build?",
+        contact_text: "Let's discuss your needs together and find the best structural solution for your project. I am here to listen.",
+        contact_form_name_placeholder: "Your Name", contact_form_email_placeholder: "Your Email", contact_form_message_placeholder: "Describe your project...", contact_form_submit: "Send",
+        footer_text: "© 2024 Issoufou Abdou Chefou – Structural Engineer. Crafted with passion.",
+        contact_success: "Message sent successfully!", contact_error: "An error occurred.",
       },
       ar: {
-        skip_link: "انتقل إلى المحتوى الرئيسي",
-        hero_cta: "لنتناقش في مشروعك", home_tagline: "أقوم بتحويل رؤاكم المعمارية إلى واقع ملموس، آمن، ومُحسَّن.",
+        hero_name: "إيسوفو عبدو شيفو",
+        hero_tagline: "أحوّل رؤاكم المعمارية إلى واقع ملموس، آمن، ومُحسَّن التكاليف.",
+        hero_cta: "لنتناقش في مشروعك",
         typewriter_words: ["مهندس إنشائي", "خبير BIM و Revit", "حسابات دقيقة", "مبتكر حلول"],
-        // ... (autres traductions AR)
+        nav_about: "عني", nav_services: "خدماتي", nav_portfolio: "أعمالي", nav_contact: "اتصل",
+        about_title: "خبرتي في خدمتكم",
+        about_text: "مرحباً، أنا <strong>إيسوفو عبدو شيفو</strong>، مهندس مدني شغوف بالتصميم الإنشائي. بفضل إتقاني لبرنامجي <strong>Robot Structural Analysis</strong> و <strong>Autodesk Revit</strong>، أقوم بإعداد رسومات تنفيذية دقيقة ومتوافقة مع المعايير الدولية.",
+        services_title: "خدماتي",
+        services: [{icon:"fas fa-robot",title:"تحليل وتصميم Robot",desc:"تصميم كامل لهياكلكم لضمان الأمان والاستخدام الأمثل للمواد."}, {icon:"fas fa-cubes",title:"نمذجة BIM على Revit",desc:"إنشاء نماذج رقمية ثلاثية الأبعاد دقيقة لتنسيق مثالي."}, {icon:"fas fa-drafting-compass",title:"مخططات تنفيذية",desc:"إعداد مخططات قوالب وتسليح واضحة وجاهزة للتنفيذ."}],
+        portfolio_title: "إنجازاتي",
+        projects: [{img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?fit=crop&w=600&q=80",title:"فيلا حديثة ط+١"},{img:"https://images.unsplash.com/photo-1582236168937-1229155cde29?fit=crop&w=600&q=80",title:"حسابات مبنى سكني"},{img:"https://images.unsplash.com/photo-1556909115-394a1a5b8988?fit=crop&w=600&q=80",title:"ملف تنفيذي"}],
+        contact_title: "تواصل معي",
+        contact_subtitle: "جاهز للبناء؟",
+        contact_text: "لنتناقش معًا في احتياجاتك ونجد أفضل حل إنشائي لمشروعك. أنا في الاستماع.",
+        contact_form_name_placeholder: "الاسم", contact_form_email_placeholder: "البريد الإلكتروني", contact_form_message_placeholder: "صف مشروعك...", contact_form_submit: "إرسال",
+        footer_text: "© 2024 إيسوفو عبدو شيفو – مهندس إنشائي. صُنع بشغف.",
+        contact_success: "تم إرسال الرسالة بنجاح!", contact_error: "حدث خطأ ما.",
       }
     };
 
-    async function typewriter(element, words, options = {}) {
-        const { wait = 2000, speed = 100, deleteSpeed = 50 } = options;
-        const el = document.getElementById(element);
-        if (!el) return;
-        
-        let wordIndex = 0;
-        while (true) {
-            const word = words[wordIndex];
-            for (let i = 0; i < word.length; i++) {
-                el.textContent += word[i];
-                await new Promise(res => setTimeout(res, speed));
-            }
-            await new Promise(res => setTimeout(res, wait));
-            for (let i = 0; i < word.length; i++) {
-                el.textContent = el.textContent.slice(0, -1);
-                await new Promise(res => setTimeout(res, deleteSpeed));
-            }
-            wordIndex = (wordIndex + 1) % words.length;
+    let typewriterInstance;
+
+    async function startTypewriter(elementId, words, options = {}) {
+      if (typewriterInstance) typewriterInstance.shouldStop = true;
+      const { wait = 2000, speed = 100, deleteSpeed = 50 } = options;
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      
+      const instance = { shouldStop: false };
+      typewriterInstance = instance;
+      
+      let wordIndex = 0;
+      while (!instance.shouldStop) {
+        const word = words[wordIndex];
+        el.textContent = '';
+        for (let i = 0; i < word.length; i++) {
+          if (instance.shouldStop) return;
+          el.textContent += word[i];
+          await new Promise(res => setTimeout(res, speed));
         }
+        await new Promise(res => setTimeout(res, wait));
+        if (instance.shouldStop) return;
+        for (let i = 0; i < word.length; i++) {
+          if (instance.shouldStop) return;
+          el.textContent = el.textContent.slice(0, -1);
+          await new Promise(res => setTimeout(res, deleteSpeed));
+        }
+        wordIndex = (wordIndex + 1) % words.length;
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      let generalObserver;
-      const allNavLinks = document.querySelectorAll('.nav-item');
-      const langSelect = document.getElementById('language-select');
-      const langSelectMobile = document.getElementById('language-select-mobile');
-      const scrollBtn = document.getElementById('scrollBtn');
-      const themeToggleBtn = document.getElementById('themeToggleBtn');
-      const themeToggleBtnMobile = document.getElementById('themeToggleBtnMobile');
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileNav = document.getElementById('mobileNav');
-      const progressBar = document.getElementById('progress-bar');
-      const body = document.body;
-
-      function setupIntersectionObservers() {
-        if (generalObserver) generalObserver.disconnect();
-        const options = { root: null, rootMargin: '0px', threshold: 0.1 };
-        generalObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal-active');
-              entry.target.querySelectorAll('.revealable').forEach((el, i) => {
-                el.style.transitionDelay = `${i * 0.1}s`;
-              });
-              generalObserver.unobserve(entry.target);
-            }
-          });
-        }, options);
-        document.querySelectorAll('section:not(#home)').forEach(el => generalObserver.observe(el));
-
-        const homeSection = document.getElementById('home');
-        const homeObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                homeSection.classList.add('reveal-active');
-                homeObserver.unobserve(homeSection);
-            }
-        }, { threshold: 0.1 });
-        homeObserver.observe(homeSection);
-      }
-
-      function updateContent(lang, isInitialLoad = false) {
+    function updateContent(lang) {
         document.documentElement.lang = lang;
         document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
         
-        const dict = (translations[lang] || translations.fr);
+        const dict = translations[lang] || translations.fr;
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
           const key = el.getAttribute('data-i18n'); if (dict[key]) el.innerHTML = dict[key];
@@ -548,109 +359,54 @@
         });
         
         const servicesContainer = document.getElementById('services-list');
-        if (servicesContainer && dict.services) servicesContainer.innerHTML = dict.services.map(s => `<div class="card service-card revealable"><i class="${s.icon}" aria-hidden="true"></i><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+        if (servicesContainer && dict.services) servicesContainer.innerHTML = dict.services.map(s => `<div class="card service-card"><i class="${s.icon}"></i><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+            
         const projectsContainer = document.getElementById('projects-list');
-        if (projectsContainer && dict.projects) projectsContainer.innerHTML = dict.projects.map(p => `<div class="card project-card revealable"><div class="card-image-wrapper"><img src="${p.img}" alt="${p.title}" loading="lazy"></div><div class="card-content"><h3><i class="${p.icon}"></i> ${p.title}</h3><p>${p.desc}</p></div></div>`).join('');
-        const testimonialsContainer = document.getElementById('testimonials-list');
-        if (testimonialsContainer && dict.testimonials) testimonialsContainer.innerHTML = dict.testimonials.map(t => `<div class="card testimonial-card revealable"><p>${t.text}</p><h4>– ${t.author}</h4></div>`).join('');
-        
-        if (!isInitialLoad) {
-          document.querySelectorAll('section').forEach(el => el.classList.remove('reveal-active'));
+        if (projectsContainer && dict.projects) projectsContainer.innerHTML = dict.projects.map(p => `<div class="card project-card"><div class="card-image-wrapper"><img src="${p.img}" alt="${p.title}" loading="lazy"></div><div class="card-content"><h3>${p.title}</h3></div></div>`).join('');
+
+        if (dict.typewriter_words) {
+            startTypewriter('typing-text', dict.typewriter_words);
         }
-        setTimeout(setupIntersectionObservers, 50);
-      }
-      
-      typewriter('typing-text', translations[langSelect.value].typewriter_words);
+    }
 
-      function onLanguageChange(e) {
-        const newLang = e.target.value;
-        langSelect.value = newLang; langSelectMobile.value = newLang;
-        updateContent(newLang);
-        // On ne relance le typewriter que si les mots existent pour la langue
-        if (translations[newLang] && translations[newLang].typewriter_words) {
-            // Pour l'instant on recharge la page pour relancer le typewriter simplement
-            window.location.reload(); 
-        }
-      }
-      langSelect.addEventListener('change', onLanguageChange);
-      langSelectMobile.addEventListener('change', onLanguageChange);
-      
-      function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        const iconClass = (theme === 'dark') ? 'fas fa-sun' : 'fas fa-moon';
-        themeToggleBtn.innerHTML = themeToggleBtnMobile.innerHTML = `<i class="${iconClass}"></i>`;
-        localStorage.setItem('preferred-theme', theme);
-      }
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-      }
-      [themeToggleBtn, themeToggleBtnMobile].forEach(btn => btn.addEventListener('click', toggleTheme));
-      
-      hamburgerBtn.addEventListener('click', () => {
-        const isExpanded = hamburgerBtn.classList.toggle('active');
-        hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-        mobileNav.classList.toggle('active');
-        mobileNav.setAttribute('aria-hidden', !isExpanded);
-        body.style.overflow = isExpanded ? 'hidden' : '';
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+        const langSelect = document.getElementById('language-select');
+        langSelect.addEventListener('change', (e) => updateContent(e.target.value));
+        updateContent(langSelect.value);
 
-      allNavLinks.forEach(link => { link.addEventListener('click', () => {
-        if (mobileNav.classList.contains('active')) {
-          hamburgerBtn.classList.remove('active'); mobileNav.classList.remove('active');
-          hamburgerBtn.setAttribute('aria-expanded', 'false'); mobileNav.setAttribute('aria-hidden', 'true');
-          body.style.overflow = '';
-        }});
-      });
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section:not(#home)').forEach(section => observer.observe(section));
 
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            allNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('data-target') === id));
-          }
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formStatus = document.getElementById('form-status');
+            const lang = langSelect.value;
+            const dict = translations[lang] || translations.fr;
+            // =======================================================================
+            // == IMPORTANT: Remplacez par votre endpoint Formspree réel !          ==
+            // =======================================================================
+            const endpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE';
+            
+            fetch(endpoint, {
+                method: 'POST', body: new FormData(this), headers: {'Accept': 'application/json'}
+            }).then(res => {
+                formStatus.style.color = res.ok ? '#76ff7b' : '#ff7676';
+                formStatus.textContent = res.ok ? dict.contact_success : dict.contact_error;
+                if (res.ok) contactForm.reset();
+            }).catch(() => {
+                formStatus.style.color = '#ff7676';
+                formStatus.textContent = dict.contact_error;
+            });
         });
-      }, { rootMargin: "-50% 0px -50% 0px" });
-      document.querySelectorAll('main section').forEach(section => sectionObserver.observe(section));
-      
-      function updateProgressBarAndScrollBtn() {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-        scrollBtn.classList.toggle('visible', scrollTop > 300);
-      }
-      window.addEventListener('scroll', updateProgressBarAndScrollBtn);
-      scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-      const contactForm = document.getElementById('contact-form');
-      const formStatus = document.getElementById('form-status');
-      contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const lang = langSelect.value;
-          const dict = (translations[lang] || translations.fr);
-          const formData = new FormData(contactForm);
-          // =======================================================================
-          // == IMPORTANT: Remplacez par votre endpoint Formspree réel !          ==
-          // =======================================================================
-          const endpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE';
-          
-          formStatus.textContent = '';
-          fetch(endpoint, { method: 'POST', body: formData, headers: {'Accept': 'application/json'}})
-          .then(res => {
-            formStatus.style.color = res.ok ? 'green' : 'red';
-            formStatus.textContent = res.ok ? dict.contact_success : dict.contact_error;
-            if (res.ok) contactForm.reset();
-          }).catch(() => {
-            formStatus.style.color = 'red';
-            formStatus.textContent = dict.contact_error_connection;
-          });
-      });
-
-      // Initialisation
-      const savedTheme = localStorage.getItem('preferred-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      applyTheme(savedTheme);
-      updateContent(langSelect.value, true);
-      updateProgressBarAndScrollBtn();
     });
   </script>
 </body>
