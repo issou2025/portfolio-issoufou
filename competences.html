@@ -6,7 +6,8 @@
   <title>Compétences – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
   <!-- SEO & Metadonnées -->
-  <meta name="description" content="Découvrez l'expertise technique de Issoufou Abdou Chefou en ingénierie structure, BIM, et analyse numérique.">
+  <meta name="description" content="Découvrez les compétences techniques de Issoufou Abdou Chefou en ingénierie structure, BIM, et analyse numérique.">
+  <meta name="keywords" content="compétences, ingénierie structure, BIM, Revit, Robot, analyse numérique, expertise technique">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,10 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="mobile-styles.css">
 
   <style>
     /* === PALETTE "AURORA NEON" === */
@@ -130,6 +135,44 @@
       border-color: rgba(0, 212, 255, 0.5);
     }
 
+    /* === Language Switcher === */
+    .language-switcher {
+      position: fixed;
+      top: 100px;
+      right: 2rem;
+      z-index: 1001;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: transparent;
+      color: var(--color-text-light);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-primary);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--color-text);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     /* === Header === */
     .site-header {
       position: fixed;
@@ -143,7 +186,7 @@
     }
 
     .header-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -211,11 +254,12 @@
     .page-title {
       font-family: var(--font-heading);
       font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 1rem;
+      font-weight: 700;
       background: var(--gradient-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 1rem;
     }
 
     .page-subtitle {
@@ -225,13 +269,14 @@
       margin: 0 auto;
     }
 
-    /* === Skills Grid === */
-    .skills-section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
+    /* === Section Container === */
+    .section-container {
+      max-width: 1400px;
       margin: 0 auto;
+      padding: 4rem 2rem;
     }
 
+    /* === Skills Grid === */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -242,7 +287,7 @@
     .skill-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-lg);
-      padding: 2.5rem;
+      padding: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: var(--transition);
       position: relative;
@@ -253,27 +298,27 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      left: 0;
+      right: 0;
+      height: 3px;
       background: var(--gradient-primary);
-      opacity: 0.1;
-      transition: left 0.3s ease;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
     }
 
     .skill-card:hover::before {
-      left: 0;
+      transform: scaleX(1);
     }
 
     .skill-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--color-accent-1);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-glow);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .skill-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -282,26 +327,75 @@
 
     .skill-title {
       font-family: var(--font-heading);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-accent-1);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
     }
 
     .skill-description {
       color: var(--color-text-light);
-      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-level {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-label {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      min-width: 80px;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: var(--gradient-primary);
+      border-radius: 4px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s ease;
+    }
+
+    .skill-percentage {
+      font-size: 0.8rem;
+      color: var(--color-accent-1);
+      font-weight: 600;
     }
 
     /* === Timeline === */
     .timeline-section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      margin-top: 4rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .timeline {
       position: relative;
-      padding: 2rem 0;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .timeline::before {
@@ -310,45 +404,38 @@
       left: 50%;
       top: 0;
       bottom: 0;
-      width: 4px;
-      background: linear-gradient(to bottom, var(--color-accent-1), var(--color-accent-2));
+      width: 2px;
+      background: var(--gradient-primary);
       transform: translateX(-50%);
     }
 
     .timeline-item {
       position: relative;
       margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(50px);
+      width: 45%;
     }
 
     .timeline-item:nth-child(odd) {
-      padding-right: 50%;
+      left: 0;
+      text-align: right;
+      padding-right: 3rem;
     }
 
     .timeline-item:nth-child(even) {
-      padding-left: 50%;
-    }
-
-    .timeline-content {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--radius);
-      padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      backdrop-filter: blur(10px);
+      left: 55%;
+      text-align: left;
+      padding-left: 3rem;
     }
 
     .timeline-item::before {
       content: '';
       position: absolute;
+      top: 0;
       width: 20px;
       height: 20px;
-      background: var(--color-bg);
-      border: 4px solid var(--color-accent-1);
+      background: var(--gradient-primary);
       border-radius: 50%;
-      top: 2rem;
-      z-index: 1;
+      border: 4px solid var(--color-bg);
     }
 
     .timeline-item:nth-child(odd)::before {
@@ -361,92 +448,62 @@
 
     .timeline-date {
       font-size: 0.9rem;
-      color: var(--color-accent-2);
+      color: var(--color-accent-1);
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
     .timeline-title {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--color-accent-1);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
     }
 
     .timeline-description {
       color: var(--color-text-light);
-      line-height: 1.7;
+      font-size: 0.95rem;
     }
 
-    /* === Progress Bars === */
-    .progress-section {
-      padding: 4rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .progress-item {
-      margin-bottom: 2rem;
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-
-    .progress-label {
-      font-weight: 600;
-      color: var(--color-accent-1);
-    }
-
-    .progress-percentage {
-      font-size: 0.9rem;
-      color: var(--color-text-light);
-    }
-
-    .progress-bar {
+    /* === Loading Animation === */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .progress-fill {
       height: 100%;
-      background: var(--gradient-primary);
-      border-radius: 4px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 1s ease;
+      background: var(--color-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: opacity 0.5s ease;
     }
 
-    /* === Responsive === */
-    @media (max-width: 768px) {
-      .timeline::before {
-        left: 20px;
-      }
-
-      .timeline-item {
-        padding-left: 60px !important;
-        padding-right: 0 !important;
-      }
-
-      .timeline-item::before {
-        left: 10px !important;
-        right: auto !important;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
+    .loading-logo {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">Issoufou A.C.</div>
+  </div>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
   <!-- Custom Cursor -->
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
@@ -460,229 +517,239 @@
     <div class="header-container">
       <div class="logo">Issoufou A.C.</div>
       <nav class="nav-links">
-        <a href="index.html">Accueil</a>
-        <a href="competences.html" class="active">Compétences</a>
-        <a href="projets.html">Projets</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-translate="nav.home">Accueil</a>
+        <a href="competences.html" class="active" data-translate="nav.skills">Compétences</a>
+        <a href="projets.html" data-translate="nav.projects">Projets</a>
+        <a href="services.html" data-translate="nav.services">Services</a>
+        <a href="contact.html" data-translate="nav.contact">Contact</a>
       </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Page Header -->
-  <section class="page-header">
-    <h1 class="page-title">Mon Arsenal Technique</h1>
-    <p class="page-subtitle">Une expertise pointue en ingénierie structure, BIM et analyse numérique pour des projets d'exception</p>
-  </section>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" data-translate="nav.home">Accueil</a>
+      <a href="competences.html" class="active" data-translate="nav.skills">Compétences</a>
+      <a href="projets.html" data-translate="nav.projects">Projets</a>
+      <a href="services.html" data-translate="nav.services">Services</a>
+      <a href="contact.html" data-translate="nav.contact">Contact</a>
+    </nav>
+  </div>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title" data-translate="skills.title">Mon Arsenal Technique</h1>
+      <p class="page-subtitle" data-translate="skills.subtitle">Une expertise pointue en ingénierie structure, BIM, et analyse numérique pour des projets d'exception</p>
+    </header>
 
-  <!-- Skills Grid -->
-  <section class="skills-section">
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fas fa-cube skill-icon"></i>
-        <h3 class="skill-title">Autodesk Revit (BIM)</h3>
-        <p class="skill-description">Modélisation 3D précise et coordination interdisciplinaire pour des projets sans faille. Maîtrise complète du workflow BIM.</p>
-      </div>
+    <!-- Skills Section -->
+    <section class="section-container">
+      <div class="skills-grid">
+        <!-- Revit -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3 class="skill-title">Autodesk Revit</h3>
+          <p class="skill-description">Modélisation 3D avancée, familles paramétriques, collaboration BIM et documentation technique complète.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="95"></div>
+            </div>
+            <span class="skill-percentage">95%</span>
+          </div>
+        </div>
 
-      <div class="skill-card">
-        <i class="fas fa-calculator skill-icon"></i>
-        <h3 class="skill-title">Robot Structural Analysis</h3>
-        <p class="skill-description">Calculs avancés et analyses sismiques/dynamiques pour une sécurité et une optimisation maximales des structures.</p>
-      </div>
+        <!-- Robot -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3 class="skill-title">Robot Structural Analysis</h3>
+          <p class="skill-description">Analyse structurelle avancée, calculs sismiques, optimisation des structures et vérifications normatives.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+            <span class="skill-percentage">90%</span>
+          </div>
+        </div>
 
-      <div class="skill-card">
-        <i class="fas fa-book skill-icon"></i>
-        <h3 class="skill-title">Normes Eurocodes</h3>
-        <p class="skill-description">Conception entièrement conforme aux standards européens, garantissant la qualité et la durabilité des ouvrages.</p>
-      </div>
+        <!-- BIM -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="skill-title">BIM & Collaboration</h3>
+          <p class="skill-description">Gestion de projets BIM, coordination multi-disciplinaire, workflows collaboratifs et standards internationaux.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="88"></div>
+            </div>
+            <span class="skill-percentage">88%</span>
+          </div>
+        </div>
 
-      <div class="skill-card">
-        <i class="fas fa-chart-line skill-icon"></i>
-        <h3 class="skill-title">Optimisation des Matériaux</h3>
-        <p class="skill-description">Réduction des coûts en acier et béton sans jamais compromettre l'intégrité structurelle et la sécurité.</p>
-      </div>
+        <!-- Analysis -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="skill-title">Analyse Numérique</h3>
+          <p class="skill-description">Éléments finis, analyse non-linéaire, dynamique des structures et modélisation avancée.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85"></div>
+            </div>
+            <span class="skill-percentage">85%</span>
+          </div>
+        </div>
 
-      <div class="skill-card">
-        <i class="fas fa-drafting-compass skill-icon"></i>
-        <h3 class="skill-title">Plans d'Exécution</h3>
-        <p class="skill-description">Dessins techniques clairs et précis pour le chantier, avec une attention particulière aux détails constructifs.</p>
-      </div>
+        <!-- Design -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <h3 class="skill-title">Conception Structurelle</h3>
+          <p class="skill-description">Conception de structures en béton, acier et bois, optimisation des sections et respect des normes.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="92"></div>
+            </div>
+            <span class="skill-percentage">92%</span>
+          </div>
+        </div>
 
-      <div class="skill-card">
-        <i class="fas fa-shield-alt skill-icon"></i>
-        <h3 class="skill-title">Diagnostic & Renforcement</h3>
-        <p class="skill-description">Évaluation et consolidation de structures existantes avec des solutions innovantes et durables.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="timeline-section">
-    <h2 class="page-title" style="text-align: center; margin-bottom: 3rem;">Parcours d'Excellence</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">2020 - Présent</div>
-          <h3 class="timeline-title">Ingénieur Structure Senior</h3>
-          <p class="timeline-description">Spécialisation en projets complexes et optimisation BIM. Développement d'expertise en structures mixtes et précontraintes.</p>
+        <!-- Management -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="skill-title">Gestion de Projet</h3>
+          <p class="skill-description">Coordination d'équipes, planning, budget, qualité et communication client efficace.</p>
+          <div class="skill-level">
+            <span class="skill-label">Expertise</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="80"></div>
+            </div>
+            <span class="skill-percentage">80%</span>
+          </div>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">2018 - 2020</div>
-          <h3 class="timeline-title">Ingénieur Structure</h3>
-          <p class="timeline-description">Maîtrise des outils BIM et développement de compétences en analyse numérique avancée avec Robot Structural Analysis.</p>
+      <!-- Timeline Section -->
+      <div class="timeline-section">
+        <h2 class="section-title" data-translate="skills.timeline.title">Parcours d'Excellence</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - Présent</div>
+            <h3 class="timeline-title">Ingénieur Structure Senior</h3>
+            <p class="timeline-description">Direction de projets complexes, optimisation de structures et formation d'équipes techniques.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2023</div>
+            <h3 class="timeline-title">Ingénieur Structure BIM</h3>
+            <p class="timeline-description">Spécialisation en modélisation BIM, coordination multi-disciplinaire et standards internationaux.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2018 - 2020</div>
+            <h3 class="timeline-title">Ingénieur Structure Junior</h3>
+            <p class="timeline-description">Premiers projets en conception structurelle, analyse numérique et documentation technique.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2014 - 2018</div>
+            <h3 class="timeline-title">Formation Ingénieur</h3>
+            <p class="timeline-description">Master en Génie Civil, spécialisation Structures et Matériaux, avec focus sur l'innovation.</p>
+          </div>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">2016 - 2018</div>
-          <h3 class="timeline-title">Début de Carrière</h3>
-          <p class="timeline-description">Formation intensive aux normes Eurocodes et aux logiciels de calcul structurel. Premiers projets en autonomie.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">2012 - 2016</div>
-          <h3 class="timeline-title">Formation Académique</h3>
-          <p class="timeline-description">Master en Génie Civil avec spécialisation en structures. Formation théorique solide et projets pratiques innovants.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Progress Bars -->
-  <section class="progress-section">
-    <h2 class="page-title" style="text-align: center; margin-bottom: 3rem;">Niveau d'Expertise</h2>
-    <div class="progress-item">
-      <div class="progress-header">
-        <span class="progress-label">Autodesk Revit</span>
-        <span class="progress-percentage">95%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" data-width="95"></div>
-      </div>
-    </div>
-
-    <div class="progress-item">
-      <div class="progress-header">
-        <span class="progress-label">Robot Structural Analysis</span>
-        <span class="progress-percentage">90%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" data-width="90"></div>
-      </div>
-    </div>
-
-    <div class="progress-item">
-      <div class="progress-header">
-        <span class="progress-label">Normes Eurocodes</span>
-        <span class="progress-percentage">98%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" data-width="98"></div>
-      </div>
-    </div>
-
-    <div class="progress-item">
-      <div class="progress-header">
-        <span class="progress-label">Optimisation Structurelle</span>
-        <span class="progress-percentage">92%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" data-width="92"></div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize GSAP
-      gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-      // Custom Cursor
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
-
-      window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        gsap.to(cursorDot, { x: clientX, y: clientY, duration: 0.1 });
-        gsap.to(cursorOutline, { x: clientX, y: clientY, duration: 0.3 });
-      });
-
-      // Header Scroll Effect
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('.site-header');
-        if (window.scrollY > 100) {
-          header.style.background = 'rgba(10, 10, 26, 0.95)';
-        } else {
-          header.style.background = 'rgba(10, 10, 26, 0.8)';
-        }
-      });
-
-      // Skills Cards Animation
-      gsap.from('.skill-card', {
-        y: 100,
+      // Loading Animation
+      gsap.to('#loadingScreen', {
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.skills-grid',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
+        duration: 1,
+        delay: 1,
+        onComplete: () => {
+          document.getElementById('loadingScreen').style.display = 'none';
+          initAnimations();
         }
       });
 
-      // Timeline Animation
-      gsap.from('.timeline-item', {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '.timeline',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
-      });
+      function initAnimations() {
+        // Page Header Animation
+        gsap.from('.page-title', {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          delay: 0.5
+        });
 
-      // Progress Bars Animation
-      const progressBars = document.querySelectorAll('.progress-fill');
-      progressBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        
-        ScrollTrigger.create({
-          trigger: bar,
-          start: 'top 80%',
-          onEnter: () => {
-            gsap.to(bar, {
-              scaleX: width / 100,
-              duration: 1.5,
-              ease: 'power2.out'
-            });
+        gsap.from('.page-subtitle', {
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          delay: 0.8
+        });
+
+        // Skills Cards Animation
+        gsap.from('.skill-card', {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          delay: 1,
+          stagger: 0.1
+        });
+
+        // Timeline Animation
+        gsap.from('.timeline-item', {
+          x: -100,
+          opacity: 0,
+          duration: 1,
+          delay: 1.5,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: '.timeline',
+            start: 'top 80%'
           }
         });
-      });
 
-      // Page Header Animation
-      gsap.from('.page-title', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        delay: 0.3
-      });
-
-      gsap.from('.page-subtitle', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        delay: 0.6
-      });
+        // Skill Progress Animation
+        setTimeout(() => {
+          const progressBars = document.querySelectorAll('.skill-progress');
+          progressBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            gsap.to(bar, {
+              scaleX: progress / 100,
+              duration: 1.5,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: bar,
+                start: 'top 80%'
+              }
+            });
+          });
+        }, 2000);
+      }
     });
   </script>
 </body>
