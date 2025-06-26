@@ -6,7 +6,7 @@
   <title>Services – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
   <!-- SEO & Metadonnées -->
-  <meta name="description" content="Services d'ingénierie structure sur mesure : BIM, calculs, plans d'exécution, diagnostic et renforcement.">
+  <meta name="description" content="Services d'ingénierie structure sur mesure : BIM, calculs, plans d'exécution et diagnostic.">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,21 +226,19 @@
     }
 
     /* === Services Carousel === */
-    .carousel-section {
+    .services-section {
       padding: 4rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .carousel-container {
+    .services-carousel-wrapper {
       position: relative;
       overflow: hidden;
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
+      margin: 3rem 0;
     }
 
-    .carousel-track {
+    .services-carousel {
       display: flex;
       gap: 2rem;
       transition: transform 0.5s ease;
@@ -286,6 +284,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      display: block;
     }
 
     .service-title {
@@ -298,7 +297,7 @@
     .service-description {
       color: var(--color-text-light);
       margin-bottom: 1.5rem;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     .service-features {
@@ -323,7 +322,7 @@
 
     .service-price {
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-accent-1);
       margin-bottom: 1.5rem;
     }
@@ -341,11 +340,11 @@
 
     .service-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
     }
 
-    /* === Carousel Controls === */
-    .carousel-controls {
+    /* === Carousel Navigation === */
+    .carousel-nav {
       display: flex;
       justify-content: center;
       gap: 1rem;
@@ -358,7 +357,7 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--color-text);
+      color: var(--color-text-light);
       cursor: pointer;
       transition: var(--transition);
       display: flex;
@@ -366,21 +365,17 @@
       justify-content: center;
     }
 
-    .carousel-btn:hover {
+    .carousel-btn:hover,
+    .carousel-btn.active {
       background: var(--gradient-primary);
+      color: #fff;
       border-color: transparent;
-      transform: scale(1.1);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
     }
 
     /* === Process Section === */
     .process-section {
       padding: 4rem 2rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -397,7 +392,14 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
       position: relative;
+    }
+
+    .process-step:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent-1);
+      box-shadow: var(--shadow-glow);
     }
 
     .process-number {
@@ -410,8 +412,8 @@
       justify-content: center;
       font-size: 1.5rem;
       font-weight: 700;
-      margin: 0 auto 1.5rem;
       color: #fff;
+      margin: 0 auto 1.5rem;
     }
 
     .process-title {
@@ -423,22 +425,78 @@
 
     .process-description {
       color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* === FAQ Section === */
+    .faq-section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    .faq-question {
+      padding: 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--color-accent-1);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+    }
+
+    .faq-answer p {
+      padding-bottom: 1.5rem;
+      color: var(--color-text-light);
       line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s;
+      color: var(--color-accent-2);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
     }
 
     /* === Responsive === */
     @media (max-width: 768px) {
-      .carousel-track {
-        flex-direction: column;
+      .services-carousel {
+        gap: 1rem;
       }
 
       .service-card {
-        flex: none;
-        width: 100%;
+        flex: 0 0 300px;
+        padding: 2rem;
       }
 
       .process-grid {
         grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
       }
     }
   </style>
@@ -469,92 +527,89 @@
   <!-- Page Header -->
   <section class="page-header">
     <h1 class="page-title">Services sur Mesure</h1>
-    <p class="page-subtitle">Des solutions d'ingénierie structure innovantes et personnalisées pour chaque projet</p>
+    <p class="page-subtitle">Des solutions d'ingénierie structure complètes et personnalisées pour vos projets</p>
   </section>
 
   <!-- Services Carousel -->
-  <section class="carousel-section">
-    <div class="carousel-container">
-      <div class="carousel-track" id="carouselTrack">
+  <section class="services-section">
+    <div class="services-carousel-wrapper">
+      <div class="services-carousel" id="servicesCarousel">
+        <!-- Service 1 -->
         <div class="service-card">
           <i class="fas fa-cubes service-icon"></i>
           <h3 class="service-title">Modélisation BIM</h3>
-          <p class="service-description">Maquettes numériques intelligentes pour une vision globale et une coordination parfaite entre tous les intervenants.</p>
+          <p class="service-description">
+            Maquettes numériques intelligentes pour une vision globale et une coordination interdisciplinaire parfaite.
+          </p>
           <ul class="service-features">
             <li>Modélisation 3D précise</li>
             <li>Coordination interdisciplinaire</li>
             <li>Détection des conflits</li>
-            <li>Optimisation des coûts</li>
+            <li>Maquette numérique centralisée</li>
           </ul>
           <div class="service-price">À partir de 2,500€</div>
           <a href="contact.html" class="service-cta">Demander un devis</a>
         </div>
 
+        <!-- Service 2 -->
         <div class="service-card">
           <i class="fas fa-calculator service-icon"></i>
           <h3 class="service-title">Calcul de Structure</h3>
-          <p class="service-description">Analyses poussées pour des bâtiments performants avec vérification complète selon les Eurocodes.</p>
+          <p class="service-description">
+            Analyses poussées et calculs avancés pour des bâtiments performants et optimisés.
+          </p>
           <ul class="service-features">
-            <li>Calculs selon Eurocodes</li>
-            <li>Analyse sismique</li>
-            <li>Vérification de sécurité</li>
-            <li>Optimisation des sections</li>
-          </ul>
-          <div class="service-price">À partir de 1,800€</div>
-          <a href="contact.html" class="service-cta">Demander un devis</a>
-        </div>
-
-        <div class="service-card">
-          <i class="fas fa-drafting-compass service-icon"></i>
-          <h3 class="service-title">Plans d'Exécution</h3>
-          <p class="service-description">Dessins techniques clairs et précis pour le chantier avec tous les détails constructifs nécessaires.</p>
-          <ul class="service-features">
-            <li>Plans détaillés</li>
-            <li>Nomenclatures complètes</li>
-            <li>Détails constructifs</li>
-            <li>Métrage précis</li>
-          </ul>
-          <div class="service-price">À partir de 1,200€</div>
-          <a href="contact.html" class="service-cta">Demander un devis</a>
-        </div>
-
-        <div class="service-card">
-          <i class="fas fa-lightbulb service-icon"></i>
-          <h3 class="service-title">Diagnostic & Renforcement</h3>
-          <p class="service-description">Évaluation et consolidation de structures existantes avec des solutions innovantes et durables.</p>
-          <ul class="service-features">
-            <li>Diagnostic structurel</li>
-            <li>Solutions de renforcement</li>
-            <li>Vérification de capacité</li>
-            <li>Suivi de travaux</li>
+            <li>Calculs conformes Eurocodes</li>
+            <li>Analyses sismiques/dynamiques</li>
+            <li>Optimisation des matériaux</li>
+            <li>Rapports techniques détaillés</li>
           </ul>
           <div class="service-price">À partir de 3,000€</div>
           <a href="contact.html" class="service-cta">Demander un devis</a>
         </div>
 
+        <!-- Service 3 -->
         <div class="service-card">
-          <i class="fas fa-chart-line service-icon"></i>
-          <h3 class="service-title">Optimisation Structurelle</h3>
-          <p class="service-description">Réduction des coûts en acier et béton sans jamais compromettre l'intégrité structurelle.</p>
+          <i class="fas fa-drafting-compass service-icon"></i>
+          <h3 class="service-title">Plans d'Exécution</h3>
+          <p class="service-description">
+            Dessins techniques clairs et précis pour le chantier avec tous les détails constructifs.
+          </p>
           <ul class="service-features">
-            <li>Analyse de sensibilité</li>
-            <li>Optimisation des matériaux</li>
-            <li>Réduction des coûts</li>
-            <li>Maintenance de la sécurité</li>
+            <li>Plans d'exécution détaillés</li>
+            <li>Nomenclatures complètes</li>
+            <li>Détails constructifs</li>
+            <li>Plans de ferraillage</li>
           </ul>
-          <div class="service-price">À partir de 2,000€</div>
+          <div class="service-price">À partir de 1,800€</div>
+          <a href="contact.html" class="service-cta">Demander un devis</a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <i class="fas fa-lightbulb service-icon"></i>
+          <h3 class="service-title">Diagnostic & Renforcement</h3>
+          <p class="service-description">
+            Évaluation et consolidation de structures existantes avec des solutions innovantes.
+          </p>
+          <ul class="service-features">
+            <li>Diagnostic structurel complet</li>
+            <li>Solutions de renforcement</li>
+            <li>Évaluation sismique</li>
+            <li>Suivi de travaux</li>
+          </ul>
+          <div class="service-price">À partir de 4,000€</div>
           <a href="contact.html" class="service-cta">Demander un devis</a>
         </div>
       </div>
+    </div>
 
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="prevBtn">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn" id="nextBtn">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
+    <!-- Carousel Navigation -->
+    <div class="carousel-nav">
+      <button class="carousel-btn active" data-slide="0">1</button>
+      <button class="carousel-btn" data-slide="1">2</button>
+      <button class="carousel-btn" data-slide="2">3</button>
+      <button class="carousel-btn" data-slide="3">4</button>
     </div>
   </section>
 
@@ -565,25 +620,75 @@
       <div class="process-step">
         <div class="process-number">1</div>
         <h3 class="process-title">Consultation</h3>
-        <p class="process-description">Analyse de vos besoins et définition des objectifs du projet en collaboration étroite.</p>
+        <p class="process-description">
+          Analyse de vos besoins et définition des objectifs du projet en collaboration étroite.
+        </p>
       </div>
 
       <div class="process-step">
         <div class="process-number">2</div>
-        <h3 class="process-title">Étude Préliminaire</h3>
-        <p class="process-description">Développement des concepts structurels et validation des hypothèses de calcul.</p>
+        <h3 class="process-title">Conception</h3>
+        <p class="process-description">
+          Développement de la solution technique optimale avec modélisation BIM et calculs.
+        </p>
       </div>
 
       <div class="process-step">
         <div class="process-number">3</div>
-        <h3 class="process-title">Modélisation & Calculs</h3>
-        <p class="process-description">Création du modèle BIM et réalisation des calculs structurels détaillés.</p>
+        <h3 class="process-title">Validation</h3>
+        <p class="process-description">
+          Présentation des résultats et ajustements selon vos retours et exigences.
+        </p>
       </div>
 
       <div class="process-step">
         <div class="process-number">4</div>
         <h3 class="process-title">Livraison</h3>
-        <p class="process-description">Remise des plans d'exécution et accompagnement pendant la phase de construction.</p>
+        <p class="process-description">
+          Remise des documents finaux et support technique pour la réalisation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="page-title" style="text-align: center; margin-bottom: 3rem;">Questions Fréquentes</h2>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <div class="faq-question">
+          Quels sont les délais de livraison ? <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Les délais varient selon la complexité du projet. Un projet standard prend 2-4 semaines, tandis qu'un projet complexe peut nécessiter 6-8 semaines. Je m'engage à respecter les échéances convenues.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Travaillez-vous à distance ? <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, je peux travailler entièrement à distance grâce aux outils BIM et de collaboration en ligne. Les réunions se font par visioconférence et les fichiers sont partagés via des plateformes sécurisées.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Proposez-vous des garanties ? <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Absolument. Tous mes projets bénéficient d'une garantie de conformité aux normes en vigueur et d'un support technique post-livraison. Je reste disponible pour toute question ou ajustement nécessaire.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Comment se déroule la facturation ? <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Je propose un système de facturation transparent : 30% à la commande, 40% à mi-parcours, et 30% à la livraison. Des devis détaillés sont fournis avant tout engagement.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -613,51 +718,49 @@
         }
       });
 
-      // Carousel Functionality
-      const carouselTrack = document.getElementById('carouselTrack');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const cards = document.querySelectorAll('.service-card');
-      
-      let currentIndex = 0;
-      const cardWidth = 350 + 32; // card width + gap
+      // Services Carousel
+      const carousel = document.getElementById('servicesCarousel');
+      const carouselBtns = document.querySelectorAll('.carousel-btn');
+      let currentSlide = 0;
+      const slideWidth = 370; // card width + gap
 
       function updateCarousel() {
-        const translateX = -currentIndex * cardWidth;
-        gsap.to(carouselTrack, {
-          x: translateX,
+        gsap.to(carousel, {
+          x: -currentSlide * slideWidth,
           duration: 0.5,
           ease: 'power2.out'
         });
 
-        // Update button states
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= cards.length - 3; // Show 3 cards at a time
+        // Update active button
+        carouselBtns.forEach((btn, index) => {
+          btn.classList.toggle('active', index === currentSlide);
+        });
       }
 
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
+      carouselBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          currentSlide = index;
           updateCarousel();
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - 3) {
-          currentIndex++;
-          updateCarousel();
-        }
+        });
       });
 
       // Auto-play carousel
       setInterval(() => {
-        if (currentIndex < cards.length - 3) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
+        currentSlide = (currentSlide + 1) % carouselBtns.length;
         updateCarousel();
       }, 5000);
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          const wasActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!wasActive) {
+            item.classList.add('active');
+          }
+        });
+      });
 
       // Service Cards Animation
       gsap.from('.service-card', {
@@ -666,7 +769,7 @@
         duration: 0.8,
         stagger: 0.2,
         scrollTrigger: {
-          trigger: '.carousel-container',
+          trigger: '.services-carousel-wrapper',
           start: 'top 80%',
           end: 'bottom 20%',
           toggleActions: 'play none none reverse'
@@ -675,12 +778,26 @@
 
       // Process Steps Animation
       gsap.from('.process-step', {
-        y: 50,
+        scale: 0,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         stagger: 0.2,
         scrollTrigger: {
           trigger: '.process-grid',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+      // FAQ Animation
+      gsap.from('.faq-item', {
+        x: -100,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.faq-accordion',
           start: 'top 80%',
           end: 'bottom 20%',
           toggleActions: 'play none none reverse'
@@ -702,8 +819,13 @@
         delay: 0.6
       });
 
-      // Initialize carousel
-      updateCarousel();
+      // Carousel Navigation Animation
+      gsap.from('.carousel-nav', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 1
+      });
     });
   </script>
 </body>

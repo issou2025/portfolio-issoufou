@@ -6,7 +6,7 @@
   <title>Contact – Issoufou Abdou Chefou | Ingénieur Structure</title>
 
   <!-- SEO & Metadonnées -->
-  <meta name="description" content="Contactez Issoufou Abdou Chefou pour discuter de votre projet d'ingénierie structure.">
+  <meta name="description" content="Contactez Issoufou Abdou Chefou pour discuter de votre projet d'ingénierie structure. Consultation gratuite et devis personnalisé.">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -236,11 +236,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: start;
+      margin-top: 3rem;
     }
 
     /* === Contact Form === */
-    .contact-form-container {
+    .contact-form-wrapper {
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-lg);
       padding: 3rem;
@@ -250,6 +250,7 @@
 
     .form-group {
       margin-bottom: 2rem;
+      position: relative;
     }
 
     .form-label {
@@ -257,20 +258,24 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       color: var(--color-accent-1);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .form-input,
     .form-textarea,
     .form-select {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius);
       color: var(--color-text);
       font-family: var(--font-body);
       font-size: 1rem;
       transition: var(--transition);
+      resize: vertical;
     }
 
     .form-input:focus,
@@ -279,12 +284,17 @@
       outline: none;
       border-color: var(--color-accent-1);
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .form-textarea {
-      resize: vertical;
       min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
 
     .submit-btn {
@@ -294,8 +304,8 @@
       color: #fff;
       border: none;
       border-radius: 50px;
+      font-weight: 700;
       font-size: 1.1rem;
-      font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
       position: relative;
@@ -318,28 +328,14 @@
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
     }
 
-    .form-status {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: var(--radius);
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .form-status.success {
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid rgba(16, 185, 129, 0.5);
-      color: #10B981;
-    }
-
-    .form-status.error {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.5);
-      color: #EF4444;
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
 
     /* === Contact Info === */
@@ -349,21 +345,39 @@
       gap: 2rem;
     }
 
-    .info-card {
+    .contact-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius);
       padding: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
 
-    .info-card:hover {
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0.1;
+      transition: left 0.3s ease;
+    }
+
+    .contact-card:hover::before {
+      left: 0;
+    }
+
+    .contact-card:hover {
       transform: translateY(-5px);
       border-color: var(--color-accent-1);
       box-shadow: var(--shadow-glow);
     }
 
-    .info-icon {
+    .contact-icon {
       font-size: 2rem;
       margin-bottom: 1rem;
       background: var(--gradient-primary);
@@ -372,54 +386,67 @@
       background-clip: text;
     }
 
-    .info-title {
+    .contact-title {
       font-family: var(--font-heading);
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--color-accent-1);
     }
 
-    .info-content {
+    .contact-details {
       color: var(--color-text-light);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    .info-link {
+    .contact-link {
       color: var(--color-accent-2);
       text-decoration: none;
       transition: var(--transition);
     }
 
-    .info-link:hover {
+    .contact-link:hover {
       color: var(--color-accent-1);
     }
 
-    /* === Social Links === */
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+    /* === Status Messages === */
+    .form-status {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .social-link {
-      width: 50px;
-      height: 50px;
+    .form-status.success {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #10B981;
+      opacity: 1;
+    }
+
+    .form-status.error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #EF4444;
+      opacity: 1;
+    }
+
+    /* === Loading Animation === */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text);
-      text-decoration: none;
-      transition: var(--transition);
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 0.5rem;
     }
 
-    .social-link:hover {
-      background: var(--gradient-primary);
-      border-color: transparent;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     /* === Map Section === */
@@ -439,7 +466,7 @@
 
     .map-placeholder {
       width: 100%;
-      height: 400px;
+      height: 300px;
       background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
       border-radius: var(--radius);
       display: flex;
@@ -447,7 +474,7 @@
       justify-content: center;
       font-size: 1.2rem;
       color: var(--color-text-light);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     /* === Responsive === */
@@ -457,12 +484,16 @@
         gap: 2rem;
       }
 
-      .contact-form-container {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-wrapper {
         padding: 2rem;
       }
 
-      .social-links {
-        justify-content: center;
+      .nav-links {
+        display: none;
       }
     }
   </style>
@@ -500,16 +531,22 @@
   <section class="contact-section">
     <div class="contact-grid">
       <!-- Contact Form -->
-      <div class="contact-form-container">
+      <div class="contact-form-wrapper">
         <h2 style="margin-bottom: 2rem; color: var(--color-accent-1);">Envoyez-moi un message</h2>
         <form id="contactForm">
-          <div class="form-group">
-            <label for="name" class="form-label">Nom complet *</label>
-            <input type="text" id="name" name="name" class="form-input" required>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label">Prénom</label>
+              <input type="text" id="firstName" name="firstName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Nom</label>
+              <input type="text" id="lastName" name="lastName" class="form-input" required>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="email" class="form-label">Email *</label>
+            <label for="email" class="form-label">Email</label>
             <input type="email" id="email" name="email" class="form-input" required>
           </div>
 
@@ -519,97 +556,83 @@
           </div>
 
           <div class="form-group">
-            <label for="service" class="form-label">Service souhaité</label>
-            <select id="service" name="service" class="form-select">
-              <option value="">Sélectionnez un service</option>
-              <option value="bim">Modélisation BIM</option>
-              <option value="calcul">Calcul de Structure</option>
-              <option value="plans">Plans d'Exécution</option>
-              <option value="diagnostic">Diagnostic & Renforcement</option>
-              <option value="optimisation">Optimisation Structurelle</option>
-              <option value="autre">Autre</option>
+            <label for="projectType" class="form-label">Type de projet</label>
+            <select id="projectType" name="projectType" class="form-select" required>
+              <option value="">Sélectionnez un type</option>
+              <option value="residential">Résidentiel</option>
+              <option value="commercial">Commercial</option>
+              <option value="industrial">Industriel</option>
+              <option value="renovation">Rénovation</option>
+              <option value="other">Autre</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="budget" class="form-label">Budget estimé</label>
-            <select id="budget" name="budget" class="form-select">
+            <select id="budget" name="budget" class="form-select" required>
               <option value="">Sélectionnez une fourchette</option>
-              <option value="1-5k">1,000€ - 5,000€</option>
-              <option value="5-10k">5,000€ - 10,000€</option>
-              <option value="10-25k">10,000€ - 25,000€</option>
-              <option value="25k+">25,000€+</option>
+              <option value="small">Moins de 50k€</option>
+              <option value="medium">50k€ - 200k€</option>
+              <option value="large">200k€ - 500k€</option>
+              <option value="xlarge">Plus de 500k€</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="message" class="form-label">Description du projet *</label>
-            <textarea id="message" name="message" class="form-textarea" required 
-                      placeholder="Décrivez votre projet, vos besoins et vos objectifs..."></textarea>
+            <label for="message" class="form-label">Description du projet</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Décrivez votre projet en détail..." required></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">
-            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
-            Envoyer le message
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Envoyer le message</span>
+            <span class="btn-loading" style="display: none;">
+              <span class="loading-spinner"></span>
+              Envoi en cours...
+            </span>
           </button>
 
-          <div id="formStatus" class="form-status" style="display: none;"></div>
+          <div class="form-status" id="formStatus"></div>
         </form>
       </div>
 
       <!-- Contact Info -->
       <div class="contact-info">
-        <div class="info-card">
-          <i class="fas fa-envelope info-icon"></i>
-          <h3 class="info-title">Email</h3>
-          <p class="info-content">
-            <a href="mailto:contact@issoufou-abdou.com" class="info-link">contact@issoufou-abdou.com</a>
-          </p>
-        </div>
-
-        <div class="info-card">
-          <i class="fas fa-phone info-icon"></i>
-          <h3 class="info-title">Téléphone</h3>
-          <p class="info-content">
-            <a href="tel:+33123456789" class="info-link">+33 1 23 45 67 89</a>
-          </p>
-        </div>
-
-        <div class="info-card">
-          <i class="fas fa-map-marker-alt info-icon"></i>
-          <h3 class="info-title">Localisation</h3>
-          <p class="info-content">
-            Paris, France<br>
-            Disponible pour des projets nationaux et internationaux
-          </p>
-        </div>
-
-        <div class="info-card">
-          <i class="fas fa-clock info-icon"></i>
-          <h3 class="info-title">Disponibilité</h3>
-          <p class="info-content">
-            Lundi - Vendredi : 9h - 18h<br>
+        <div class="contact-card">
+          <i class="fas fa-envelope contact-icon"></i>
+          <h3 class="contact-title">Email</h3>
+          <p class="contact-details">
+            <a href="mailto:contact@issoufou-ac.com" class="contact-link">contact@issoufou-ac.com</a><br>
             Réponse sous 24h
           </p>
         </div>
 
-        <div class="info-card">
-          <i class="fas fa-share-alt info-icon"></i>
-          <h3 class="info-title">Réseaux sociaux</h3>
-          <div class="social-links">
-            <a href="#" class="social-link">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
+        <div class="contact-card">
+          <i class="fas fa-phone contact-icon"></i>
+          <h3 class="contact-title">Téléphone</h3>
+          <p class="contact-details">
+            <a href="tel:+33123456789" class="contact-link">+33 1 23 45 67 89</a><br>
+            Lun-Ven: 9h-18h
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <h3 class="contact-title">Localisation</h3>
+          <p class="contact-details">
+            Paris, France<br>
+            Travail à distance possible<br>
+            Déplacements sur site
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-clock contact-icon"></i>
+          <h3 class="contact-title">Disponibilité</h3>
+          <p class="contact-details">
+            Consultation gratuite<br>
+            Devis sous 48h<br>
+            Projets urgents acceptés
+          </p>
         </div>
       </div>
     </div>
@@ -618,14 +641,16 @@
   <!-- Map Section -->
   <section class="map-section">
     <div class="map-container">
-      <h2 style="margin-bottom: 2rem; color: var(--color-accent-1);">Zone d'intervention</h2>
+      <h2 style="margin-bottom: 2rem; color: var(--color-accent-1);">Zone d'Intervention</h2>
       <div class="map-placeholder">
-        <i class="fas fa-map" style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent-1);"></i>
-        <div>
-          <p>Disponible sur toute la France</p>
-          <p style="font-size: 1rem; margin-top: 0.5rem;">Projets internationaux sur demande</p>
-        </div>
+        <i class="fas fa-map" style="font-size: 3rem; margin-bottom: 1rem; display: block; color: var(--color-accent-1);"></i>
+        France entière - Travail à distance<br>
+        Déplacements sur site selon les besoins
       </div>
+      <p style="color: var(--color-text-light);">
+        Je travaille principalement en Île-de-France mais je peux intervenir sur toute la France 
+        grâce aux outils de collaboration à distance et aux déplacements ponctuels sur site.
+      </p>
     </div>
   </section>
 
@@ -655,51 +680,54 @@
       });
 
       // Form Handling
-      const contactForm = document.getElementById('contactForm');
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
       const formStatus = document.getElementById('formStatus');
 
-      contactForm.addEventListener('submit', async (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const originalText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i>Envoi en cours...';
-        submitBtn.disabled = true;
 
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline-flex';
+        formStatus.className = 'form-status';
+        formStatus.style.opacity = '0';
+
+        // Simulate form submission (replace with actual endpoint)
         try {
-          // Simulate form submission (replace with actual endpoint)
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          
+          await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate API call
+
           // Show success message
-          formStatus.className = 'form-status success';
           formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.';
-          formStatus.style.display = 'block';
-          
+          formStatus.className = 'form-status success';
+          formStatus.style.opacity = '1';
+
           // Reset form
-          contactForm.reset();
-          
+          form.reset();
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            formStatus.style.opacity = '0';
+          }, 5000);
+
         } catch (error) {
           // Show error message
-          formStatus.className = 'form-status error';
           formStatus.textContent = 'Une erreur est survenue. Veuillez réessayer ou me contacter directement.';
-          formStatus.style.display = 'block';
+          formStatus.className = 'form-status error';
+          formStatus.style.opacity = '1';
         } finally {
-          // Reset button
-          submitBtn.innerHTML = originalText;
+          // Reset button state
           submitBtn.disabled = false;
-          
-          // Hide status after 5 seconds
-          setTimeout(() => {
-            formStatus.style.display = 'none';
-          }, 5000);
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
         }
       });
 
       // Form Input Animations
       const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
-      
       formInputs.forEach(input => {
         input.addEventListener('focus', () => {
           gsap.to(input, {
@@ -718,8 +746,8 @@
         });
       });
 
-      // Info Cards Animation
-      gsap.from('.info-card', {
+      // Contact Cards Animation
+      gsap.from('.contact-card', {
         y: 50,
         opacity: 0,
         duration: 0.8,
@@ -732,13 +760,13 @@
         }
       });
 
-      // Form Container Animation
-      gsap.from('.contact-form-container', {
+      // Form Animation
+      gsap.from('.contact-form-wrapper', {
         x: -100,
         opacity: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: '.contact-form-container',
+          trigger: '.contact-form-wrapper',
           start: 'top 80%',
           end: 'bottom 20%',
           toggleActions: 'play none none reverse'
@@ -758,6 +786,30 @@
         opacity: 0,
         duration: 1,
         delay: 0.6
+      });
+
+      // Map Section Animation
+      gsap.from('.map-container', {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.map-container',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+      // Character Counter for Message
+      const messageTextarea = document.getElementById('message');
+      messageTextarea.addEventListener('input', () => {
+        const maxLength = 1000;
+        const currentLength = messageTextarea.value.length;
+        
+        if (currentLength > maxLength) {
+          messageTextarea.value = messageTextarea.value.substring(0, maxLength);
+        }
       });
     });
   </script>
