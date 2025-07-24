@@ -1,868 +1,502 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Accueil – Issoufou Abdou Chefou | Ingénieur Structure</title>
-
-  <!-- SEO & Metadonnées -->
-  <meta name="description" content="Portfolio interactif de Issoufou Abdou Chefou. Découvrez mes compétences, mes projets en 3D et mon expertise en ingénierie structure.">
-  <meta name="keywords" content="Issoufou Abdou Chefou, ingénieur structure, portfolio interactif, Revit, Robot, BIM, 3D, FAQ ingénierie">
-  
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#00f5d4">
+  <title>Issoufou Abdou | Ingénieur Génie Civil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="mobile-styles.css">
-
   <style>
-    /* === PALETTE "AURORA NEON" === */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      -webkit-tap-highlight-color: transparent;
+    }
+    
     :root {
-      --color-bg: #0A0A1A;
-      --color-bg-secondary: #0F0F2A;
-      --color-text: #E8E8F0;
-      --color-text-light: #A0A0B0;
-      --color-accent-1: #00D4FF;
-      --color-accent-2: #FF0080;
-      --color-accent-3: #8B5CF6;
-      --color-accent-4: #10B981;
-      --gradient-primary: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
-      --gradient-secondary: linear-gradient(135deg, var(--color-accent-3), var(--color-accent-4));
-      --gradient-text: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2), var(--color-accent-3));
-      
-      --font-heading: 'Space Grotesk', sans-serif;
-      --font-body: 'Poppins', sans-serif;
-      --radius: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
+      --primary: #00f5d4;
+      --secondary: #9b5de5;
+      --accent: #f15bb5;
+      --dark: #00171f;
+      --light: #ffffff;
+      --gray: #a0d2eb;
     }
-
-    /* === Reset & Base === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    
     body {
-      font-family: var(--font-body);
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.7;
-      overflow-x: hidden;
-      font-weight: 300;
-    }
-
-    /* === Background Effects === */
-    .background-glow {
-      position: fixed;
-      width: 1000px;
-      height: 1000px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-      top: -300px;
-      left: -300px;
-      animation: move-glow 25s infinite alternate ease-in-out;
-      z-index: -1;
-    }
-
-    .background-glow-2 {
-      position: fixed;
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 0, 128, 0.08) 0%, transparent 70%);
-      bottom: -200px;
-      right: -200px;
-      animation: move-glow-2 30s infinite alternate-reverse ease-in-out;
-      z-index: -1;
-    }
-
-    @keyframes move-glow {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(50vw, 30vh) scale(1.2); }
-      100% { transform: translate(100vw, 60vh) scale(0.8); }
-    }
-
-    @keyframes move-glow-2 {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-30vw, -50vh) scale(1.3); }
-      100% { transform: translate(-60vw, -100vh) scale(0.9); }
-    }
-
-    /* === Custom Cursor === */
-    .cursor-dot, .cursor-outline {
-      pointer-events: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      border-radius: 50%;
-      opacity: 1;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      transition: opacity 0.3s ease;
-    }
-
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--gradient-primary);
-      transition: transform 0.2s ease-out;
-    }
-
-    .cursor-outline {
-      width: 40px;
-      height: 40px;
-      background: rgba(0, 212, 255, 0.1);
-      border: 2px solid rgba(0, 212, 255, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    body:has(a:hover, button:hover, .card:hover) .cursor-dot {
-      transform: translate(-50%, -50%) scale(2);
-    }
-
-    body:has(a:hover, button:hover, .card:hover) .cursor-outline {
-      width: 60px;
-      height: 60px;
-      background: rgba(0, 212, 255, 0.2);
-      border-color: rgba(0, 212, 255, 0.5);
-    }
-
-    /* === Language Switcher === */
-    .language-switcher {
-      position: fixed;
-      top: 100px;
-      right: 2rem;
-      z-index: 1001;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 50px;
-      padding: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .lang-btn {
-      padding: 0.5rem 1rem;
-      border: none;
-      background: transparent;
-      color: var(--color-text-light);
-      border-radius: 25px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .lang-btn.active {
-      background: var(--gradient-primary);
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-    }
-
-    .lang-btn:hover:not(.active) {
-      color: var(--color-text);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    /* === Header === */
-    .site-header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(10, 10, 26, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: var(--transition);
-    }
-
-    .header-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      height: 80px;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .nav-links a {
-      color: var(--color-text-light);
-      font-weight: 500;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      transition: var(--transition);
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-primary);
-      transition: left 0.3s ease;
-      z-index: -1;
-    }
-
-    .nav-links a:hover::before,
-    .nav-links a.active::before {
-      left: 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* === Mobile Menu === */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--color-text);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-
-    .mobile-menu-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background: rgba(10, 10, 26, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transform: translateY(-100%);
-      opacity: 0;
-      transition: var(--transition);
-      z-index: 999;
-    }
-
-    .mobile-menu.active {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-      gap: 1rem;
-    }
-
-    .mobile-nav a {
-      color: var(--color-text-light);
-      text-decoration: none;
-      padding: 1rem;
-      border-radius: var(--radius);
-      transition: var(--transition);
-      font-weight: 600;
-    }
-
-    .mobile-nav a:hover,
-    .mobile-nav a.active {
-      color: var(--color-text);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    /* === Hero Section === */
-    #home {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: var(--light);
       min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    /* Mobile-first approach */
+    .hero-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 40px 20px;
+      margin: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo-container {
+      position: relative;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .logo-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
-      position: relative;
-      padding: 0 2rem;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: var(--primary);
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 245, 212, 0.3);
     }
-
-    .hero-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(3rem, 8vw, 5rem);
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: var(--gradient-text);
+    
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
     }
-
-    .hero-subtitle {
-      font-size: 1.4rem;
-      color: var(--color-accent-1);
-      margin-bottom: 1rem;
-      font-weight: 500;
+    
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 400;
     }
-
-    .hero-tagline {
-      font-size: 1.2rem;
-      color: var(--color-text-light);
-      max-width: 500px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-weight: 600;
-      border-radius: 50px;
-      color: #fff;
-      text-decoration: none;
-      transition: var(--transition);
-      position: relative;
+    
+    /* Image responsive */
+    .project-image {
+      width: 100%;
+      height: 250px;
+      border-radius: 20px;
       overflow: hidden;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
-
-    .cta-primary {
-      background: var(--gradient-primary);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .cta-secondary {
-      background: transparent;
-      border: 2px solid var(--color-accent-1);
-      color: var(--color-accent-1);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
-    }
-
-    .cta-secondary:hover {
-      background: var(--color-accent-1);
-      color: #fff;
-    }
-
-    /* === Hero Image === */
-    .hero-image-wrapper {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-image-container {
-      position: relative;
-      width: 400px;
-      height: 500px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .hero-image {
+    
+    .project-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.3s ease;
     }
-
-    .hero-image-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 128, 0.2));
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    
+    .project-image:hover img {
+      transform: scale(1.03);
     }
-
-    .hero-image-container:hover .hero-image {
-      transform: scale(1.05);
-    }
-
-    .hero-image-container:hover .hero-image-overlay {
-      opacity: 1;
-    }
-
-    /* === Floating Elements === */
-    .floating-element {
-      position: absolute;
+    
+    .description {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      text-align: justify;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    .floating-1 {
-      width: 60px;
-      height: 60px;
-      top: 20%;
-      left: 10%;
-      animation: float 6s ease-in-out infinite;
+    
+    /* Navigation mobile-optimized */
+    .navigation-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
     }
-
-    .floating-2 {
-      width: 40px;
-      height: 40px;
-      top: 60%;
-      right: 15%;
-      animation: float 8s ease-in-out infinite reverse;
+    
+    .nav-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
     }
-
-    .floating-3 {
-      width: 80px;
-      height: 80px;
-      bottom: 20%;
-      left: 20%;
-      animation: float 10s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
-    }
-
-    /* === Loading Animation === */
-    .loading-screen {
-      position: fixed;
+    
+    .nav-card::before {
+      content: '';
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: var(--color-bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      transition: opacity 0.5s ease;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
     }
-
-    .loading-logo {
-      font-family: var(--font-heading);
+    
+    .nav-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+      border-color: rgba(0, 245, 212, 0.4);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .nav-card i {
       font-size: 2rem;
-      font-weight: 700;
-      background: var(--gradient-text);
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      display: block;
     }
-
-    /* === Responsive === */
-    @media (max-width: 1024px) {
+    
+    .nav-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .nav-card p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+    
+    /* Contact info mobile */
+    .contact-info {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .contact-item:hover {
+      background: rgba(0, 245, 212, 0.2);
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+    
+    .contact-item i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      min-width: 20px;
+    }
+    
+    /* Language switch mobile */
+    .language-switch {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      font-family: 'Space Grotesk', sans-serif;
+      min-width: 100px;
+    }
+    
+    .lang-btn.active {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Tablet styles */
+    @media (min-width: 768px) {
       .hero-container {
-        gap: 2rem;
+        padding: 60px 40px;
+        margin: 30px;
+        border-radius: 30px;
+        max-width: 800px;
+        margin: 40px auto;
       }
       
-      .hero-image-container {
-        width: 350px;
-        height: 440px;
+      .logo-circle {
+        width: 200px;
+        height: 200px;
+        font-size: 5rem;
       }
-    }
-
-    @media (max-width: 768px) {
-      .header-container {
-        padding: 0 1rem;
+      
+      h1 {
+        font-size: 3rem;
       }
-
-      .nav-links {
-        display: none;
+      
+      .subtitle {
+        font-size: 1.3rem;
       }
-
-      .mobile-menu-btn {
-        display: block;
+      
+      .project-image {
+        height: 300px;
       }
-
-      .language-switcher {
-        top: 90px;
-        right: 1rem;
-        padding: 0.3rem;
+      
+      .description {
+        font-size: 1.1rem;
+        padding: 25px;
       }
-
-      .lang-btn {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.8rem;
+      
+      .navigation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
-
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-        padding: 0 1rem;
+      
+      .nav-card {
+        padding: 25px;
       }
-
-      .hero-image-container {
-        width: 300px;
-        height: 380px;
-        margin: 0 auto;
+      
+      .nav-card i {
+        font-size: 2.5rem;
       }
-
-      .cta-buttons {
-        justify-content: center;
-      }
-
-      .hero-text h1 {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-      }
-
-      .hero-subtitle {
+      
+      .nav-card h3 {
         font-size: 1.2rem;
       }
-
-      .hero-tagline {
-        font-size: 1.1rem;
+      
+      .contact-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .contact-item {
+        font-size: 1rem;
+        padding: 15px 25px;
       }
     }
-
-    @media (max-width: 480px) {
+    
+    /* Desktop styles */
+    @media (min-width: 1024px) {
       .hero-container {
-        padding: 0 0.5rem;
+        padding: 80px;
+        max-width: 1000px;
+        border-radius: 40px;
       }
-
-      .hero-image-container {
-        width: 280px;
+      
+      h1 {
+        font-size: 3.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.5rem;
+      }
+      
+      .project-image {
         height: 350px;
       }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+      
+      .description {
+        font-size: 1.2rem;
+        padding: 30px;
       }
-
-      .cta-button {
-        width: 100%;
-        max-width: 300px;
-        text-align: center;
+      
+      .navigation-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
       }
+      
+      .nav-card {
+        padding: 30px;
+      }
+      
+      .nav-card i {
+        font-size: 3rem;
+      }
+      
+      .nav-card h3 {
+        font-size: 1.3rem;
+      }
+      
+      .contact-info {
+        gap: 25px;
+      }
+      
+      .contact-item {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+      }
+    }
+    
+    /* Touch-friendly enhancements */
+    .nav-card:active {
+      transform: translateY(-2px) scale(0.98);
+    }
+    
+    .contact-item:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+    
+    .lang-btn:active {
+      transform: scale(0.95);
+    }
+    
+    /* Smooth scrolling for mobile */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Prevent text selection on mobile */
+    .nav-card, .contact-item, .lang-btn {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
     }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-logo">Issoufou A.C.</div>
-  </div>
-
-  <!-- Language Switcher -->
-  <div class="language-switcher">
-    <button class="lang-btn active" data-lang="fr">FR</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-
-  <!-- Background Effects -->
-  <div class="background-glow"></div>
-  <div class="background-glow-2"></div>
-
-  <!-- Floating Elements -->
-  <div class="floating-element floating-1"></div>
-  <div class="floating-element floating-2"></div>
-  <div class="floating-element floating-3"></div>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo">Issoufou A.C.</div>
-      <nav class="nav-links">
-        <a href="index.html" class="active" data-translate="nav.home">Accueil</a>
-        <a href="competences.html" data-translate="nav.skills">Compétences</a>
-        <a href="projets.html" data-translate="nav.projects">Projets</a>
-        <a href="services.html" data-translate="nav.services">Services</a>
-        <a href="contact.html" data-translate="nav.contact">Contact</a>
-      </nav>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-nav">
-      <a href="index.html" class="active" data-translate="nav.home">Accueil</a>
-      <a href="competences.html" data-translate="nav.skills">Compétences</a>
-      <a href="projets.html" data-translate="nav.projects">Projets</a>
-      <a href="services.html" data-translate="nav.services">Services</a>
-      <a href="contact.html" data-translate="nav.contact">Contact</a>
-    </nav>
-  </div>
-  
-  <!-- Main Content -->
-  <main>
-    <section id="home">
-      <div class="hero-container">
-        <div class="hero-text">
-          <p class="hero-subtitle" data-translate="hero.subtitle">Ingénieur Structure Visionnaire</p>
-          <h1 data-translate="hero.title">Transformez vos idées en structures d'exception</h1>
-          <p class="hero-tagline" data-translate="hero.tagline">
-            Je traduis la complexité architecturale en structures élégantes, robustes et optimisées grâce à une expertise technique de pointe et des outils BIM révolutionnaires.
-          </p>
-          <div class="cta-buttons">
-            <a href="projets.html" class="cta-button cta-primary" data-translate="hero.cta.projects">Voir mes projets</a>
-            <a href="contact.html" class="cta-button cta-secondary" data-translate="hero.cta.contact">Discuter de votre projet</a>
-          </div>
-        </div>
-        <div class="hero-image-wrapper">
-          <div class="hero-image-container">
-            <img src="https://images.pexels.com/photos/4240505/pexels-photo-4240505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                 alt="Portrait de Issoufou Abdou Chefou" 
-                 class="hero-image">
-            <div class="hero-image-overlay"></div>
-          </div>
-        </div>
+  <div class="hero-container">
+    <div class="logo-container">
+      <div class="logo-circle">
+        <i class="fas fa-hard-hat"></i>
       </div>
-    </section>
-  </main>
+    </div>
+    
+    <h1>Issoufou Abdou</h1>
+    <div class="subtitle">Ingénieur Génie Civil - Expert BIM & Structures</div>
+    
+    <!-- Image responsive -->
+    <div class="project-image">
+      <img src="assets/images/structure1.png" alt="Modèle Revit Structure">
+    </div>
+    
+    <div class="description">
+      Spécialiste en modélisation 3D avec Revit Structure et calculs avancés avec Robot Structural Analysis. 
+      Expert en dimensionnement en béton armé et charpente métallique pour des structures optimisées et sécurisées.
+    </div>
+    
+    <div class="navigation-grid">
+      <a href="profil.html" class="nav-card">
+        <i class="fas fa-user-tie"></i>
+        <h3>Profil</h3>
+        <p>Mon parcours et mes compétences</p>
+      </a>
+      
+      <a href="projets.html" class="nav-card">
+        <i class="fas fa-project-diagram"></i>
+        <h3>Projets</h3>
+        <p>Mes réalisations techniques</p>
+      </a>
+      
+      <a href="expertise.html" class="nav-card">
+        <i class="fas fa-tools"></i>
+        <h3>Expertise</h3>
+        <p>Mes spécialités techniques</p>
+      </a>
+      
+      <a href="cv.html" class="nav-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>CV</h3>
+        <p>Curriculum Vitae détaillé</p>
+      </a>
+      
+      <a href="contact.html" class="nav-card">
+        <i class="fas fa-address-book"></i>
+        <h3>Contact</h3>
+        <p>Me contacter professionnellement</p>
+      </a>
+    </div>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>bacseried@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+227 96 38 08 77</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Niamey, Niger</span>
+      </div>
+    </div>
+    
+    <div class="language-switch">
+      <button class="lang-btn active" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 EN</button>
+    </div>
+  </div>
 
   <script>
-    // Translation System
-    const translations = {
-      fr: {
-        "nav.home": "Accueil",
-        "nav.skills": "Compétences",
-        "nav.projects": "Projets",
-        "nav.services": "Services",
-        "nav.contact": "Contact",
-        "hero.subtitle": "Ingénieur Structure Visionnaire",
-        "hero.title": "Transformez vos idées en structures d'exception",
-        "hero.tagline": "Je traduis la complexité architecturale en structures élégantes, robustes et optimisées grâce à une expertise technique de pointe et des outils BIM révolutionnaires.",
-        "hero.cta.projects": "Voir mes projets",
-        "hero.cta.contact": "Discuter de votre projet"
-      },
-      en: {
-        "nav.home": "Home",
-        "nav.skills": "Skills",
-        "nav.projects": "Projects",
-        "nav.services": "Services",
-        "nav.contact": "Contact",
-        "hero.subtitle": "Visionary Structural Engineer",
-        "hero.title": "Transform your ideas into exceptional structures",
-        "hero.tagline": "I translate architectural complexity into elegant, robust, and optimized structures through cutting-edge technical expertise and revolutionary BIM tools.",
-        "hero.cta.projects": "View my projects",
-        "hero.cta.contact": "Discuss your project"
-      }
-    };
-
-    let currentLang = 'fr';
-
-    function translatePage(lang) {
-      currentLang = lang;
-      const elements = document.querySelectorAll('[data-translate]');
+    // Mobile-friendly language switch
+    function switchLanguage(lang) {
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
       
-      elements.forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
-
-      // Update document language
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      const subtitle = document.querySelector('.subtitle');
+      const description = document.querySelector('.description');
+      
+      if (lang === 'en') {
+        subtitle.textContent = 'Civil Engineer - BIM & Structures Expert';
+        description.textContent = 'Specialist in 3D modeling with Revit Structure and advanced calculations with Robot Structural Analysis. Expert in reinforced concrete and steel structure design for optimized and secure structures.';
+      } else {
+        subtitle.textContent = 'Ingénieur Génie Civil - Expert BIM & Structures';
+        description.textContent = 'Spécialiste en modélisation 3D avec Revit Structure et calculs avancés avec Robot Structural Analysis. Expert en dimensionnement en béton armé et charpente métallique pour des structures optimisées et sécurisées.';
+      }
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize GSAP
-      gsap.registerPlugin(ScrollTrigger, TextPlugin);
-
-      // Loading Animation
-      gsap.to('#loadingScreen', {
-        opacity: 0,
-        duration: 1,
-        delay: 1,
-        onComplete: () => {
-          document.getElementById('loadingScreen').style.display = 'none';
-          initAnimations();
-        }
-      });
-
-      function initAnimations() {
-        // Hero Text Animation
-        gsap.from('.hero-subtitle', {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          delay: 0.5
-        });
-
-        gsap.from('.hero-text h1', {
-          y: 100,
-          opacity: 0,
-          duration: 1.2,
-          delay: 0.8
-        });
-
-        gsap.from('.hero-tagline', {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          delay: 1.2
-        });
-
-        gsap.from('.cta-buttons', {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          delay: 1.5
-        });
-
-        gsap.from('.hero-image-container', {
-          x: 100,
-          opacity: 0,
-          duration: 1.2,
-          delay: 1
-        });
-
-        // Floating Elements Animation
-        gsap.from('.floating-element', {
-          scale: 0,
-          opacity: 0,
-          duration: 1,
-          delay: 2,
-          stagger: 0.2
-        });
-      }
-
-      // Custom Cursor
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
-
-      window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        gsap.to(cursorDot, { x: clientX, y: clientY, duration: 0.1 });
-        gsap.to(cursorOutline, { x: clientX, y: clientY, duration: 0.3 });
-      });
-
-      // Header Scroll Effect
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('.site-header');
-        if (window.scrollY > 100) {
-          header.style.background = 'rgba(10, 10, 26, 0.95)';
-        } else {
-          header.style.background = 'rgba(10, 10, 26, 0.8)';
-        }
-      });
-
-      // Language Switcher
-      const langBtns = document.querySelectorAll('.lang-btn');
-      langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const lang = btn.getAttribute('data-lang');
-          
-          // Update active button
-          langBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          // Translate page
-          translatePage(lang);
-        });
-      });
-
-      // Mobile Menu
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        
-        // Animate menu icon
-        const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('active')) {
-          icon.className = 'fas fa-times';
-        } else {
-          icon.className = 'fas fa-bars';
-        }
-      });
-
-      // Close mobile menu when clicking on links
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
-          const icon = mobileMenuBtn.querySelector('i');
-          icon.className = 'fas fa-bars';
-        });
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-          mobileMenu.classList.remove('active');
-          const icon = mobileMenuBtn.querySelector('i');
-          icon.className = 'fas fa-bars';
-        }
-      });
-
-      // Smooth Scroll for Navigation Links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-
-      // Hide cursor on mobile
-      if ('ontouchstart' in window) {
-        cursorDot.style.display = 'none';
-        cursorOutline.style.display = 'none';
-      }
-    });
+    
+    // Prevent zoom on input focus (mobile)
+    document.addEventListener('touchstart', function(){}, true);
+    
+    // Smooth scroll polyfill for older browsers
+    if ('scrollBehavior' in document.documentElement.style === false) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
   </script>
 </body>
 </html>

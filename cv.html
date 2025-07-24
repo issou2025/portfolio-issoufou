@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issoufou Abdou | CV Ingénieur Génie Civil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #00f5d4;
+      --secondary: #9b5de5;
+      --accent: #f15bb5;
+      --dark: #00171f;
+      --light: #ffffff;
+      --gray: #6c757d;
+      --success: #00bbf9;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: var(--light);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .back-navigation {
+      margin-bottom: 40px;
+    }
+    .back-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .back-btn:hover {
+      background: rgba(0, 245, 212, 0.2);
+      transform: translateX(-5px);
+    }
+    .cv-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      padding: 60px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+    @media (max-width: 768px) {
+      .cv-container { padding: 30px; }
+    }
+    .cv-header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid rgba(0, 245, 212, 0.3);
+    }
+    .cv-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cv-subtitle {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      margin-top: 25px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+      padding: 12px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .contact-item:hover {
+      background: rgba(0, 245, 212, 0.2);
+      transform: translateY(-3px);
+    }
+    .contact-item i {
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+    .section {
+      margin-bottom: 50px;
+      animation: fadeIn 0.8s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid rgba(0, 245, 212, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .section-title i {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.8rem;
+    }
+    .profile-text {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      opacity: 0.95;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .skill-category {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .skill-category:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-10px);
+      border-color: rgba(0, 245, 212, 0.4);
+    }
+    .skill-category h4 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .skill-category h4 i {
+      color: var(--primary);
+    }
+    .skill-points {
+      list-style-type: none;
+    }
+    .skill-points li {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.05rem;
+    }
+    .skill-points li::before {
+      content: "▹";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+      top: -3px;
+    }
+    .experience-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+      border-radius: 3px;
+    }
+    .experience-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 35px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 30px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid var(--dark);
+      box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.5);
+    }
+    .experience-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 245, 212, 0.2);
+      transform: translateX(10px);
+    }
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .experience-dates {
+      background: linear-gradient(45deg, rgba(0, 245, 212, 0.2), rgba(155, 93, 229, 0.2));
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 1px solid rgba(0, 245, 212, 0.3);
+    }
+    .experience-company {
+      font-size: 1.4rem;
+      color: var(--secondary);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .experience-position {
+      color: var(--primary);
+      margin: 15px 0;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .experience-description {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+    .experience-description ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+    .experience-description li {
+      margin-bottom: 10px;
+    }
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    .education-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .education-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 245, 212, 0.2);
+      transform: translateY(-10px);
+    }
+    .education-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .education-year {
+      background: rgba(155, 93, 229, 0.2);
+      color: var(--secondary);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      border: 1px solid rgba(155, 93, 229, 0.3);
+    }
+    .education-degree {
+      font-size: 1.3rem;
+      color: var(--primary);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 10px;
+    }
+    .education-school {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .education-status {
+      background: rgba(0, 187, 249, 0.15);
+      color: var(--success);
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      border: 1px solid rgba(0, 187, 249, 0.3);
+    }
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+    .language-item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .language-item:hover {
+      background: rgba(155, 93, 229, 0.2);
+      transform: translateY(-10px);
+      border-color: var(--secondary);
+    }
+    .language-name {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    .language-level {
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    .references-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    .reference-item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .reference-item:hover {
+      background: rgba(241, 91, 181, 0.15);
+      border-color: var(--accent);
+      transform: translateY(-10px);
+    }
+    .reference-name {
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .reference-position {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .reference-contact {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+    .reference-contact div {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .reference-contact i {
+      color: var(--accent);
+      width: 20px;
+    }
+    .signature {
+      text-align: right;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+      font-style: italic;
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+    .signature-name {
+      margin-top: 40px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .download-section {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .download-btn {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark);
+      border: none;
+      padding: 18px 40px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.4s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .download-btn:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      background: rgba(0, 245, 212, 0.15);
+      transform: translateY(-10px);
+      border-color: var(--primary);
+    }
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .cv-title { font-size: 2.5rem; }
+      .cv-subtitle { font-size: 1.3rem; }
+      .contact-info { gap: 15px; flex-direction: column; }
+      .skills-grid, .education-grid, .references-grid { grid-template-columns: 1fr; }
+      .experience-header, .education-header { flex-direction: column; align-items: flex-start; }
+      .experience-timeline { padding-left: 20px; }
+      .experience-timeline::before { left: 5px; }
+      .experience-item::before { left: -25px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-navigation">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Retour au portfolio
+      </a>
+    </div>
+    
+    <div class="cv-container">
+      <div class="cv-header">
+        <h1 class="cv-title">Issoufou Abdou</h1>
+        <div class="cv-subtitle">Ingénieur des Travaux / Technicien Supérieur en Génie Civil</div>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Niamey, Niger</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>(+227) 96 38 08 77</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>bacseride@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Statistiques -->
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Années d'Expérience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Projets Réalisés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Compétences Clés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Langues Maîtrisées</div>
+        </div>
+      </div>
+      
+      <!-- Profil -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-user"></i> Profil Professionnel</h2>
+        <div class="profile-text">
+          <p>Ingénieur civil des travaux / technicien supérieur en génie civil avec 10 ans d'expérience dans la supervision de chantiers, le contrôle des matériaux pour ONG, bureaux d'études et entreprises privées. Maîtrise avancée de Revit Structure et Robot Structural Analysis. Reconnu pour la rigueur des audits (implantations, matériaux, armatures) et la réduction durable des non-conformités.</p>
+          <p>Expert en contrôle d'exécution de structures en béton armé, validation de matériaux de construction et supervision de projets d'infrastructure. Spécialisé dans les normes techniques internationales Eurocodes 2, BAEL 91 et CM66.</p>
+        </div>
+      </div>
+      
+      <!-- Compétences Clés -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-star"></i> Compétences Techniques</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4><i class="fas fa-ruler-combined"></i> Contrôle d'Exécution</h4>
+            <ul class="skill-points">
+              <li>Implantation & nivellement précis</li>
+              <li>Inspection coffrages/fouilles/chaises</li>
+              <li>Levées de réserves techniques</li>
+              <li>Réceptions partielles & finales</li>
+              <li>Animation QHSE sur chantier</li>
+            </ul>
+          </div>
+          
+          <div class="skill-category">
+            <h4><i class="fas fa-flask"></i> Contrôle Matériaux (exp. RESI)</h4>
+            <ul class="skill-points">
+              <li>Approbation granulats (sable, gravier)</li>
+              <li>Vérification diamètres & coupe des aciers</li>
+              <li>Essais béton/sols & suivi rapports labo</li>
+              <li>Validation densité remblais</li>
+              <li>Contrôle qualité matériaux</li>
+            </ul>
+          </div>
+          
+          <div class="skill-category">
+            <h4><i class="fas fa-cube"></i> Modélisation & Calcul</h4>
+            <ul class="skill-points">
+              <li>Revit Structure 2025 - maîtrise avancée</li>
+              <li>Robot Structural Analysis 2025 - expert</li>
+              <li>Conception 3D structures complexes</li>
+              <li>Calculs Eurocodes & BAEL 91</li>
+              <li>Optimisation de structures</li>
+            </ul>
+          </div>
+          
+          <div class="skill-category">
+            <h4><i class="fas fa-file-contract"></i> Documentation & Normes</h4>
+            <ul class="skill-points">
+              <li>Rédaction CCTP & BPU</li>
+              <li>Word & Excel - maîtrise intermédiaire</li>
+              <li>Eurocodes 2, BAEL 91, CM66</li>
+              <li>Reporting technique & suivi projet</li>
+              <li>Métrés & planification</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Expérience Professionnelle -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Expérience Professionnelle</h2>
+        
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-company">MTK (entreprise française)</div>
+                <div class="experience-position">Conducteur de travaux en Mauritanie</div>
+              </div>
+              <div class="experience-dates">Nov 2024 – Juin 2025</div>
+            </div>
+            <div class="experience-description">
+              <p><strong>Supervision de 15 châteaux d'eau</strong> (100 m³ → 30 m³) :</p>
+              <ul>
+                <li>Implantation précise, coffrage, armatures</li>
+                <li>Contrôle béton frais (slump, température)</li>
+                <li>Réceptions finales et animation QHSE</li>
+              </ul>
+              <p><strong>Conception et suivi technique</strong> :</p>
+              <ul>
+                <li>Mur BA 800 ml (clôture présidentielle)</li>
+                <li>Bâtiment R+1 avec vérification granulats/aciers</li>
+                <li>Réalisation mur de façade officiel</li>
+                <li>Reporting hebdomadaire détaillé</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-company">SOBAFOR & ABI</div>
+                <div class="experience-position">Conducteur de travaux, Présidence du Niger</div>
+              </div>
+              <div class="experience-dates">Juil 2023 – Nov 2024</div>
+            </div>
+            <div class="experience-description">
+              <p><strong>Contrôle de 1 350 abris</strong> (Abala & Ouallam) :</p>
+              <ul>
+                <li>Implantation, coffrages, ferraillage</li>
+                <li>Réceptions partielle & finale</li>
+              </ul>
+              <p><strong>Suivi infrastructure complète</strong> :</p>
+              <ul>
+                <li>1 350 logements, 165 latrines</li>
+                <li>Châteaux 60 m³ & 50 m³</li>
+                <li>Réseau AEP 6,5 km</li>
+                <li>Validation granulats, aciers, essais béton</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-company">ONG APBE</div>
+                <div class="experience-position">Conducteur de travaux permanent</div>
+              </div>
+              <div class="experience-dates">Jan 2023 – Juin 2023</div>
+            </div>
+            <div class="experience-description">
+              <p><strong>Supervision de 1 350 logements & 165 latrines</strong> (Abala) :</p>
+              <ul>
+                <li>Implantations précises</li>
+                <li>Contrôle qualité béton</li>
+                <li>Réceptions techniques</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-company">Bureau d'Études RESI</div>
+                <div class="experience-position">Ingénieur des travaux / Contrôleur permanent</div>
+              </div>
+              <div class="experience-dates">Avr 2022 – Déc 2022</div>
+            </div>
+            <div class="experience-description">
+              <p><strong>Conception BIM et contrôle matériaux</strong> :</p>
+              <ul>
+                <li>Modélisation Revit/Robot d'un immeuble R+2</li>
+                <li>Approbation sable & gravier</li>
+                <li>Vérification diamètres aciers</li>
+                <li>Essais béton/sols pour 398 blocs latrines</li>
+                <li>199 écoles de Niamey</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Formation -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formation Académique</h2>
+        
+        <div class="education-grid">
+          <div class="education-item">
+            <div class="education-header">
+              <div>
+                <div class="education-degree">Master II Génie Civil</div>
+                <div class="education-school">CET-ASNI, Niamey</div>
+              </div>
+              <div class="education-year">2017 – 2018</div>
+            </div>
+            <div class="education-status">
+              <i class="fas fa-info-circle"></i> Cursus validé - Mémoire en cours
+            </div>
+          </div>
+          
+          <div class="education-item">
+            <div class="education-header">
+              <div>
+                <div class="education-degree">Master I Génie Civil</div>
+                <div class="education-school">CET-ASNI, Niamey</div>
+              </div>
+              <div class="education-year">2016 – 2017</div>
+            </div>
+            <div class="education-status">
+              <i class="fas fa-check-circle"></i> Diplôme obtenu avec succès
+            </div>
+          </div>
+          
+          <div class="education-item">
+            <div class="education-header">
+              <div>
+                <div class="education-degree">Licence Pro BTP</div>
+                <div class="education-school">CET-ASNI, Niamey</div>
+              </div>
+              <div class="education-year">2014 – 2015</div>
+            </div>
+            <div class="education-status">
+              <i class="fas fa-check-circle"></i> Diplôme obtenu avec succès
+            </div>
+          </div>
+          
+          <div class="education-item">
+            <div class="education-header">
+              <div>
+                <div class="education-degree">BTS Génie Civil</div>
+                <div class="education-school">CET-ASNI, Niamey</div>
+              </div>
+              <div class="education-year">2012 – 2014</div>
+            </div>
+            <div class="education-status">
+              <i class="fas fa-check-circle"></i> Diplôme obtenu avec succès
+            </div>
+          </div>
+        </div>
+        
+        <div class="education-item" style="margin-top: 30px;">
+          <div class="education-header">
+            <div>
+              <div class="education-degree">Baccalauréat Scientifique (Série D)</div>
+              <div class="education-school">CES LAZARET</div>
+            </div>
+            <div class="education-year">2008 – 2011</div>
+          </div>
+          <div class="education-status">
+            <i class="fas fa-check-circle"></i> Diplôme obtenu avec succès
+          </div>
+        </div>
+      </div>
+      
+      <!-- Langues -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-language"></i> Compétences Linguistiques</h2>
+        <div class="languages-grid">
+          <div class="language-item">
+            <div class="language-name">Français</div>
+            <div class="language-level">Courant - Professionnel</div>
+          </div>
+          
+          <div class="language-item">
+            <div class="language-name">Anglais</div>
+            <div class="language-level">Professionnel - Technique</div>
+          </div>
+          
+          <div class="language-item">
+            <div class="language-name">Haoussa</div>
+            <div class="language-level">Courant - Natif</div>
+          </div>
+          
+          <div class="language-item">
+            <div class="language-name">Arabe</div>
+            <div class="language-level">Intermédiaire</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Références -->
+      <div class="section">
+        <h2 class="section-title"><i class="fas fa-users"></i> Références Professionnelles</h2>
+        <div class="references-grid">
+          <div class="reference-item">
+            <div class="reference-name">Mohamed - Chef de projet Infrastructures</div>
+            <div class="reference-position">ONG APBE</div>
+            <div class="reference-contact">
+              <div><i class="fas fa-phone"></i> +227 97 01 24 59</div>
+              <div><i class="fas fa-envelope"></i> mohamedi@apbe.org</div>
+            </div>
+          </div>
+          
+          <div class="reference-item">
+            <div class="reference-name">Moussa Soumana - Directeur général</div>
+            <div class="reference-position">Bureau d'Études RESI</div>
+            <div class="reference-contact">
+              <div><i class="fas fa-phone"></i> +227 96 96 93 69</div>
+              <div><i class="fas fa-envelope"></i> msssoumana@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Signature -->
+      <div class="signature">
+        <p>Je certifie que les informations ci-dessus sont exactes et vérifiables.</p>
+        <p>Fait à Niamey, le 24 juin 2025.</p>
+        <div class="signature-name">Issoufou Abdou</div>
+      </div>
+      
+      <!-- Bouton Télécharger -->
+      <div class="download-section">
+        <button class="download-btn" onclick="showContactInfo()">
+          <i class="fas fa-download"></i> Télécharger le CV (PDF)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animation au scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .skill-category, .education-item, .language-item, .reference-item').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px)';
+      item.style.transition = 'all 0.6s ease';
+      observer.observe(item);
+    });
+
+    // Fonction contact
+    function showContactInfo() {
+      alert('📄 CV disponible sur demande\n\n📧 bacseride@gmail.com\n📱 +227 96 38 08 77\n\nJe vous enverrai le CV en format PDF dans les plus brefs délais.');
+    }
+
+    // Animation des statistiques au chargement
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.stat-number').forEach((stat, index) => {
+          setTimeout(() => {
+            stat.style.opacity = '1';
+            stat.style.transform = 'scale(1)';
+          }, index * 200);
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

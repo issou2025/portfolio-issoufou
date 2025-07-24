@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issoufou Abdou | Profil Professionnel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #00f5d4;
+      --secondary: #9b5de5;
+      --accent: #f15bb5;
+      --dark: #00171f;
+      --light: #ffffff;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: var(--light);
+      min-height: 100vh;
+      padding: 50px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 25%, rgba(0, 245, 212, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(155, 93, 229, 0.08) 0%, transparent 30%);
+      z-index: -1;
+    }
+    
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    
+    .back-navigation {
+      margin-bottom: 50px;
+    }
+    
+    .back-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+    }
+    
+    .back-btn:hover {
+      background: rgba(0, 245, 212, 0.3);
+      transform: translateX(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+    }
+    
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .language-switch {
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: 0 15px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .lang-btn.active {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: var(--dark);
+    }
+    
+    .profile-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-section { grid-template-columns: 1fr; gap: 40px; }
+      h1 { font-size: 2.5rem; }
+    }
+    
+    .profile-image {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 40px;
+      padding: 50px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    
+    .profile-image:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+      border-color: rgba(0, 245, 212, 0.4);
+    }
+    
+    .avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      margin: 0 auto 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      color: var(--dark);
+      border: 8px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 50px rgba(0, 245, 212, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .avatar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent 30%
+      );
+      animation: rotate 8s linear infinite;
+    }
+    
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+    
+    .profile-details h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .profile-details p {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-15px);
+      border-color: rgba(0, 245, 212, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .stat-card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0.9;
+      color: var(--primary);
+    }
+    
+    .experience-timeline {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 35px;
+      padding: 50px;
+      margin: 80px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    .experience-timeline h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .experience-timeline h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      padding-left: 40px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 10px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--dark);
+      box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.3);
+    }
+    
+    .timeline-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .timeline-title {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .timeline-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+      .experience-timeline { padding: 30px; }
+      .timeline-item { padding-left: 30px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .avatar { width: 180px; height: 180px; font-size: 4rem; }
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-navigation fade-in">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Retour au portfolio
+      </a>
+    </div>
+    
+    <header class="fade-in">
+      <h1><i class="fas fa-user-tie"></i> Profil Professionnel</h1>
+      <div class="language-switch">
+        <button class="lang-btn active" onclick="switchLanguage('fr')">🇫🇷 Français</button>
+        <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 English</button>
+      </div>
+    </header>
+    
+    <div class="profile-section">
+      <div class="profile-image fade-in">
+        <div class="avatar">
+          <i class="fas fa-hard-hat"></i>
+        </div>
+        <h2>Issoufou Abdou</h2>
+        <p style="opacity: 0.8; font-size: 1.1rem;">Ingénieur Génie Civil BIM</p>
+      </div>
+      
+      <div class="profile-details fade-in">
+        <h2 id="about-title">À propos de moi</h2>
+        <p id="about-text">Ingénieur génie civil passionné par les technologies BIM et le dimensionnement structural. Spécialiste en modélisation 3D avec Revit Structure et calculs avancés avec Robot Structural Analysis. Expert en dimensionnement en béton armé et charpente métallique pour des structures optimisées et sécurisées.</p>
+        
+        <p>Avec plusieurs années d'expérience dans le domaine du génie civil, je mets mon expertise au service de projets variés allant des bâtiments résidentiels aux ouvrages d'art complexes. Mon approche combine rigueur technique, innovation et respect des normes internationales.</p>
+        
+        <div class="stats-grid">
+          <div class="stat-card fade-in">
+            <i class="fas fa-project-diagram"></i>
+            <div class="stat-number">60+</div>
+            <div class="stat-label">Projets Réalisés</div>
+          </div>
+          
+          <div class="stat-card fade-in">
+            <i class="fas fa-bim"></i>
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Années d'Expérience</div>
+          </div>
+          
+          <div class="stat-card fade-in">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="experience-timeline fade-in">
+      <h2 id="experience-title"><i class="fas fa-briefcase"></i> Parcours Professionnel</h2>
+      
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2020 - Présent</div>
+        <div class="timeline-title">Ingénieur Structure Senior</div>
+        <div class="timeline-description">Responsable du dimensionnement structural de projets complexes en béton armé et acier. Coordination BIM et supervision d'équipes techniques.</div>
+      </div>
+      
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2017 - 2020</div>
+        <div class="timeline-title">Ingénieur BIM</div>
+        <div class="timeline-description">Modélisation 3D avec Revit Structure, calculs Robot Structural Analysis, et coordination entre corps de métier sur projets de grande envergure.</div>
+      </div>
+      
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2015 - 2017</div>
+        <div class="timeline-title">Assistant Ingénieur</div>
+        <div class="timeline-description">Calculs de structures, plans de coffrage, métré et assistance technique sur chantiers de bâtiments et ouvrages d'art.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animation d'entrée
+    function animateOnLoad() {
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add('appear');
+        }, index * 200);
+      });
+    }
+    
+    // Switch langue
+    function switchLanguage(lang) {
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      if (lang === 'en') {
+        document.getElementById('about-title').textContent = 'About Me';
+        document.getElementById('about-text').textContent = 'Civil engineer passionate about BIM technologies and structural design. Specialist in 3D modeling with Revit Structure and advanced calculations with Robot Structural Analysis. Expert in reinforced concrete and steel structure design for optimized and secure structures.';
+        document.getElementById('experience-title').innerHTML = '<i class="fas fa-briefcase"></i> Professional Experience';
+      } else {
+        document.getElementById('about-title').textContent = 'À propos de moi';
+        document.getElementById('about-text').textContent = 'Ingénieur génie civil passionné par les technologies BIM et le dimensionnement structural. Spécialiste en modélisation 3D avec Revit Structure et calculs avancés avec Robot Structural Analysis. Expert en dimensionnement en béton armé et charpente métallique pour des structures optimisées et sécurisées.';
+        document.getElementById('experience-title').innerHTML = '<i class="fas fa-briefcase"></i> Parcours Professionnel';
+      }
+    }
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      animateOnLoad();
+    });
+  </script>
+</body>
+</html>

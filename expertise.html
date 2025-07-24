@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issoufou Abdou | Expertise Technique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #00f5d4;
+      --secondary: #9b5de5;
+      --accent: #f15bb5;
+      --dark: #00171f;
+      --light: #ffffff;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #00171f, #004e92);
+      color: var(--light);
+      min-height: 100vh;
+      padding: 50px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 25% 35%, rgba(0, 245, 212, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 65%, rgba(155, 93, 229, 0.05) 0%, transparent 50%);
+      z-index: -1;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .back-navigation {
+      margin-bottom: 50px;
+    }
+    
+    .back-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+    }
+    
+    .back-btn:hover {
+      background: rgba(155, 93, 229, 0.3);
+      transform: translateX(-10px);
+      border-color: var(--secondary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+    }
+    
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .expertise-desc {
+      font-size: 1.3rem;
+      max-width: 900px;
+      margin: 0 auto 50px;
+      opacity: 0.95;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .language-switch {
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: 0 15px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .lang-btn.active {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: var(--dark);
+    }
+    
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 50px;
+      margin-bottom: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .expertise-grid { grid-template-columns: 1fr; gap: 30px; }
+      h1 { font-size: 2.5rem; }
+      .expertise-desc { font-size: 1.1rem; }
+    }
+    
+    .expertise-category {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 40px;
+      padding: 50px;
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.5s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .expertise-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    
+    .expertise-category:hover {
+      transform: translateY(-25px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 245, 212, 0.5);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    }
+    
+    .expertise-category:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .category-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    .skill-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 25px;
+      margin-bottom: 25px;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+    
+    .skill-item:hover {
+      background: rgba(0, 245, 212, 0.1);
+      transform: translateX(15px);
+      border-color: var(--primary);
+    }
+    
+    .skill-item:hover::before {
+      transform: scaleY(1);
+    }
+    
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .skill-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .skill-level {
+      background: rgba(241, 91, 181, 0.25);
+      color: var(--accent);
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: 1px solid rgba(241, 91, 181, 0.4);
+    }
+    
+    .skill-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.95;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .certifications-section {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 45px;
+      padding: 70px;
+      margin: 100px 0;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .certifications-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+    
+    .certifications-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-weight: 800;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .certifications-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+      border-radius: 2px;
+    }
+    
+    .cert-desc {
+      font-size: 1.3rem;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      opacity: 0.95;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .cert-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      padding: 40px;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(15px);
+    }
+    
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--secondary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .cert-card:hover {
+      background: rgba(155, 93, 229, 0.15);
+      transform: translateY(-20px);
+      border-color: rgba(155, 93, 229, 0.5);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cert-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .cert-icon {
+      font-size: 3.5rem;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      background: linear-gradient(45deg, var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    
+    .cert-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .cert-org {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    .cert-date {
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      background: rgba(155, 93, 229, 0.1);
+      padding: 8px 20px;
+      border-radius: 20px;
+      display: inline-block;
+      border: 1px solid rgba(155, 93, 229, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .certifications-section { padding: 40px 20px; }
+      .certifications-section h2 { font-size: 2rem; }
+      .cert-desc { font-size: 1.1rem; }
+      .expertise-category { padding: 30px; }
+      .category-header { flex-direction: column; text-align: center; gap: 20px; }
+      .category-icon { width: 70px; height: 70px; font-size: 2.5rem; }
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-navigation fade-in">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Retour au portfolio
+      </a>
+    </div>
+    
+    <header class="fade-in">
+      <h1><i class="fas fa-tools"></i> Expertise Technique</h1>
+      <p id="expertise-desc" class="expertise-desc">
+        Mon expertise technique en génie civil, dimensionnement structural et technologies BIM.
+      </p>
+      
+      <div class="language-switch">
+        <button class="lang-btn active" onclick="switchLanguage('fr')">🇫🇷 Français</button>
+        <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 English</button>
+      </div>
+    </header>
+    
+    <div class="expertise-grid">
+      <div class="expertise-category fade-in">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-bim"></i>
+          </div>
+          <h2 class="category-title" id="bim-title">Modélisation BIM</h2>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Revit Structure</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="revit-desc">
+            Modélisation 3D avancée, plans de coffrage, quantitatifs, coordination BIM, 
+            familles paramétriques et analyse clash detection.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Robot Structural Analysis</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="robot-desc">
+            Calculs linéaires/non-linéaires, analyse modale, spectrale, sismique, 
+            optimisation de structures et vérification Eurocodes.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">AutoCAD & Civil 3D</div>
+            <div class="skill-level">Avancé</div>
+          </div>
+          <div class="skill-description" id="autocad-desc">
+            Plans techniques, détails constructifs, topographie, terrassements, 
+            profils en long et en travers.
+          </div>
+        </div>
+      </div>
+      
+      <div class="expertise-category fade-in">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h2 class="category-title" id="calc-title">Calculs Structuraux</h2>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Béton Armé Eurocode 2</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="beton-desc">
+            Poteaux, poutres, dalles, semelles, voiles, dalles de transfert, 
+            vérification des contraintes et optimisation des sections.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Charpente Métallique EC3</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="acier-desc">
+            Acier S235/S355, assemblages soudés/boulonnés, contreventements, 
+            vérification de flambement et déversement.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Structures Mixtes</div>
+            <div class="skill-level">Avancé</div>
+          </div>
+          <div class="skill-description" id="mixte-desc">
+            Dalles mixtes, poutres mixtes, connecteurs, générateurs de charges, 
+            interaction acier-béton et optimisation économique.
+          </div>
+        </div>
+      </div>
+      
+      <div class="expertise-category fade-in">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <h2 class="category-title" id="domain-title">Domaines Techniques</h2>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Bâtiments Courants</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="batiments-desc">
+            R+1 à R+20, béton armé, mixte béton-acier, parkings souterrains, 
+            immeubles résidentiels et tertiaires.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Ouvrages d'Art</div>
+            <div class="skill-level">Avancé</div>
+          </div>
+          <div class="skill-description" id="ouvrages-desc">
+            Ponts, viaducs, passerelles, réservoirs, silos, analyse sismique, 
+            charges dynamiques et vérification fatigue.
+          </div>
+        </div>
+        
+        <div class="skill-item fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Génie Parasismique</div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-description" id="seisme-desc">
+            RPA 99, Eurocode 8, analyse dynamique, pushover, spectres de réponse, 
+            combinaisons sismiques et vérification déplacements.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="certifications-section fade-in">
+      <h2><i class="fas fa-graduation-cap"></i> <span id="cert-title">Certifications Professionnelles</span></h2>
+      <p id="cert-desc" class="cert-desc">
+        Mes certifications attestant de mon expertise technique et de mes compétences professionnelles.
+      </p>
+      
+      <div class="certifications-grid">
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fab fa-autodesk"></i>
+          </div>
+          <div class="cert-name">Autodesk Certified Professional</div>
+          <div class="cert-org">Revit Structure</div>
+          <div class="cert-date">2023</div>
+        </div>
+        
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="cert-name">Robot Structural Analysis Expert</div>
+          <div class="cert-org">Autodesk</div>
+          <div class="cert-date">2022</div>
+        </div>
+        
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <div class="cert-name">Ingénieur Génie Civil</div>
+          <div class="cert-org">École Nationale d'Ingénieurs</div>
+          <div class="cert-date">2015</div>
+        </div>
+        
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Eurocode 2 & 3 Specialist</div>
+          <div class="cert-org">Institut Européen</div>
+          <div class="cert-date">2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animation d'entrée
+    function animateOnLoad() {
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add('appear');
+        }, index * 150);
+      });
+    }
+    
+    // Switch langue
+    function switchLanguage(lang) {
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      if (lang === 'en') {
+        document.getElementById('expertise-desc').textContent = 'My technical expertise in civil engineering, structural design and BIM technologies.';
+        document.getElementById('bim-title').textContent = 'BIM Modeling';
+        document.getElementById('revit-desc').textContent = 'Advanced 3D modeling, formwork plans, quantities, BIM coordination, parametric families and clash detection analysis.';
+        document.getElementById('robot-desc').textContent = 'Linear/non-linear calculations, modal, spectral, seismic analysis, structural optimization and Eurocode verification.';
+        document.getElementById('autocad-desc').textContent = 'Technical drawings, construction details, topography, earthworks, longitudinal and cross profiles.';
+        document.getElementById('calc-title').textContent = 'Structural Calculations';
+        document.getElementById('beton-desc').textContent = 'Columns, beams, slabs, footings, walls, transfer slabs, stress verification and section optimization.';
+        document.getElementById('acier-desc').textContent = 'S235/S355 steel, welded/bolted assemblies, bracings, buckling and lateral-torsional verification.';
+        document.getElementById('mixte-desc').textContent = 'Composite slabs, composite beams, connectors, load generators, steel-concrete interaction and economic optimization.';
+        document.getElementById('domain-title').textContent = 'Technical Fields';
+        document.getElementById('batiments-desc').textContent = 'R+1 to R+20, reinforced concrete, steel-concrete composite, underground parking, residential and tertiary buildings.';
+        document.getElementById('ouvrages-desc').textContent = 'Bridges, viaducts, footbridges, tanks, silos, seismic analysis, dynamic loads and fatigue verification.';
+        document.getElementById('seisme-desc').textContent = 'RPA 99, Eurocode 8, dynamic analysis, pushover, response spectra, seismic combinations and displacement verification.';
+        document.getElementById('cert-title').textContent = 'Professional Certifications';
+        document.getElementById('cert-desc').textContent = 'My certifications attesting to my technical expertise and professional skills.';
+      } else {
+        document.getElementById('expertise-desc').textContent = 'Mon expertise technique en génie civil, dimensionnement structural et technologies BIM.';
+        document.getElementById('bim-title').textContent = 'Modélisation BIM';
+        document.getElementById('revit-desc').textContent = 'Modélisation 3D avancée, plans de coffrage, quantitatifs, coordination BIM, familles paramétriques et analyse clash detection.';
+        document.getElementById('robot-desc').textContent = 'Calculs linéaires/non-linéaires, analyse modale, spectrale, sismique, optimisation de structures et vérification Eurocodes.';
+        document.getElementById('autocad-desc').textContent = 'Plans techniques, détails constructifs, topographie, terrassements, profils en long et en travers.';
+        document.getElementById('calc-title').textContent = 'Calculs Structuraux';
+        document.getElementById('beton-desc').textContent = 'Poteaux, poutres, dalles, semelles, voiles, dalles de transfert, vérification des contraintes et optimisation des sections.';
+        document.getElementById('acier-desc').textContent = 'Acier S235/S355, assemblages soudés/boulonnés, contreventements, vérification de flambement et déversement.';
+        document.getElementById('mixte-desc').textContent = 'Dalle mixtes, poutres mixtes, connecteurs, générateurs de charges, interaction acier-béton et optimisation économique.';
+        document.getElementById('domain-title').textContent = 'Domaines Techniques';
+        document.getElementById('batiments-desc').textContent = 'R+1 à R+20, béton armé, mixte béton-acier, parkings souterrains, immeubles résidentiels et tertiaires.';
+        document.getElementById('ouvrages-desc').textContent = 'Ponts, viaducs, passerelles, réservoirs, silos, analyse sismique, charges dynamiques et vérification fatigue.';
+        document.getElementById('seisme-desc').textContent = 'RPA 99, Eurocode 8, analyse dynamique, pushover, spectres de réponse, combinaisons sismiques et vérification déplacements.';
+        document.getElementById('cert-title').textContent = 'Certifications Professionnelles';
+        document.getElementById('cert-desc').textContent = 'Mes certifications attestant de mon expertise technique et de mes compétences professionnelles.';
+      }
+    }
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      animateOnLoad();
+    });
+  </script>
+</body>
+</html>
